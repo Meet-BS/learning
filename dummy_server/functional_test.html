@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Functional Scanner Test Page</title>
+  <link rel="stylesheet" href="missing-style.css"> <!-- Broken CSS -->
+  <style>
+    @import url("https://example.com/fake-font.css"); /* Broken font */
+  </style>
+  <script src="missing-script.js"></script> <!-- Broken JS -->
+  <script>
+    function showModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Welcome to the Functional Scanner Test Page</h1>
+
+  <!-- Broken Image -->
+  <img src="broken-image.jpg" alt="Broken image" />
+
+  <!-- Broken Link -->
+  <a href="missing-page.html">Broken Link</a>
+
+  <!-- Valid Internal Link -->
+  <a href="#section2">Go to Section 2</a>
+
+  <!-- External Link -->
+  <a href="https://nonexistent.external-site.com/">External Broken Link</a>
+
+  <!-- CTA - Modal Trigger -->
+  <button onclick="showModal()">Open Modal</button>
+
+  <div id="modal" style="display:none; border:1px solid black; padding:1rem;">
+    <p>This is a modal popup triggered by a button CTA.</p>
+  </div>
+
+  <!-- Form Handling -->
+  <form action="/nonexistent-submit" method="POST">
+    <input type="text" name="test" placeholder="Type something..." />
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Section 2 for anchor link -->
+  <div style="margin-top:1000px;" id="section2">
+    <h2>Section 2</h2>
+    <p>Anchor target section.</p>
+  </div>
+
+  <!-- Runtime error trigger -->
+  <script>
+    // Trigger JS error
+    nonExistentFunction(); 
+  </script>
+
+  <!-- Fake media resource -->
+  <video src="broken-video.mp4" controls></video>
+
+</body>
+</html>
