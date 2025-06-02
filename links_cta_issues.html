@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>ShopMax - Broken Links & CTA Issues</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
   <style>
     body { background: #f8f9fa; }
     .product-card {
@@ -106,7 +106,7 @@
           let isBrokenLink = (state === 1 || state === 3);
           let isBrokenCTA = (state === 2 || state === 3);
 
-          let linkHref = isBrokenLink ? `broken-product-${i}.html` : `#product${i}`;
+          let linkHref = isBrokenLink ? `https://nonexistent.external-site.com/` : `#product${i}`;
           let linkClass = isBrokenLink ? 'broken-link' : '';
           let ctaClass = 'btn ' + (isBrokenCTA ? 'broken-link broken-cta btn-danger' : 'btn-primary');
           let ctaText = isBrokenCTA ? (isBrokenLink ? 'Broken Link & CTA' : 'Broken Buy Now') : 'Buy Now';
