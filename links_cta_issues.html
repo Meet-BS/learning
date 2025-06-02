@@ -106,7 +106,7 @@
           let isBrokenLink = (state === 1 || state === 3);
           let isBrokenCTA = (state === 2 || state === 3);
 
-          let linkHref = isBrokenLink ? `broken-product-${i}` : `#product${i}`;
+          let linkHref = isBrokenLink ? `broken-product-${i}.html` : `#product${i}`;
           let linkClass = isBrokenLink ? 'broken-link' : '';
           let ctaClass = 'btn ' + (isBrokenCTA ? 'broken-link broken-cta btn-danger' : 'btn-primary');
           let ctaText = isBrokenCTA ? (isBrokenLink ? 'Broken Link & CTA' : 'Broken Buy Now') : 'Buy Now';
