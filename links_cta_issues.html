@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShopMax - Broken Links & CTA Issues</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <style>
+    body { background: #f8f9fa; }
+    .product-card {
+      margin-bottom: 30px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      background: #fff;
+      padding: 10px;
+      height: 100%;
+      position: relative;
+    }
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .broken-link {
+      color: #d9534f !important;
+      text-decoration: line-through;
+    }
+    .broken-cta {
+      background: #f0ad4e !important;
+      color: #fff !important;
+      border: none;
+    }
+    .badge-danger {
+      background-color: #d9534f;
+      font-size: 12px;
+      padding: 4px 6px;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 10;
+      border-radius: 3px;
+    }
+    .badge-warning {
+      background-color: #f0ad4e;
+      font-size: 12px;
+      padding: 4px 6px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      z-index: 10;
+      border-radius: 3px;
+    }
+    .product-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+    }
+    .product-price {
+      color: #28a745;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .container-products {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .scrollable-products {
+      height: 80vh;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">ShopMax</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" style="pointer-events:none;"><span id="link-count" class="label label-success">Links: 0</span></a></li>
+        <li><a href="#" style="pointer-events:none;"><span id="broken-link-count" class="label label-danger">Broken Links: 0</span></a></li>
+        <li><a href="#" style="pointer-events:none;"><span id="cta-count" class="label label-info">CTAs: 0</span></a></li>
+        <li><a href="#" style="pointer-events:none;"><span id="broken-cta-count" class="label label-warning">Broken CTAs: 0</span></a></li>
+        <li><a href="#" style="pointer-events:none;"><span id="valid-img-count" class="label label-primary">Valid Images: 0</span></a></li>
+        <li><a href="#" style="pointer-events:none;"><span id="broken-img-count" class="label label-danger">Broken Images: 0</span></a></li>
+        <li><a href="#cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container container-products" id="products">
+    <h2 class="text-center">Products with Broken Links and/or CTA Issues</h2>
+    <div class="row scrollable-products" id="product-list">
+      <script>
+        let html = '';
+        for (let i = 1; i <= 50; i++) {
+          let imgSrc = `https://picsum.photos/400/300?random=${i}`;
+          // 0: normal, 1: broken link, 2: broken cta, 3: both
+          let state = i % 4;
+          let isBrokenLink = (state === 1 || state === 3);
+          let isBrokenCTA = (state === 2 || state === 3);
+
+          let linkHref = isBrokenLink ? `broken-product-${i}` : `#product${i}`;
+          let linkClass = isBrokenLink ? 'broken-link' : '';
+          let ctaClass = 'btn ' + (isBrokenCTA ? 'broken-link broken-cta btn-danger' : 'btn-primary');
+          let ctaText = isBrokenCTA ? (isBrokenLink ? 'Broken Link & CTA' : 'Broken Buy Now') : 'Buy Now';
+
+          html += `<div class="col-sm-3">
+            <div class="product-card">
+              ${isBrokenLink ? '<span class="badge badge-danger">Broken Link</span>' : ''}
+              ${isBrokenCTA ? '<span class="badge badge-warning" style="right:5px;left:auto;">Broken CTA</span>' : ''}
+              <a href="${linkHref}" class="${linkClass}">
+                <img src="${imgSrc}" class="product-img" alt="Product ${i}">
+              </a>
+              <div class="product-title">Product ${i}</div>
+              <div class="product-price">$${(Math.random()*100+10).toFixed(2)}</div>
+              <button class="${ctaClass}" data-product-id="${i}">${ctaText}</button>
+              <a href="#details${i}" class="btn btn-link">Details</a>
+            </div>
+          </div>`;
+        }
+        document.write(html);
+      </script>
+    </div>
+  </div>
+
+  <footer class="footer bg-light text-center" style="margin-top:40px; padding:20px 0; background:#f9f9f9;">
+    <div class="container">
+      <p>© 2024 ShopMax | <a href="#home">Home</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Update badges
+      var links = document.querySelectorAll('a');
+      document.getElementById('link-count').textContent = 'Links: ' + links.length;
+
+      var brokenLinks = document.querySelectorAll('a.broken-link');
+      document.getElementById('broken-link-count').textContent = 'Broken Links: ' + brokenLinks.length;
+
+      var ctas = document.querySelectorAll('button.btn, button.navbar-btn, button.btn-link');
+      document.getElementById('cta-count').textContent = 'CTAs: ' + ctas.length;
+
+      var brokenCtas = document.querySelectorAll('button.broken-link');
+      document.getElementById('broken-cta-count').textContent = 'Broken CTAs: ' + brokenCtas.length;
+
+      var validImgs = document.querySelectorAll('img.product-img:not(.broken-img)');
+      document.getElementById('valid-img-count').textContent = 'Valid Images: ' + validImgs.length;
+
+      var brokenImgs = document.querySelectorAll('img.broken-img');
+      document.getElementById('broken-img-count').textContent = 'Broken Images: ' + brokenImgs.length;
+
+      // CTA button click handler
+      document.querySelectorAll('.product-card button').forEach(btn => {
+        btn.addEventListener('click', function () {
+          let isBroken = this.classList.contains('broken-link');
+          let productId = this.getAttribute('data-product-id');
+
+          if (isBroken) {
+            window.location.href = '/404';
+          } else {
+            alert(`Success! Product ${productId} added to cart.`);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
