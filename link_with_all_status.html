@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTTP Status Code Links</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #eee;
+    }
+    
+    h2 {
+      margin-top: 30px;
+      padding: 10px 0;
+      color: #2c3e50;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .status-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+      margin: 20px 0 40px 0;
+    }
+    
+    a {
+      display: block;
+      padding: 12px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Color coding by status type */
+    h2:nth-of-type(1) + .status-links a { background-color: #3498db; border-left: 5px solid #2980b9; } /* 1xx */
+    h2:nth-of-type(2) + .status-links a { background-color: #2ecc71; border-left: 5px solid #27ae60; } /* 2xx */
+    h2:nth-of-type(3) + .status-links a { background-color: #f39c12; border-left: 5px solid #d35400; } /* 3xx */
+    h2:nth-of-type(4) + .status-links a { background-color: #e74c3c; border-left: 5px solid #c0392b; } /* 4xx */
+    h2:nth-of-type(5) + .status-links a { background-color: #9b59b6; border-left: 5px solid #8e44ad; } /* 5xx */
+    
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    
+    @media (max-width: 768px) {
+      body { margin: 15px; }
+      .status-links { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <h1>HTTP Status Code Test Links</h1>
+  
+  <h2>1xx: Informational</h2>
+  <div class="status-links">
+    <a href="https://httpstat.us/100">100 Continue</a>
+    <a href="https://httpstat.us/101">101 Switching Protocols</a>
+    <a href="https://httpstat.us/102">102 Processing</a>
+    <a href="https://httpstat.us/103">103 Early Hints</a>
+  </div>
+  
+  <h2>2xx: Success</h2>
+  <div class="status-links">
+    <a href="https://httpstat.us/200">200 OK</a>
+    <a href="https://httpstat.us/201">201 Created</a>
+    <a href="https://httpstat.us/202">202 Accepted</a>
+    <a href="https://httpstat.us/203">203 Non-Authoritative Information</a>
+    <a href="https://httpstat.us/204">204 No Content</a>
+    <a href="https://httpstat.us/205">205 Reset Content</a>
+    <a href="https://httpstat.us/206">206 Partial Content</a>
+    <a href="https://httpstat.us/207">207 Multi-Status</a>
+    <a href="https://httpstat.us/208">208 Already Reported</a>
+    <a href="https://httpstat.us/226">226 IM Used</a>
+  </div>
+  
+  <h2>3xx: Redirection</h2>
+  <div class="status-links">
+    <a href="https://httpstat.us/300">300 Multiple Choices</a>
+    <a href="https://httpstat.us/301">301 Moved Permanently</a>
+    <a href="https://httpstat.us/302">302 Found</a>
+    <a href="https://httpstat.us/303">303 See Other</a>
+    <a href="https://httpstat.us/304">304 Not Modified</a>
+    <a href="https://httpstat.us/307">307 Temporary Redirect</a>
+    <a href="https://httpstat.us/308">308 Permanent Redirect</a>
+  </div>
+  
+  <h2>4xx: Client Errors</h2>
+  <div class="status-links">
+    <a href="https://httpstat.us/400">400 Bad Request</a>
+    <a href="https://httpstat.us/401">401 Unauthorized</a>
+    <a href="https://httpstat.us/402">402 Payment Required</a>
+    <a href="https://httpstat.us/403">403 Forbidden</a>
+    <a href="https://httpstat.us/404">404 Not Found</a>
+    <a href="https://httpstat.us/405">405 Method Not Allowed</a>
+    <a href="https://httpstat.us/406">406 Not Acceptable</a>
+    <a href="https://httpstat.us/407">407 Proxy Authentication Required</a>
+    <a href="https://httpstat.us/408">408 Request Timeout</a>
+    <a href="https://httpstat.us/409">409 Conflict</a>
+    <a href="https://httpstat.us/410">410 Gone</a>
+    <a href="https://httpstat.us/411">411 Length Required</a>
+    <a href="https://httpstat.us/412">412 Precondition Failed</a>
+    <a href="https://httpstat.us/413">413 Payload Too Large</a>
+    <a href="https://httpstat.us/414">414 URI Too Long</a>
+    <a href="https://httpstat.us/415">415 Unsupported Media Type</a>
+    <a href="https://httpstat.us/416">416 Range Not Satisfiable</a>
+    <a href="https://httpstat.us/417">417 Expectation Failed</a>
+    <a href="https://httpstat.us/418">418 I'm a teapot</a>
+    <a href="https://httpstat.us/422">422 Unprocessable Entity</a>
+    <a href="https://httpstat.us/425">425 Too Early</a>
+    <a href="https://httpstat.us/429">429 Too Many Requests</a>
+    <a href="https://httpstat.us/431">431 Request Header Fields Too Large</a>
+    <a href="https://httpstat.us/451">451 Unavailable For Legal Reasons</a>
+  </div>
+  
+  <h2>5xx: Server Errors</h2>
+  <div class="status-links">
+    <a href="https://httpstat.us/500">500 Internal Server Error</a>
+    <a href="https://httpstat.us/501">501 Not Implemented</a>
+    <a href="https://httpstat.us/502">502 Bad Gateway</a>
+    <a href="https://httpstat.us/503">503 Service Unavailable</a>
+    <a href="https://httpstat.us/504">504 Gateway Timeout</a>
+    <a href="https://httpstat.us/505">505 HTTP Version Not Supported</a>
+    <a href="https://httpstat.us/506">506 Variant Also Negotiates</a>
+    <a href="https://httpstat.us/507">507 Insufficient Storage</a>
+    <a href="https://httpstat.us/508">508 Loop Detected</a>
+    <a href="https://httpstat.us/510">510 Not Extended</a>
+    <a href="https://httpstat.us/511">511 Network Authentication Required</a>
+  </div>
+</body>
+</html>
