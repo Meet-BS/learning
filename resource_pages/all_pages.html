@@ -5,61 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Resource Pages</title>
     <style>
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
+        :root {
+            --primary: #4a6bdf;
+            --primary-dark: #3a55b4;
+            --secondary: #f5f7ff;
+            --text: #333;
+            --light-text: #666;
+            --success: #4CAF50;
+            --border: #e1e4e8;
         }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        h1 {
-            margin-top: 30px;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style-type: none;
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
             padding: 0;
         }
-        li {
-            margin-bottom: 10px;
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9fafc;
+            padding: 20px 0;
         }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin: 0 0 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 0;
+            transition: transform 0.2s;
+        }
+        
+        li:last-child {
+            border-bottom: none;
+        }
+        
+        li:hover {
+            transform: translateX(5px);
+        }
+        
         a {
             text-decoration: none;
-            color: #0366d6;
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: block;
+            transition: color 0.2s;
         }
+        
         a:hover {
-            text-decoration: underline;
+            color: var(--primary-dark);
         }
+        
+        .button-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
         .copy-button {
-            background-color: #0366d6;
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
+            padding: 12px 24px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(74, 107, 223, 0.2);
         }
+        
         .copy-button:hover {
-            background-color: #0257ba;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(74, 107, 223, 0.3);
         }
+        
+        .copy-button:active {
+            transform: translateY(0);
+        }
+        
         #copy-status {
-            margin-left: 10px;
-            color: green;
-            display: none;
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--success);
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            color: var(--light-text);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>HTML Resource Pages</h1>
-        <button class="copy-button" onclick="copyAllLinks()">Copy All Links</button>
-        <span id="copy-status">Links copied!</span>
-        <ul id="links-list">
-            <!-- Links will be generated dynamically -->
-        </ul>
+        <div class="card">
+            <div class="header">
+                <h1>HTML Resource Pages</h1>
+                <p class="subtitle">Essential HTML resource tag references</p>
+            </div>
+            
+            <div class="button-container">
+                <button class="copy-button" onclick="copyAllLinks()">
+                    Copy All Links
+                </button>
+                <div id="copy-status">Links successfully copied to clipboard!</div>
+            </div>
+            
+            <ul id="links-list">
+                <!-- Links will be generated dynamically -->
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -93,25 +184,20 @@
         };
 
         function copyAllLinks() {
-            // Get all links
             const links = document.querySelectorAll('#links-list a');
             let linkText = '';
             
-            // Compile all links into a string
             links.forEach(link => {
                 linkText += link.href + '\n';
             });
             
-            // Copy to clipboard
             navigator.clipboard.writeText(linkText)
                 .then(() => {
-                    // Show success message
                     const status = document.getElementById('copy-status');
-                    status.style.display = 'inline';
+                    status.style.opacity = '1';
                     
-                    // Hide success message after 2 seconds
                     setTimeout(() => {
-                        status.style.display = 'none';
+                        status.style.opacity = '0';
                     }, 2000);
                 })
                 .catch(err => {
