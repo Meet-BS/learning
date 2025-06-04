@@ -1,0 +1,1245 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Broken Links Test Cases</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body { 
+            background: #f8f9fa; 
+            font-family: Arial, sans-serif;
+        }
+        .section-header {
+            background: #337ab7;
+            color: white;
+            padding: 15px;
+            margin: 30px 0 20px;
+            border-radius: 5px;
+        }
+        .broken-link {
+            color: #d9534f;
+            text-decoration: line-through;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 9.5px;
+            margin: 20px 0;
+        }
+        .test-case {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .working-link { color: #5cb85c; }
+        .stats-panel {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-box {
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .stat-box h3 {
+            margin-top: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .stat-box .number {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .stat-box.total {
+            background-color: #f5f5f5;
+            border: 1px solid #e3e3e3;
+        }
+        .stat-box.broken {
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+        }
+        .stat-box.working {
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Broken Links Test Cases <small>Complete Testing Suite</small></h1>
+        </div>
+
+        <!-- New Statistics Panel -->
+        <div class="stats-panel">
+            <h2>Live Resource Statistics</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Links</h3>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="stat-box total">
+                                <h3>Total</h3>
+                                <div class="number" id="total-links">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box broken">
+                                <h3>Broken</h3>
+                                <div class="number" id="broken-links">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box working">
+                                <h3>Working</h3>
+                                <div class="number" id="working-links">...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Images</h3>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="stat-box total">
+                                <h3>Total</h3>
+                                <div class="number" id="total-images">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box broken">
+                                <h3>Broken</h3>
+                                <div class="number" id="broken-images">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box working">
+                                <h3>Working</h3>
+                                <div class="number" id="working-images">...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Other Resources</h3>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="stat-box total">
+                                <h3>Total</h3>
+                                <div class="number" id="total-others">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box broken">
+                                <h3>Broken</h3>
+                                <div class="number" id="broken-others">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box working">
+                                <h3>Working</h3>
+                                <div class="number" id="working-others">...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add CTA statistics -->
+            <div class="row" style="margin-top:15px;">
+                <div class="col-md-offset-2 col-md-8">
+                    <h3>CTAs (Buttons &amp; Interactive Elements)</h3>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="stat-box total">
+                                <h3>Total CTAs</h3>
+                                <div class="number" id="total-ctas">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box broken">
+                                <h3>Broken CTAs</h3>
+                                <div class="number" id="broken-ctas">...</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="stat-box working">
+                                <h3>Working CTAs</h3>
+                                <div class="number" id="working-ctas">...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info">
+            <strong>Note:</strong> This page contains various types of broken links for testing link checkers.
+            All links are implemented in static HTML (no JavaScript) to ensure crawler detection.
+        </div>
+
+        <!-- Test Case 1: Internal links with 404 -->
+        <div class="section-header">
+            <h2>Test Case 1: Internal Links with 404 Status Code</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing internal links that return a 404 (Not Found) HTTP status code:</p>
+            <ul>
+                <li><a href="/nonexistent-page-1.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Nonexistent Page 1</a></li>
+                <li><a href="/nonexistent-page-2.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Nonexistent Page 2</a></li>
+                <li><a href="/nonexistent-page-3.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Nonexistent Page 3</a></li>
+                <li><a href="/products/invalid-product.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Invalid Product</a></li>
+                <li><a href="/images/missing-image.jpg" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Missing Image Link</a></li>
+                <li><a href="/services/not-available.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Unavailable Service</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken with 404 status code</pre>
+        </div>
+
+        <!-- Test Case 2: External links with 404 -->
+        <div class="section-header">
+            <h2>Test Case 2: External Links with 404 Status Code</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing external links that return a 404 (Not Found) HTTP status code:</p>
+            <ul>
+                <li><a href="https://httpstat.us/404?test=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">External 404 Link 1</a></li>
+                <li><a href="https://httpstat.us/404?test=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">External 404 Link 2</a></li>
+                <li><a href="https://httpstat.us/404?test=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">External 404 Link 3</a></li>
+                <li><a href="https://example.org/nonexistent-page.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">External Nonexistent Page</a></li>
+                <li><a href="https://this-domain-does-not-exist-12345.com" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Nonexistent Domain</a></li>
+                <li><a href="https://httpbin.org/status/404" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Httpbin 404 Status</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken with 404 status code</pre>
+        </div>
+
+        <!-- Test Case 3: Links with 403 Forbidden -->
+        <div class="section-header">
+            <h2>Test Case 3: Links with 403 (Forbidden) Status Code</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing links that return a 403 (Forbidden) HTTP status code:</p>
+            <ul>
+                <li><a href="https://httpstat.us/403?test=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Forbidden Link 1</a></li>
+                <li><a href="https://httpstat.us/403?test=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Forbidden Link 2</a></li>
+                <li><a href="https://httpstat.us/403?test=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Forbidden Link 3</a></li>
+                <li><a href="https://httpstat.us/403?test=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Forbidden Link 4</a></li>
+                <li><a href="https://httpbin.org/status/403" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Httpbin 403 Status</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken with 403 status code</pre>
+        </div>
+
+        <!-- Test Case 4: Links with 410 Gone -->
+        <div class="section-header">
+            <h2>Test Case 4: Links with 410 (Gone) Status Code</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing links that return a 410 (Gone) HTTP status code:</p>
+            <ul>
+                <li><a href="https://httpstat.us/410?test=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Gone Link 1</a></li>
+                <li><a href="https://httpstat.us/410?test=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Gone Link 2</a></li>
+                <li><a href="https://httpstat.us/410?test=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Gone Link 3</a></li>
+                <li><a href="https://httpstat.us/410?test=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Gone Link 4</a></li>
+                <li><a href="https://httpbin.org/status/410" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Httpbin 410 Status</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken with 410 status code</pre>
+        </div>
+
+        <!-- Test Case 5: Links with 500 Internal Server Error -->
+        <div class="section-header">
+            <h2>Test Case 5: Links with 500 (Internal Server Error) Status Code</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing links that return a 500 (Internal Server Error) HTTP status code:</p>
+            <ul>
+                <li><a href="https://httpstat.us/500?test=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Server Error Link 1</a></li>
+                <li><a href="https://httpstat.us/500?test=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Server Error Link 2</a></li>
+                <li><a href="https://httpstat.us/500?test=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Server Error Link 3</a></li>
+                <li><a href="https://httpstat.us/500?test=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Server Error Link 4</a></li>
+                <li><a href="https://httpbin.org/status/500" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Httpbin 500 Status</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken with 500 status code</pre>
+        </div>
+
+        <!-- Test Case 6: Links with 503 Service Unavailable -->
+        <div class="section-header">
+            <h2>Test Case 6: Links with 503 (Service Unavailable) Status Code</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing links that return a 503 (Service Unavailable) HTTP status code:</p>
+            <ul>
+                <li><a href="https://httpstat.us/503?test=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Service Unavailable Link 1</a></li>
+                <li><a href="https://httpstat.us/503?test=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Service Unavailable Link 2</a></li>
+                <li><a href="https://httpstat.us/503?test=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Service Unavailable Link 3</a></li>
+                <li><a href="https://httpstat.us/503?test=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Service Unavailable Link 4</a></li>
+                <li><a href="https://httpbin.org/status/503" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Httpbin 503 Status</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken with 503 status code</pre>
+        </div>
+
+        <!-- Test Case 7: Links that timeout -->
+        <div class="section-header">
+            <h2>Test Case 7: Links that Result in a Timeout</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing links that result in a timeout:</p>
+            <ul>
+                <li><a href="https://httpstat.us/408?test=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Timeout Link 1</a></li>
+                <li><a href="https://httpstat.us/408?test=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Timeout Link 2</a></li>
+                <li><a href="https://httpstat.us/408?test=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Timeout Link 3</a></li>
+                <li><a href="https://httpstat.us/524?test=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Timeout Link 4 (524 Status)</a></li>
+                <li><a href="https://example.org:81/" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Connection Timeout (Wrong Port)</a></li>
+            </ul>
+            <pre>Expected result: All links should be reported as broken due to timeouts</pre>
+        </div>
+
+        <!-- Test Case 8: Working Links -->
+        <div class="section-header">
+            <h2>Test Case 8: Website with No Broken Links</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing working links that should not be reported as broken:</p>
+            <ul>
+                <li><a href="https://example.com" class="working-link">Example.com (Working)</a></li>
+                <li><a href="https://example.org" class="working-link">Example.org (Working)</a></li>
+                <li><a href="https://httpstat.us/200" class="working-link">200 OK Status</a></li>
+                <li><a href="https://httpstat.us/301" class="working-link">301 Redirect</a></li>
+                <li><a href="https://httpstat.us/302" class="working-link">302 Redirect</a></li>
+            </ul>
+            <pre>Expected result: None of these links should be reported as broken</pre>
+        </div>
+
+        <!-- Test Case 9: Broken Links in Various HTML Elements -->
+        <div class="section-header">
+            <h2>Test Case 9: Broken Links in Various HTML Elements</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing broken links in various HTML elements beyond standard &lt;a&gt; tags:</p>
+            
+            <!-- Broken link in image source -->
+            <h4>Broken Image Source:</h4>
+            <img src="/nonexistent-image.jpg" alt="Broken Image Source" width="100" height="100" style="border: 2px solid red; background-color: rgba(255,0,0,0.3);" title="Broken Image">
+            
+            <!-- Broken link in image map -->
+            <h4>Broken Link in Image Map:</h4>
+            <img src="https://via.placeholder.com/300x100" alt="Image Map" usemap="#brokenmap" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+            <map name="brokenmap">
+                <area shape="rect" coords="0,0,150,100" href="https://httpstat.us/404?map=1" alt="Broken Map Area 1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Map Area">
+                <area shape="rect" coords="151,0,300,100" href="https://httpstat.us/404?map=2" alt="Broken Map Area 2" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Map Area">
+            </map>
+            
+            <!-- Broken link in iframe -->
+            <h4>Broken Link in Iframe:</h4>
+            <iframe src="https://httpstat.us/404?iframe=1" width="300" height="50" frameborder="1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Iframe"></iframe>
+            
+            <!-- Broken link in object -->
+            <h4>Broken Link in Object:</h4>
+            <object data="https://httpstat.us/404?object=1" width="300" height="50" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Object"></object>
+            
+            <!-- Broken link in form action -->
+            <h4>Broken Link in Form Action:</h4>
+            <form action="https://httpstat.us/404?form=1" method="get">
+                <input type="text" name="test" value="Test Form">
+                <input type="submit" value="Submit to Broken URL">
+            </form>
+            
+            <!-- Broken link in CSS background (might not be detected by all crawlers) -->
+            <h4>Broken Link in CSS Background:</h4>
+            <div style="width: 300px; height: 50px; background-image: url('/nonexistent-background.jpg'); background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Background Image">
+                CSS background with broken image URL
+            </div>
+
+            <pre>Expected result: All of these broken resources should be detected</pre>
+        </div>
+
+        <!-- Additional Broken Links to reach 50+ total -->
+        <div class="section-header">
+            <h2>Additional Broken Links</h2>
+        </div>
+        <div class="test-case">
+            <p>Additional broken links to reach minimum count:</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>More 404 Errors:</h4>
+                    <ul>
+                        <li><a href="https://httpstat.us/404?additional=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 404 Link 1</a></li>
+                        <li><a href="https://httpstat.us/404?additional=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 404 Link 2</a></li>
+                        <li><a href="https://httpstat.us/404?additional=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 404 Link 3</a></li>
+                        <li><a href="https://httpstat.us/404?additional=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 404 Link 4</a></li>
+                        <li><a href="https://httpstat.us/404?additional=5" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 404 Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>More 500 Errors:</h4>
+                    <ul>
+                        <li><a href="https://httpstat.us/500?additional=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 500 Link 1</a></li>
+                        <li><a href="https://httpstat.us/500?additional=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 500 Link 2</a></li>
+                        <li><a href="https://httpstat.us/500?additional=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 500 Link 3</a></li>
+                        <li><a href="https://httpstat.us/500?additional=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 500 Link 4</a></li>
+                        <li><a href="https://httpstat.us/500?additional=5" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 500 Link 5</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>More 503 Errors:</h4>
+                    <ul>
+                        <li><a href="https://httpstat.us/503?additional=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 503 Link 1</a></li>
+                        <li><a href="https://httpstat.us/503?additional=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 503 Link 2</a></li>
+                        <li><a href="https://httpstat.us/503?additional=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 503 Link 3</a></li>
+                        <li><a href="https://httpstat.us/503?additional=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 503 Link 4</a></li>
+                        <li><a href="https://httpstat.us/503?additional=5" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Additional 503 Link 5</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="margin-top:20px;">
+                <div class="col-md-4">
+                    <h4>More Timeout Links:</h4>
+                    <ul>
+                        <li><a href="https://httpstat.us/504?additional=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Gateway Timeout Link 1</a></li>
+                        <li><a href="https://httpstat.us/504?additional=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Gateway Timeout Link 2</a></li>
+                        <li><a href="https://httpstat.us/598?additional=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Network Timeout Link 3</a></li>
+                        <li><a href="https://httpstat.us/599?additional=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Network Timeout Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>More 4xx Errors:</h4>
+                    <ul>
+                        <li><a href="https://httpstat.us/400?additional=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Bad Request Link</a></li>
+                        <li><a href="https://httpstat.us/401?additional=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Unauthorized Link</a></li>
+                        <li><a href="https://httpstat.us/405?additional=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Method Not Allowed Link</a></li>
+                        <li><a href="https://httpstat.us/406?additional=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Not Acceptable Link</a></li>
+                        <li><a href="https://httpstat.us/429?additional=5" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Too Many Requests Link</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>More 5xx Errors:</h4>
+                    <ul>
+                        <li><a href="https://httpstat.us/501?additional=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Not Implemented Link</a></li>
+                        <li><a href="https://httpstat.us/502?additional=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Bad Gateway Link</a></li>
+                        <li><a href="https://httpstat.us/507?additional=3" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Insufficient Storage Link</a></li>
+                        <li><a href="https://httpstat.us/508?additional=4" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Loop Detected Link</a></li>
+                        <li><a href="https://httpstat.us/510?additional=5" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Not Extended Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 10: CTA Elements Testing -->
+        <div class="section-header">
+            <h2>Test Case 10: CTA Elements Testing</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing various types of clickable CTA elements (buttons, links) and their behaviors:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Working CTAs</h4>
+                    <div class="list-group">
+                        <!-- CTA that opens a new internal URL -->
+                        <div class="list-group-item">
+                            <h5>Internal URL Navigation</h5>
+                            <a href="#test-case-1" class="btn btn-primary">Go to Test Case 1</a>
+                            <small class="text-muted">Anchor link to another section on this page</small>
+                        </div>
+                        
+                        <!-- CTA that opens a new external URL -->
+                        <div class="list-group-item">
+                            <h5>External URL Navigation</h5>
+                            <a href="https://example.com" class="btn btn-info" target="_blank">Visit Example.com</a>
+                            <small class="text-muted">Opens external site in new tab</small>
+                        </div>
+                        
+                        <!-- CTA that is an anchor link -->
+                        <div class="list-group-item">
+                            <h5>Anchor Link</h5>
+                            <a href="#top" class="btn btn-default">Back to Top</a>
+                            <small class="text-muted">Jumps to top of page</small>
+                        </div>
+                        
+                        <!-- CTA that triggers UI transition -->
+                        <div class="list-group-item">
+                            <h5>UI Transition</h5>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#demoModal">Open Modal</button>
+                            <small class="text-muted">Opens a modal dialog</small>
+                        </div>
+                        
+                        <!-- CTA that opens a form -->
+                        <div class="list-group-item">
+                            <h5>Form Toggle</h5>
+                            <button id="showFormBtn" class="btn btn-warning">Show Contact Form</button>
+                            <small class="text-muted">Reveals a hidden form</small>
+                            <div id="hiddenForm" style="display:none; margin-top:10px;">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" id="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control" id="email">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h4>Problematic CTAs</h4>
+                    <div class="list-group">
+                        <!-- CTA visible only after hover -->
+                        <div class="list-group-item">
+                            <h5>Hover-Visible CTA</h5>
+                            <div style="position:relative; padding:10px; border:1px dashed #ccc;">
+                                Hover over this area to see a hidden button
+                                <button class="btn btn-xs btn-primary" style="position:absolute; top:5px; right:5px; visibility:hidden;" onmouseover="this.style.visibility='visible'" onmouseout="this.style.visibility='hidden'" onclick="alert('Hidden button clicked!')">
+                                    Hidden Button
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Non-functional/broken CTA -->
+                        <div class="list-group-item">
+                            <h5>Non-functional CTA</h5>
+                            <button class="btn btn-default broken-cta">Button That Does Nothing</button>
+                            <small class="text-muted">No click handler attached</small><br>
+                            <a href="javascript:void(0);" class="btn btn-link broken-cta">Void JavaScript Link</a>
+                            <small class="text-muted">JavaScript void link with no action</small>
+                        </div>
+                        
+                        <!-- CTA that causes JavaScript error -->
+                        <div class="list-group-item">
+                            <h5>Error-causing CTA</h5>
+                            <button class="btn btn-danger" id="errorButton">Trigger JavaScript Error</button>
+                            <small class="text-muted">Causes an error when clicked</small>
+                        </div>
+                        
+                        <!-- Broken internal link CTA -->
+                        <div class="list-group-item">
+                            <h5>Broken Internal Link</h5>
+                            <a href="/nonexistent-page.html" class="btn btn-warning broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Visit Missing Page</a>
+                            <small class="text-muted">Links to nonexistent internal page</small>
+                        </div>
+                        
+                        <!-- CTA with invalid URL format -->
+                        <div class="list-group-item">
+                            <h5>Invalid URL Format</h5>
+                            <a href="http:/malformed-url" class="btn btn-danger broken-cta">Malformed URL</a>
+                            <small class="text-muted">URL with invalid format</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA that reveals content after click -->
+            <h4 style="margin-top:20px;">Revelation Pattern Testing</h4>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapseSection">
+                            Click to reveal hidden content
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseSection" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>This content was hidden until you clicked the header.</p>
+                        <a href="#test-case-2" class="btn btn-primary">Go to Test Case 2</a>
+                        <button class="btn btn-info" onclick="alert('Nested action!')">Nested Action</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Traversal Testing -->
+            <h4 style="margin-top:20px;">Traversal Testing</h4>
+            <div class="well">
+                <p>These buttons create dynamic content with more CTAs to test traversal:</p>
+                <button id="createDynamicBtn" class="btn btn-primary">Create Dynamic Content</button>
+                <button id="resetTraversalBtn" class="btn btn-warning">Reset Traversal Test</button>
+                <div id="dynamicContent" style="margin-top:15px;"></div>
+            </div>
+            
+            <!-- Modal for UI transition test -->
+            <div class="modal fade" id="demoModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Modal Dialog</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>This modal contains additional CTAs:</p>
+                            <a href="https://example.org" class="btn btn-info" target="_blank">Visit Example.org</a>
+                            <button class="btn btn-warning" id="nestedModalBtn">Nested Modal</button>
+                            <a href="/another-nonexistent-page.html" class="btn btn-danger broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Broken Link in Modal</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre>Expected result: CTA behavior tracking should identify working vs broken CTAs and follow traversable elements</pre>
+        </div>
+
+        <!-- CTA Issue Categorization -->
+        <div class="section-header">
+            <h2>CTA Issue Categorization</h2>
+        </div>
+        <div class="test-case">
+            <p>This section groups CTAs by issue type, URL pattern, and component:</p>
+            
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#issue-types" aria-controls="issue-types" role="tab" data-toggle="tab">By Issue Type</a></li>
+                <li role="presentation"><a href="#url-patterns" aria-controls="url-patterns" role="tab" data-toggle="tab">By URL Pattern</a></li>
+                <li role="presentation"><a href="#components" aria-controls="components" role="tab" data-toggle="tab">By Component</a></li>
+            </ul>
+            
+            <div class="tab-content" style="padding:15px; border:1px solid #ddd; border-top:0;">
+                <div role="tabpanel" class="tab-pane active" id="issue-types">
+                    <h4>Non-functional CTAs</h4>
+                    <ul>
+                        <li><a href="javascript:void(0);" class="broken-cta">Empty JavaScript Action</a></li>
+                        <li><button class="btn btn-sm btn-default broken-cta">No Click Handler Button</button></li>
+                        <li><a href="#" onclick="return false;" class="broken-cta">Prevented Default Action</a></li>
+                    </ul>
+                    
+                    <h4>JavaScript Error CTAs</h4>
+                    <ul>
+                        <li><button class="btn btn-sm btn-danger" onclick="nonExistentFunction()">Undefined Function</button></li>
+                        <li><button class="btn btn-sm btn-danger" onclick="document.querySelector('#nonexistent-element').innerHTML = 'Error'">Missing DOM Element</button></li>
+                    </ul>
+                    
+                    <h4>Broken Link CTAs</h4>
+                    <ul>
+                        <li><a href="/error-page.html" class="btn btn-sm btn-warning broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">404 Error Page</a></li>
+                        <li><a href="https://httpstat.us/500?cta-test=1" class="btn btn-sm btn-warning broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">500 Error Page</a></li>
+                    </ul>
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="url-patterns">
+                    <h4>Internal Links</h4>
+                    <ul>
+                        <li><a href="/products/123" class="broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Product Detail (404)</a></li>
+                        <li><a href="/category/missing" class="broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Category Page (404)</a></li>
+                    </ul>
+                    
+                    <h4>External Links</h4>
+                    <ul>
+                        <li><a href="https://nonexistent-domain-12345.com" class="broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Nonexistent Domain</a></li>
+                        <li><a href="https://httpstat.us/404?external=1" class="broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">External 404</a></li>
+                    </ul>
+                    
+                    <h4>Malformed URLs</h4>
+                    <ul>
+                        <li><a href="http:/broken-protocol" class="broken-cta">Missing Slash in Protocol</a></li>
+                        <li><a href="https://" class="broken-cta">Empty Host</a></li>
+                    </ul>
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="components">
+                    <h4>Navigation CTAs</h4>
+                    <ul>
+                        <li><a href="/nonexistent-page.html" class="broken-cta" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Main Navigation Link</a></li>
+                        <li><a href="#nonexistent-section" class="broken-cta">Invalid Anchor Link</a></li>
+                    </ul>
+                    
+                    <h4>Action Buttons</h4>
+                    <ul>
+                        <li><button class="btn btn-sm btn-default broken-cta">Non-functional Action</button></li>
+                        <li><button class="btn btn-sm btn-danger" onclick="triggerJsError()">Error Button</button></li>
+                    </ul>
+                    
+                    <h4>Form Controls</h4>
+                    <ul>
+                        <li><button type="submit" form="nonexistent-form" class="btn btn-sm btn-primary broken-cta">Submit Nonexistent Form</button></li>
+                        <li><input type="button" value="No-op Button" class="btn btn-sm broken-cta"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 11: Resource Loading Errors -->
+        <div class="section-header">
+            <h2>Test Case 11: Resource Loading Errors</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing detection of various resource loading errors (images, JS, CSS files).</p>
+            
+            <!-- Missing Images - 404 errors -->
+            <h4>11.1: Missing Images (404)</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/nonexistent-image-1.jpg" alt="Missing Image 1" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">404 - Missing image</small>
+                </div>
+                <div class="col-md-3">
+                    <img src="/nonexistent-image-2.jpg" alt="Missing Image 2" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">404 - Missing image</small>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://httpstat.us/404?img=1" alt="External 404 Image" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">404 - External image</small>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://this-domain-does-not-exist.example/logo.png" alt="Nonexistent Domain Image" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">Nonexistent domain</small>
+                </div>
+            </div>
+
+            <!-- CSS files that fail to load -->
+            <h4>11.2: CSS Files That Fail To Load</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li>
+                            <code>&lt;link&gt;</code> to missing CSS file: 
+                            <link rel="stylesheet" href="/nonexistent-stylesheet.css" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Resource">
+                            <small class="text-muted">(404 error, should be detected)</small>
+                        </li>
+                        <li>
+                            <code>&lt;link&gt;</code> to external missing CSS: 
+                            <link rel="stylesheet" href="https://httpstat.us/404?css=1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Resource">
+                            <small class="text-muted">(404 error, should be detected)</small>
+                        </li>
+                        <li>
+                            <code>&lt;link&gt;</code> to CSS on nonexistent domain: 
+                            <link rel="stylesheet" href="https://this-domain-does-not-exist.example/style.css" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Resource">
+                            <small class="text-muted">(DNS error, should be detected)</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- JavaScript files that fail to load -->
+            <h4>11.3: JavaScript Files That Fail To Load</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li>
+                            <code>&lt;script&gt;</code> with missing local file: 
+                            <script src="/nonexistent-script.js" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Script"></script>
+                            <small class="text-muted">(404 error, should be detected)</small>
+                        </li>
+                        <li>
+                            <code>&lt;script&gt;</code> with external 404: 
+                            <script src="https://httpstat.us/404?js=1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Script"></script>
+                            <small class="text-muted">(404 error, should be detected)</small>
+                        </li>
+                        <li>
+                            <code>&lt;script&gt;</code> with nonexistent domain: 
+                            <script src="https://this-domain-does-not-exist.example/script.js" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Script"></script>
+                            <small class="text-muted">(DNS error, should be detected)</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Resources with 403 Permission errors -->
+            <h4>11.4: Resources Blocked Due to Permissions (403)</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="https://httpstat.us/403?img=1" alt="403 Forbidden Image" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">403 - Forbidden image</small>
+                </div>
+                <div class="col-md-9">
+                    <ul>
+                        <li>
+                            <code>&lt;link&gt;</code> CSS with 403 error: 
+                            <link rel="stylesheet" href="https://httpstat.us/403?css=1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Resource">
+                            <small class="text-muted">(403 error, should be detected)</small>
+                        </li>
+                        <li>
+                            <code>&lt;script&gt;</code> JS with 403 error: 
+                            <script src="https://httpstat.us/403?js=1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Script"></script>
+                            <small class="text-muted">(403 error, should be detected)</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Working Resources -->
+            <h4>11.5: Working Resources (No Errors)</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="https://via.placeholder.com/150" alt="Working Image" class="img-responsive" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">Working image</small>
+                </div>
+                <div class="col-md-9">
+                    <ul>
+                        <li>
+                            <code>&lt;link&gt;</code> Working CSS: 
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                            <small class="text-muted">(Should load correctly)</small>
+                        </li>
+                        <li>
+                            <code>&lt;script&gt;</code> Working JS: 
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                            <small class="text-muted">(Should load correctly)</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Resources with server errors -->
+            <h4>11.6: Resources with Server Errors</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="https://httpstat.us/500?img=1" alt="500 Error Image" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">500 - Server error image</small>
+                </div>
+                <div class="col-md-3">
+                    <img src="https://httpstat.us/503?img=1" alt="503 Error Image" class="img-responsive broken-img" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Image">
+                    <small class="text-muted">503 - Service unavailable image</small>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>
+                            <code>&lt;link&gt;</code> CSS with 500 error: 
+                            <link rel="stylesheet" href="https://httpstat.us/500?css=1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Resource">
+                            <small class="text-muted">(500 error, should be detected)</small>
+                        </li>
+                        <li>
+                            <code>&lt;script&gt;</code> JS with 503 error: 
+                            <script src="https://httpstat.us/503?js=1" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Script"></script>
+                            <small class="text-muted">(503 error, should be detected)</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <pre>Expected result: All resource loading errors should be detected and reported</pre>
+        </div>
+
+        <!-- Test Case 12: Runtime Resource Loading -->
+        <div class="section-header">
+            <h2>Test Case 12: Runtime Resource Loading Failures</h2>
+        </div>
+        <div class="test-case">
+            <p>Testing detection of resources loaded dynamically at runtime (fonts, JS modules, XHR, videos).</p>
+            
+            <!-- Web Fonts with errors -->
+            <h4>12.1: Web Font Loading Errors</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <style>
+                        @font-face {
+                            font-family: 'MissingFont';
+                            src: url('/nonexistent-font.woff2') format('woff2'),
+                                 url('/nonexistent-font.woff') format('woff');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                        .missing-font-text {
+                            font-family: 'MissingFont', sans-serif;
+                            font-size: 18px;
+                        }
+                        @font-face {
+                            font-family: 'ForbiddenFont';
+                            src: url('https://httpstat.us/403?font=1') format('woff2');
+                            font-weight: normal;
+                            font-style: normal;
+                        }
+                        .forbidden-font-text {
+                            font-family: 'ForbiddenFont', sans-serif;
+                            font-size: 18px;
+                        }
+                    </style>
+                    
+                    <p class="missing-font-text">This text uses a missing font file (404)</p>
+                    <p class="forbidden-font-text">This text uses a font with 403 Forbidden error</p>
+                    
+                    <ul>
+                        <li>Missing font file: <code>@font-face</code> with missing URL (404)</li>
+                        <li>Forbidden font: <code>@font-face</code> with 403 error</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- JS Module Loading errors -->
+            <h4>12.2: JavaScript Module Loading Errors</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="js-module-test">JS module loading status will appear here...</div>
+                    <script type="module">
+                        try {
+                            import('/nonexistent-module.js')
+                                .then(() => {
+                                    document.getElementById('js-module-test').textContent = 'Module loaded successfully (should not happen)';
+                                })
+                                .catch(error => {
+                                    document.getElementById('js-module-test').textContent = 'Error loading module: ' + error.message;
+                                    console.error('Module loading error (expected):', error);
+                                });
+                        } catch (e) {
+                            document.getElementById('js-module-test').textContent = 'Error importing module: ' + e.message;
+                            console.error('Module import error (expected):', e);
+                        }
+                    </script>
+                </div>
+            </div>
+            
+            <!-- XHR/Fetch API errors -->
+            <h4>12.3: XHR and Fetch API Errors</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="xhr-test" class="well well-sm">XHR test results will appear here...</div>
+                    <button id="trigger-xhr" class="btn btn-primary">Test XHR Request</button>
+                </div>
+                <div class="col-md-6">
+                    <div id="fetch-test" class="well well-sm">Fetch API test results will appear here...</div>
+                    <button id="trigger-fetch" class="btn btn-primary">Test Fetch Request</button>
+                </div>
+            </div>
+            
+            <!-- Video/Audio with errors -->
+            <h4>12.4: Media Loading Errors</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <video width="320" height="80" controls="">
+                        <source src="/nonexistent-video.mp4" type="video/mp4" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Source">
+                        <source src="/nonexistent-video.webm" type="video/webm" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Source">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p><small class="text-muted">Video with missing source files</small></p>
+                </div>
+                <div class="col-md-6">
+                    <audio controls="">
+                        <source src="/nonexistent-audio.mp3" type="audio/mpeg" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Source">
+                        <source src="/nonexistent-audio.ogg" type="audio/ogg" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Source">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p><small class="text-muted">Audio with missing source files</small></p>
+                </div>
+            </div>
+            
+            <!-- Inline styles loading resources -->
+            <h4>12.5: Inline Styles Loading External Resources</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="width: 200px; height: 100px; background-image: url('/nonexistent-background.jpg'); background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Background Image">
+                        <p style="padding:10px;">Element with missing background image</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div style="width: 200px; height: 100px; background-image: url('https://httpstat.us/403?bg=1'); background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Background Image">
+                        <p style="padding:10px;">Element with 403 background image</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- JavaScript console errors -->
+            <h4>12.6: JavaScript Console Errors</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="trigger-js-error" class="btn btn-danger">Trigger JS Console Error</button>
+                    <button id="trigger-resource-error" class="btn btn-warning">Trigger Resource Console Error</button>
+                    <div id="console-error-log" class="well" style="margin-top:10px;">Console errors will be logged here...</div>
+                </div>
+            </div>
+
+            <pre>Expected result: Runtime resource loading failures should be detected and reported</pre>
+        </div>
+    </div>
+
+    <footer class="container" style="margin-top:30px; padding:20px 0; border-top:1px solid #eee;">
+        <p>© 2024 Link Test Suite | 
+        <a href="/nonexistent-footer-link.html" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Privacy Policy</a> | 
+        <a href="https://httpstat.us/404?footer=1" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Terms of Service</a> | 
+        <a href="https://httpstat.us/500?footer=2" class="broken-link" style="background-color: rgba(255,0,0,0.3); border: 2px solid red;" title="Broken Link">Contact Us</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // Track which elements have been visited to avoid infinite loops
+        const visitedElements = new Set();
+        let traversalLevel = 0;
+        
+        // Count resource statistics once the page is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a bit to ensure all resources are processed
+            setTimeout(countResources, 500);
+            
+            // Setup CTA functionality
+            setupCTAs();
+        });
+
+        function countResources() {
+            // Count all links
+            const allLinks = document.querySelectorAll('a');
+            const brokenLinks = document.querySelectorAll('a.broken-link, a[href*="httpstat.us"], a[href*="nonexistent"], a[href*="invalid"], a[href*="/status/"]');
+            const workingLinks = document.querySelectorAll('a.working-link, a[href="https://example.com"], a[href="https://example.org"]');
+            
+            // Count all images
+            const allImages = document.querySelectorAll('img');
+            const brokenImages = document.querySelectorAll('img[src*="nonexistent"], img[src*="missing"], img[src*="broken"]');
+            const workingImages = document.querySelectorAll('img:not([src*="nonexistent"]):not([src*="missing"]):not([src*="broken"])');
+            
+            // Count all other resources (iframe, object, map areas, etc)
+            const allOthers = document.querySelectorAll('iframe, object, form, area, [style*="background-image"]');
+            const brokenOthers = document.querySelectorAll('iframe[src*="httpstat.us"], object[data*="httpstat.us"], form[action*="httpstat.us"], area[href*="httpstat.us"], [style*="nonexistent"]');
+            const workingOthers = document.querySelectorAll('iframe:not([src*="httpstat.us"]), object:not([data*="httpstat.us"]), form:not([action*="httpstat.us"]), area:not([href*="httpstat.us"])');
+            
+            // Count all CTAs
+            const allCTAs = document.querySelectorAll('button, a.btn, input[type="button"], input[type="submit"]');
+            const brokenCTAs = document.querySelectorAll('.broken-cta, button[onclick*="nonExistentFunction"], [onclick*="triggerJsError"]');
+            const workingCTAs = allCTAs.length - brokenCTAs.length;
+            
+            // Update statistics in the DOM
+            document.getElementById('total-links').textContent = allLinks.length;
+            document.getElementById('broken-links').textContent = brokenLinks.length;
+            document.getElementById('working-links').textContent = allLinks.length - brokenLinks.length;
+            
+            document.getElementById('total-images').textContent = allImages.length;
+            document.getElementById('broken-images').textContent = brokenImages.length;
+            document.getElementById('working-images').textContent = workingImages.length;
+            
+            document.getElementById('total-others').textContent = allOthers.length;
+            document.getElementById('broken-others').textContent = brokenOthers.length;
+            document.getElementById('working-others').textContent = workingOthers.length;
+            
+            // Update CTA statistics
+            document.getElementById('total-ctas').textContent = allCTAs.length;
+            document.getElementById('broken-ctas').textContent = brokenCTAs.length;
+            document.getElementById('working-ctas').textContent = workingCTAs;
+            
+            console.log('Resource statistics updated:');
+            console.log('Links: ' + allLinks.length + ' total, ' + brokenLinks.length + ' broken, ' + (allLinks.length - brokenLinks.length) + ' working');
+            console.log('Images: ' + allImages.length + ' total, ' + brokenImages.length + ' broken, ' + workingImages.length + ' working');
+            console.log('Others: ' + allOthers.length + ' total, ' + brokenOthers.length + ' broken, ' + workingOthers.length + ' working');
+            console.log('CTAs: ' + allCTAs.length + ' total, ' + brokenCTAs.length + ' broken');
+        }
+        
+        function setupCTAs() {
+            // Show contact form when button clicked
+            document.getElementById('showFormBtn').addEventListener('click', function() {
+                const form = document.getElementById('hiddenForm');
+                form.style.display = form.style.display === 'none' ? 'block' : 'none';
+                
+                // Mark as visited for traversal tracking
+                visitedElements.add(this.id);
+                
+                // Count resources again after revealing new elements
+                setTimeout(countResources, 100);
+            });
+            
+            // Create error when button clicked
+            document.getElementById('errorButton').addEventListener('click', function() {
+                try {
+                    // This will cause an error
+                    nonExistentFunction();
+                } catch (e) {
+                    console.error('JavaScript error triggered by CTA:', e);
+                    alert('JavaScript error triggered: ' + e.message);
+                }
+                
+                // Mark as visited
+                visitedElements.add(this.id);
+            });
+            
+            // Dynamic content generation for traversal testing
+            document.getElementById('createDynamicBtn').addEventListener('click', function() {
+                if (visitedElements.has(this.id)) {
+                    console.log('Already visited this element, but generating new content anyway');
+                }
+                
+                // Create dynamic content with new CTAs
+                createDynamicContent();
+                
+                // Mark as visited
+                visitedElements.add(this.id);
+                
+                // Recount resources
+                setTimeout(countResources, 100);
+            });
+            
+            // Reset traversal test
+            document.getElementById('resetTraversalBtn').addEventListener('click', function() {
+                // Clear dynamic content
+                document.getElementById('dynamicContent').innerHTML = '';
+                
+                // Reset visited elements
+                visitedElements.clear();
+                traversalLevel = 0;
+                
+                console.log('Traversal test reset');
+                
+                // Recount resources
+                setTimeout(countResources, 100);
+            });
+            
+            // Listen for tab changes to recount resources
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function() {
+                setTimeout(countResources, 100);
+            });
+            
+            // Listen for modal events
+            $('#demoModal').on('shown.bs.modal', function() {
+                console.log('Modal shown - checking for new elements');
+                setTimeout(countResources, 100);
+            });
+            
+            // CTA for nested modal
+            $(document).on('click', '#nestedModalBtn', function() {
+                alert('This would open a nested modal, but is simplified for this demo');
+                visitedElements.add(this.id);
+            });
+            
+            // Track clicks on all elements
+            $(document).on('click', 'a, button, input[type="button"], input[type="submit"]', function(e) {
+                const id = this.id || (this.href ? this.href : 'unnamed-element');
+                
+                // Don't log again if already visited (unless it's a dynamic traversal test)
+                if (!id.includes('dynamic-') && visitedElements.has(id)) {
+                    console.log('Already visited: ' + id);
+                    return;
+                }
+                
+                console.log('Clicked CTA: ' + id);
+                visitedElements.add(id);
+            });
+        }
+        
+        // Function to create dynamic content for traversal testing
+        function createDynamicContent() {
+            traversalLevel++;
+            const container = document.getElementById('dynamicContent');
+            
+            // Create a new panel with CTAs
+            const panel = document.createElement('div');
+            panel.className = 'panel panel-default';
+            panel.innerHTML = `
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dynamic Content Level ${traversalLevel}</h3>
+                </div>
+                <div class="panel-body">
+                    <p>These CTAs were dynamically generated:</p>
+                    <button id="dynamic-btn-${traversalLevel}-1" class="btn btn-primary">Dynamic Button ${traversalLevel}.1</button>
+                    <a id="dynamic-link-${traversalLevel}-2" href="#" class="btn btn-info">Dynamic Link ${traversalLevel}.2</a>
+                    <button id="dynamic-error-${traversalLevel}-3" class="btn btn-danger">Dynamic Error ${traversalLevel}.3</button>
+                    ${traversalLevel < 3 ? '<button id="dynamic-next-'+traversalLevel+'" class="btn btn-success">Create Next Level</button>' : ''}
+                </div>
+            `;
+            
+            // Add to container
+            container.appendChild(panel);
+            
+            // Add event listeners to new elements
+            document.getElementById(`dynamic-btn-${traversalLevel}-1`).addEventListener('click', function() {
+                alert(`Dynamic Button ${traversalLevel}.1 clicked!`);
+                visitedElements.add(this.id);
+            });
+            
+            document.getElementById(`dynamic-link-${traversalLevel}-2`).addEventListener('click', function(e) {
+                e.preventDefault();
+                alert(`Dynamic Link ${traversalLevel}.2 clicked!`);
+                visitedElements.add(this.id);
+            });
+            
+            document.getElementById(`dynamic-error-${traversalLevel}-3`).addEventListener('click', function() {
+                try {
+                    throw new Error(`Dynamic error from level ${traversalLevel}`);
+                } catch (e) {
+                    console.error(e);
+                    alert(`Dynamic error triggered: ${e.message}`);
+                }
+                visitedElements.add(this.id);
+            });
+            
+            if (traversalLevel < 3) {
+                document.getElementById(`dynamic-next-${traversalLevel}`).addEventListener('click', function() {
+                    createDynamicContent();
+                    visitedElements.add(this.id);
+                });
+            }
+        }
+        
+        // Function that will be called by error buttons
+        function triggerJsError() {
+            nonExistentVariable.doSomething();
+        }
+
+        // Initialize the resource testing functions when document is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup XHR test
+            document.getElementById('trigger-xhr').addEventListener('click', function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/nonexistent-xhr-test.json', true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        document.getElementById('xhr-test').textContent = 'XHR Status: ' + xhr.status + ' - ' + 
+                            (xhr.status === 0 ? 'Failed (CORS or network error)' : 
+                             xhr.status === 404 ? 'Not Found' : 'Error');
+                        console.error('XHR error (expected):', xhr.status);
+                    }
+                };
+                xhr.send();
+                document.getElementById('xhr-test').textContent = 'XHR request sent...';
+            });
+
+            // Setup Fetch API test
+            document.getElementById('trigger-fetch').addEventListener('click', function() {
+                document.getElementById('fetch-test').textContent = 'Fetch request sent...';
+                fetch('https://httpstat.us/404?fetch=1')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok: ' + response.status);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById('fetch-test').textContent = 'Fetch successful (should not happen)';
+                    })
+                    .catch(error => {
+                        document.getElementById('fetch-test').textContent = 'Fetch Error: ' + error.message;
+                        console.error('Fetch error (expected):', error);
+                    });
+            });
+
+            // Setup JS error button
+            document.getElementById('trigger-js-error').addEventListener('click', function() {
+                try {
+                    // Cause a JavaScript error
+                    const obj = null;
+                    obj.nonExistentMethod();
+                } catch (e) {
+                    const errorLog = document.getElementById('console-error-log');
+                    errorLog.textContent = 'JS Error: ' + e.message;
+                    console.error('JavaScript error (expected):', e);
+                }
+            });
+
+            // Setup resource error button
+            document.getElementById('trigger-resource-error').addEventListener('click', function() {
+                const errorLog = document.getElementById('console-error-log');
+                
+                // Create an image element that will fail to load
+                const img = new Image();
+                img.onerror = function() {
+                    errorLog.textContent += '\nImage load error via JavaScript';
+                    console.error('Image load error (expected)');
+                };
+                errorLog.textContent = 'Attempting to load nonexistent image via JavaScript...';
+                img.src = '/nonexistent-dynamic-image.jpg?t=' + new Date().getTime();
+                
+                // Try to load a script that will fail
+                const script = document.createElement('script');
+                script.onerror = function() {
+                    errorLog.textContent += '\nScript load error via JavaScript';
+                    console.error('Script load error (expected)');
+                };
+                script.src = '/nonexistent-dynamic-script.js?t=' + new Date().getTime();
+                document.head.appendChild(script);
+            });
+        });
+    </script>
+
+</body></html>
