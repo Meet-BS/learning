@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS-Induced Broken Link Issues</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline styles to demonstrate CSS issues on links */
+
+    /* Obscured by overlapping element */
+    #overlapContainer {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    #overlapBlocker {
+      position: absolute;
+      top: 0; left: 0;
+      width: 200px; height: 50px;
+      background-color: rgba(255, 0, 0, 0.4);
+      z-index: 10;
+    }
+    #overlapLink {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 10px;
+      background-color: lightblue;
+      text-decoration: underline;
+      color: blue;
+    }
+
+    /* display: none on anchor */
+    #displayNoneLink {
+      display: none;
+    }
+
+    /* visibility: hidden */
+    #visibilityHiddenLink {
+      visibility: hidden;
+    }
+
+    /* opacity 0 with no pointer-events */
+    #opacityZeroLink {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* pointer-events: none */
+    #pointerNoneLink {
+      pointer-events: none;
+      color: blue;
+      text-decoration: underline;
+      cursor: not-allowed;
+    }
+
+    /* CLS: Layout shift with animation */
+    #clsLink {
+      transition: margin-left 2s ease;
+      display: inline-block;
+      padding: 10px;
+      background-color: lightgreen;
+      text-decoration: underline;
+      color: green;
+    }
+    #clsLink.move {
+      margin-left: 200px;
+    }
+
+    /* Misleading visual cues (no underline/color) */
+    #misleadingLink {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Too small click area due to padding/margin */
+    #tinyClickArea {
+      display: inline-block;
+      padding: 2px;
+      margin: 0;
+      font-size: 10px;
+      background: lightgray;
+      text-decoration: underline;
+      color: blue;
+    }
+
+    /* Link pushed off screen */
+    #offScreenLink {
+      position: fixed;
+      left: -9999px;
+    }
+
+    /* text-decoration none on visible links */
+    #noUnderlineLink {
+      text-decoration: none;
+      color: blue;
+      cursor: pointer;
+    }
+
+    /* Broken layout makes link unreachable */
+    #unreachableContainer {
+      display: grid;
+      grid-template-columns: 0 1fr; /* first col zero width */
+    }
+    #unreachableLink {
+      grid-column: 1;
+      padding: 10px;
+      background-color: pink;
+      text-decoration: underline;
+      color: red;
+    }
+
+    /* Link hidden in media query */
+    #mediaQueryHiddenLink {
+      text-decoration: underline;
+      color: blue;
+    }
+
+    @media (max-width: 600px) {
+      #mediaQueryHiddenLink {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS-Induced Broken Link Issues</h1>
+
+  <section id="overlapIssue">
+    <h2>Obscured by overlapping element</h2>
+    <div id="overlapContainer">
+      <a href="https://example.com" id="overlapLink" target="_blank" rel="noopener noreferrer">Obscured Link</a>
+      <div id="overlapBlocker" title="Invisible blocker"></div>
+    </div>
+    <p class="note">Red translucent block overlays the link preventing clicks.</p>
+  </section>
+
+  <section id="displayNone">
+    <h2>display: none on anchor</h2>
+    <a href="https://example.com" id="displayNoneLink" target="_blank" rel="noopener noreferrer">Invisible Link (display:none)</a>
+    <p class="note">This link is not rendered at all.</p>
+  </section>
+
+  <section id="visibilityHidden">
+    <h2>visibility: hidden on anchor</h2>
+    <a href="https://example.com" id="visibilityHiddenLink" target="_blank" rel="noopener noreferrer">Hidden Link (visibility:hidden)</a>
+    <p class="note">Link is hidden but takes up space.</p>
+  </section>
+
+  <section id="opacityZero">
+    <h2>opacity: 0 and pointer-events: none on anchor</h2>
+    <a href="https://example.com" id="opacityZeroLink" target="_blank" rel="noopener noreferrer">Invisible & Not Clickable</a>
+    <p class="note">Link is invisible and unclickable.</p>
+  </section>
+
+  <section id="pointerNone">
+    <h2>pointer-events: none on anchor</h2>
+    <a href="https://example.com" id="pointerNoneLink" target="_blank" rel="noopener noreferrer">Visible but not clickable</a>
+    <p class="note">Link looks normal but clicks don't work.</p>
+  </section>
+
+  <section id="clsIssue">
+    <h2>Layout shift (CLS) affecting link</h2>
+    <a href="https://example.com" id="clsLink" target="_blank" rel="noopener noreferrer">Shifting Link</a>
+    <p class="note">Link moves after 2 seconds, may cause click failure.</p>
+  </section>
+
+  <section id="misleadingVisuals">
+    <h2>Misleading visual cues (no underline/color)</h2>
+    <a href="https://example.com" id="misleadingLink" target="_blank" rel="noopener noreferrer">Looks like normal text</a>
+    <p class="note">Link not styled as link, user may not click.</p>
+  </section>
+
+  <section id="tinyClickAreaSection">
+    <h2>Too small clickable area</h2>
+    <a href="https://example.com" id="tinyClickArea" target="_blank" rel="noopener noreferrer">Tiny clickable text</a>
+    <p class="note">Very small padding/margin makes it hard to click.</p>
+  </section>
+
+  <section id="offScreen">
+    <h2>Link pushed off screen</h2>
+    <a href="https://example.com" id="offScreenLink" target="_blank" rel="noopener noreferrer">Off-screen Link</a>
+    <p class="note">Link is visually outside viewport.</p>
+  </section>
+
+  <section id="noUnderline">
+    <h2>Text-decoration:none on visible link</h2>
+    <a href="https://example.com" id="noUnderlineLink" target="_blank" rel="noopener noreferrer">No underline link</a>
+    <p class="note">Link looks like text, reduces affordance.</p>
+  </section>
+
+  <section id="unreachableLayout">
+    <h2>Broken layout makes link unreachable</h2>
+    <div id="unreachableContainer">
+      <a href="https://example.com" id="unreachableLink" target="_blank" rel="noopener noreferrer">Unreachable Link</a>
+    </div>
+    <p class="note">CSS grid with zero-width column pushes link out of view.</p>
+  </section>
+
+  <section id="mediaQueryHidden">
+    <h2>Link hidden in media query (resize to &lt; 600px)</h2>
+    <a href="https://example.com" id="mediaQueryHiddenLink" target="_blank" rel="noopener noreferrer">Hidden on small screens</a>
+    <p class="note">Resize browser window narrow to hide this link.</p>
+  </section>
+
+<script>
+  // Animate CLS link after page load
+  window.onload = () => {
+    setTimeout(() => {
+      const clsLink = document.getElementById('clsLink');
+      clsLink.classList.add('move');
+    }, 2000);
+  };
+</script>
+
+</body>
+</html>

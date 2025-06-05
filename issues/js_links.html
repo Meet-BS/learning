@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JS-Induced Broken Link Issues</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>JS-Induced Broken Link Issues</h1>
+
+  <!-- Dynamically replaced href with broken/empty URL -->
+  <section id="brokenHref">
+    <h2>Dynamically replaced href with broken/empty URL</h2>
+    <a id="dynamicBrokenHref" href="https://example.com">Initial valid link</a>
+    <p class="note">JS will replace href to "" (empty string) after 2 seconds.</p>
+  </section>
+
+  <!-- SPA route links break due to bad config -->
+  <section id="spaRouteBroken">
+    <h2>SPA route links break due to bad config</h2>
+    <a href="/non-existent-spa-route" id="spaLink">SPA Route Link (Broken)</a>
+    <p class="note">Simulates SPA link that leads to 404 due to wrong config.</p>
+  </section>
+
+  <!-- event.preventDefault disables anchor -->
+  <section id="preventDefault">
+    <h2>event.preventDefault() disables anchor behavior</h2>
+    <a href="https://example.com" id="preventDefaultLink">Click Disabled by preventDefault</a>
+    <p class="note">Clicking this link triggers JS preventDefault and no navigation happens.</p>
+  </section>
+
+  <!-- JS intercepts and redirects to 404 or incorrect page -->
+  <section id="jsRedirect404">
+    <h2>JS intercepts and redirects to 404 or incorrect page</h2>
+    <a href="https://example.com" id="redirectLink">Redirect Link</a>
+    <p class="note">Clicking this triggers JS redirect to /page-not-found</p>
+  </section>
+
+  <!-- JS removes anchor tags or replaces with non-links -->
+  <section id="removeAnchor">
+    <h2>JS removes anchor tags or replaces with non-links</h2>
+    <div id="anchorContainer">
+      <a href="https://example.com" id="removableAnchor">Anchor to be removed</a>
+    </div>
+    <p class="note">JS removes anchor after 3 seconds, replacing it with plain text.</p>
+  </section>
+
+  <!-- JS inserts anchor with broken href -->
+  <section id="insertBrokenAnchor">
+    <h2>JS inserts anchor with broken href</h2>
+    <div id="insertAnchorContainer">
+      <p>Placeholder for inserted broken anchor</p>
+    </div>
+    <p class="note">JS inserts anchor with href="/404-missing" after 2 seconds.</p>
+  </section>
+
+  <!-- JS syntax/runtime errors prevent script that adds valid links -->
+  <section id="jsCrash">
+    <h2>JS syntax/runtime errors prevent script that adds valid links</h2>
+    <div id="jsCrashContainer">
+      <p>No links here because script crashed.</p>
+    </div>
+    <p class="note">JS throws error preventing link creation below.</p>
+  </section>
+
+  <!-- JS disables <a> click via .disabled or removing href -->
+  <section id="disableAnchor">
+    <h2>JS disables &lt;a&gt; click via .disabled or removing href</h2>
+    <a href="https://example.com" id="disabledAnchor">Anchor initially enabled</a>
+    <p class="note">JS removes href attribute after 2 seconds to disable click.</p>
+  </section>
+
+  <!-- Broken <base> tag inserted via JS -->
+  <section id="brokenBase">
+    <h2>Broken &lt;base&gt; tag inserted via JS</h2>
+    <a href="page.html" id="baseLink">Relative link affected by base</a>
+    <p class="note">JS inserts broken &lt;base href=&quot;/nonexistent/dir/&quot;&gt; tag, breaking relative links.</p>
+  </section>
+
+  <!-- 404 on dynamically loaded content URLs -->
+  <section id="dynamic404Load">
+    <h2>404 on dynamically loaded content URLs</h2>
+    <div id="dynamicContent">
+      <p>Dynamic content below will include broken link:</p>
+    </div>
+    <p class="note">JS inserts broken link to missing resource after 2 seconds.</p>
+  </section>
+
+<script>
+  // 1. Dynamically replaced href with broken/empty URL
+  setTimeout(() => {
+    const link = document.getElementById('dynamicBrokenHref');
+    link.href = "";
+    link.textContent = "Broken href replaced with empty string";
+  }, 2000);
+
+  // 3. event.preventDefault disables anchor
+  document.getElementById('preventDefaultLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    alert('Click prevented by JS preventDefault.');
+  });
+
+  // 4. JS intercepts and redirects to 404 or incorrect page
+  document.getElementById('redirectLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = "/page-not-found";
+  });
+
+  // 5. JS removes anchor tags or replaces with non-links
+  setTimeout(() => {
+    const container = document.getElementById('anchorContainer');
+    const anchor = document.getElementById('removableAnchor');
+    if (anchor) {
+      container.innerHTML = '<span>Anchor removed, replaced with text.</span>';
+    }
+  }, 3000);
+
+  // 6. JS inserts anchor with broken href
+  setTimeout(() => {
+    const container = document.getElementById('insertAnchorContainer');
+    const a = document.createElement('a');
+    a.href = "/404-missing";
+    a.textContent = "Inserted Broken Anchor";
+    container.appendChild(a);
+  }, 2000);
+
+  // 7. JS syntax/runtime errors prevent script that adds valid links
+  try {
+    throw new Error("Simulated JS crash");
+    // Code to add link won't run
+    const container = document.getElementById('jsCrashContainer');
+    const a = document.createElement('a');
+    a.href = "https://example.com";
+    a.textContent = "This link won't appear";
+    container.appendChild(a);
+  } catch (e) {
+    console.error("Script crashed: ", e.message);
+  }
+
+  // 8. JS disables <a> click via removing href
+  setTimeout(() => {
+    const anchor = document.getElementById('disabledAnchor');
+    if (anchor) {
+      anchor.removeAttribute('href');
+      anchor.textContent = "Anchor disabled by removing href";
+      anchor.style.color = 'gray';
+      anchor.style.cursor = 'default';
+    }
+  }, 2000);
+
+  // 9. Broken <base> tag inserted via JS
+  setTimeout(() => {
+    const base = document.createElement('base');
+    base.href = "/nonexistent/dir/";
+    document.head.appendChild(base);
+  }, 1000);
+
+  // 10. 404 on dynamically loaded content URLs
+  setTimeout(() => {
+    const container = document.getElementById('dynamicContent');
+    const brokenLink = document.createElement('a');
+    brokenLink.href = "/missing-resource.jpg";
+    brokenLink.textContent = "Dynamically Loaded Broken Link";
+    container.appendChild(brokenLink);
+  }, 2000);
+</script>
+
+</body>
+</html>

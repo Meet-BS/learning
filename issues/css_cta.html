@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS-Induced Broken CTA Issues</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* CTA styles to simulate CSS issues */
+
+    /* display: none hides the CTA button */
+    #hiddenButton {
+      display: none;
+    }
+
+    /* visibility: hidden hides the button but keeps layout */
+    #visibilityHiddenButton {
+      visibility: hidden;
+    }
+
+    /* pointer-events: none disables click */
+    #pointerNoneButton {
+      pointer-events: none;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: not-allowed;
+    }
+
+    /* Moved off screen */
+    #offScreenButton {
+      position: absolute;
+      left: -9999px;
+    }
+
+    /* Button behind overlay */
+    #behindOverlayContainer {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    #behindOverlayButton {
+      position: relative;
+      z-index: 1;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #overlayBlocker {
+      position: absolute;
+      top: 0; left: 0;
+      width: 150px; height: 40px;
+      background-color: rgba(255, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    /* Disabled look but not disabled attribute */
+    #fakeDisabledButton {
+      background-color: grey;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: default;
+      opacity: 0.6;
+    }
+
+    /* Looks greyed out but works */
+    #greyedOutButton {
+      background-color: grey;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+
+    /* Opacity 0 + no cursor */
+    #invisibleButton {
+      opacity: 0;
+      cursor: default;
+      padding: 10px 20px;
+      border: none;
+      position: relative;
+    }
+
+    /* Responsive hide */
+    #responsiveHiddenButton {
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      #responsiveHiddenButton {
+        display: none;
+      }
+    }
+
+    /* Hover/animation flicker */
+    #flickerButton {
+      background-color: #ffc107;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      animation: flickerAnim 3s infinite;
+    }
+    @keyframes flickerAnim {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Floating/overlapping layout hides button */
+    #floatContainer {
+      position: relative;
+      height: 80px;
+      margin-top: 20px;
+      background-color: #f8f9fa;
+    }
+    #floatButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 40px;
+      background-color: #17a2b8;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 1;
+    }
+    #floatBlocker {
+      position: absolute;
+      top: 10px;
+      left: 50px;
+      width: 100px;
+      height: 40px;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS-Induced Broken CTA Issues</h1>
+
+  <section>
+    <h2>display: none hides the button</h2>
+    <button id="hiddenButton">Hidden Button</button>
+    <p class="note">Button is not rendered (display:none).</p>
+  </section>
+
+  <section>
+    <h2>visibility: hidden hides the button</h2>
+    <button id="visibilityHiddenButton">Invisible Button</button>
+    <p class="note">Button is invisible but occupies space.</p>
+  </section>
+
+  <section>
+    <h2>pointer-events: none disables click</h2>
+    <button id="pointerNoneButton">Not Clickable Button</button>
+    <p class="note">Button looks normal but is not clickable.</p>
+  </section>
+
+  <section id="behindOverlayContainer">
+    <h2>Button behind overlapping element</h2>
+    <button id="behindOverlayButton">Blocked Button</button>
+    <div id="overlayBlocker" title="Invisible overlay blocking button"></div>
+    <p class="note">Red translucent block overlays the button.</p>
+  </section>
+
+  <section>
+    <h2>Disabled look but not actually disabled</h2>
+    <button id="fakeDisabledButton">Fake Disabled</button>
+    <p class="note">Button looks disabled via CSS but is clickable if handlers attached.</p>
+  </section>
+
+  <section>
+    <h2>Looks greyed out but works</h2>
+    <button id="greyedOutButton" onclick="alert('Clicked!')">Greyed Out Button</button>
+    <p class="note">Button looks disabled but can be clicked.</p>
+  </section>
+
+  <section>
+    <h2>Opacity 0 + no cursor change</h2>
+    <button id="invisibleButton">Invisible Button</button>
+    <p class="note">Button is invisible but still in layout.</p>
+  </section>
+
+  <section>
+    <h2>Responsive hide (@media query)</h2>
+    <button id="responsiveHiddenButton">Hidden on Small Screens</button>
+    <p class="note">Resize window below 600px to hide this button.</p>
+  </section>
+
+  <section>
+    <h2>Hover/animation flicker hides button</h2>
+    <button id="flickerButton">Flickering Button</button>
+    <p class="note">Button opacity flickers causing visibility issues.</p>
+  </section>
+
+  <section id="floatContainer">
+    <h2>Floating/overlapping layout hides button</h2>
+    <button id="floatButton">Covered Button</button>
+    <div id="floatBlocker" title="Overlay blocking button"></div>
+    <p class="note">Semi-transparent block covers the button preventing clicks.</p>
+  </section>
+
+</body>
+</html>

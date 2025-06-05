@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Resource Pages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content-item">
+        <h1>HTML Resource Pages</h1>
+        <p class="subtitle">
+            Essential HTML resource tag references
+        </p>
+        <div class="button-container">
+            <button class="copy-button" onclick="copyAllLinks()">
+                Copy All Links
+            </button>
+            <div id="copy-status">
+                Links successfully copied to clipboard!
+            </div>
+        </div>
+        <ul id="links-list">
+            <!-- Links will be generated dynamically -->
+        </ul>
+    </div>
+    <script>
+        // Resources list with exact paths and titles
+        const resources = [
+            { path: "/learning/issues/js_links.html", title: "Broken links due to JS issue" },
+            { path: "/learning/issues/js_cta.html", title: "CTA errors due to JS issue" },
+            { path: "/learning/issues/css_links.html", title: "Broken links due to CSS issue" },
+            { path: "/learning/issues/css_ctas.html", title: "CTA errors due to CSS issue" },
+        ];
+
+        // Generate links on page load
+        window.onload = function() {
+            const origin = window.location.origin;
+            const linksList = document.getElementById('links-list');
+            resources.forEach(resource => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = origin + resource.path;
+                a.textContent = resource.title;
+                li.appendChild(a);
+                linksList.appendChild(li);
+            });
+        };
+
+        function copyAllLinks() {
+            const links = document.querySelectorAll('#links-list a');
+            let linkText = '';
+            links.forEach(link => {
+                linkText += link.href + '\n';
+            });
+            navigator.clipboard.writeText(linkText)
+                .then(() => {
+                    const status = document.getElementById('copy-status');
+                    status.style.opacity = '1';
+                    setTimeout(() => {
+                        status.style.opacity = '0';
+                    }, 2000);
+                })
+                .catch(() => {
+                    alert('Failed to copy links to clipboard');
+                });
+        }
+    </script>
+</body>
+</html>

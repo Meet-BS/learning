@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JS-Induced Broken CTA Issues</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>JS-Induced Broken CTA Issues</h1>
+
+  <!-- onclick points to undefined function -->
+  <section id="onclickUndefined">
+    <h2>onclick points to undefined function</h2>
+    <button onclick="notDefinedFunction()">Broken OnClick</button>
+    <p class="note">Clicking triggers JS error because function does not exist.</p>
+  </section>
+
+  <!-- Function exists but throws runtime error -->
+  <section id="onclickThrows">
+    <h2>onclick handler throws runtime error</h2>
+    <button onclick="throwError()">Throws Error OnClick</button>
+    <p class="note">Clicking calls function that throws an exception.</p>
+  </section>
+
+  <!-- Typo in DOM API inside onclick -->
+  <section id="onclickTypo">
+    <h2>Typo in DOM API inside onclick</h2>
+    <button onclick="document.getElementByID('someId')">Typo in DOM call</button>
+    <p class="note">`getElementByID` (wrong case) causes JS error on click.</p>
+  </section>
+
+  <!-- Empty onclick -->
+  <section id="emptyOnclick">
+    <h2>Empty onclick attribute</h2>
+    <button onclick="">Empty handler</button>
+    <p class="note">No action occurs on click due to empty handler.</p>
+  </section>
+
+  <!-- Redirects to undefined/null -->
+  <section id="redirectUndefined">
+    <h2>Redirects to undefined/null</h2>
+    <button onclick="window.location.href = undefined;">Redirect to undefined</button>
+    <p class="note">Click attempts navigation to undefined, causing navigation failure.</p>
+  </section>
+
+  <!-- JS disables CTA via disabled=true -->
+  <section id="jsDisabled">
+    <h2>JS disables CTA via <code>disabled=true</code></h2>
+    <button id="disableButton">Will be disabled by JS in 2s</button>
+    <p class="note">Button becomes disabled and non-functional.</p>
+  </section>
+
+  <!-- Third-party script fails to attach handler -->
+  <section id="thirdPartyFail">
+    <h2>Third-party script fails to attach handler</h2>
+    <button id="thirdPartyButton">No handler attached</button>
+    <p class="note">Button looks clickable but does nothing (no event listener attached).</p>
+  </section>
+
+  <!-- JS removes button entirely -->
+  <section id="removeButton">
+    <h2>JS removes button entirely</h2>
+    <button id="removableButton">Button will be removed in 3 seconds</button>
+    <p class="note">Button disappears after JS removes it.</p>
+  </section>
+
+  <!-- Conditional rendering skips CTA -->
+  <section id="conditionalRender">
+    <h2>Conditional rendering skips CTA</h2>
+    <div id="conditionalContainer">
+      <p>Button will be conditionally rendered based on JS variable.</p>
+    </div>
+    <p class="note">Button will NOT render because condition is false.</p>
+  </section>
+
+  <!-- Blocking JS prevents page interactivity -->
+  <section id="blockingJS">
+    <h2>Blocking JS prevents page interactivity</h2>
+    <button id="blockedButton">This button won't respond (blocked)</button>
+    <p class="note">Infinite loop in JS blocks the main thread.</p>
+  </section>
+
+  <!-- JS click handler hijacks behavior -->
+  <section id="hijackClick">
+    <h2>JS click handler hijacks behavior</h2>
+    <button id="hijackBtn">Click hijacked (no navigation)</button>
+    <p class="note">Click event.preventDefault() blocks default action.</p>
+  </section>
+
+  <!-- JS adds event listener to wrong element -->
+  <section id="wrongListener">
+    <h2>JS adds event listener to wrong element</h2>
+    <button id="realButton">Real Button (No handler)</button>
+    <p class="note">JS attaches listener to a non-existing element; button doesn't respond.</p>
+  </section>
+
+<script>
+  // 2. Function exists but throws runtime error
+  function throwError() {
+    throw new Error("Simulated runtime error on button click");
+  }
+
+  // 6. JS disables CTA via disabled=true
+  setTimeout(() => {
+    const btn = document.getElementById('disableButton');
+    btn.disabled = true;
+    btn.textContent = "Button Disabled by JS";
+    btn.style.backgroundColor = "#888";
+    btn.style.cursor = "not-allowed";
+  }, 2000);
+
+  // 8. JS removes button entirely
+  setTimeout(() => {
+    const btn = document.getElementById('removableButton');
+    if (btn) {
+      btn.remove();
+    }
+  }, 3000);
+
+  // 9. Conditional rendering skips CTA
+  const showButton = false; // condition false - no button rendered
+  if (showButton) {
+    const container = document.getElementById('conditionalContainer');
+    const btn = document.createElement('button');
+    btn.textContent = "Conditionally Rendered Button";
+    container.appendChild(btn);
+  }
+
+  // 10. Blocking JS prevents page interactivity (simulate for 3 seconds)
+  // WARNING: infinite loop blocks UI - so simulate with blocking sync code
+  // We'll do a blocking 3s loop on page load, then release
+  const start = Date.now();
+  while (Date.now() - start < 3000) {
+    // blocking loop to freeze UI
+  }
+
+  // 11. JS click handler hijacks behavior
+  document.getElementById('hijackBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    // No navigation or default action
+    alert('Click hijacked by JS handler.');
+  });
+
+  // 12. JS adds event listener to wrong element
+  // Intentionally attach to non-existent element, no listener on realButton
+  const wrongElem = document.getElementById('nonexistentElem');
+  if (wrongElem) {
+    wrongElem.addEventListener('click', () => {
+      alert('This will never run');
+    });
+  }
+</script>
+
+</body>
+</html>
