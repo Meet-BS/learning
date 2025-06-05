@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page 2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Test Page 2</h1>
+
+  <div class="content-item">
+    <!-- Shared broken link -->
+    <div class="broken">
+      <a href="https://invalid.shared-domain.test/broken">Shared Broken Link</a>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <!-- Shared broken CTA -->
+    <div class="broken">
+      <button onclick="">Shared Broken CTA</button>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <!-- Unique broken link -->
+    <div class="broken">
+      <a href="https://cdn.page2.example.com/missing-resource">Unique Broken Link 2</a>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <!-- Unique working CTA -->
+    <a href="https://example.com/page2-action" role="button">CTA as Link</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page 4</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Test Page 4</h1>
+
+  <div class="content-item">
+    <!-- Shared broken link -->
+    <div class="broken">
+      <a href="https://invalid.shared-domain.test/broken">Shared Broken Link</a>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <!-- Shared broken CTA -->
+    <div class="broken">
+      <button onclick="">Shared Broken CTA</button>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <!-- Unique broken JS file link -->
+    <div class="broken">
+      <p>Broken Script: script.js</p>
+      <script src="https://js.page4.example.com/notfound/script.js"></script>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <!-- Unique working CTA -->
+    <button onclick="window.open('https://example.com/page4-details', '_blank')">Open Details</button>
+  </div>
+</body>
+</html>
