@@ -2,7 +2,7 @@
     "success": true,
     "brokenResourceLinks": [
         {
-            "link": "https://via.placeholder.com/300x100",
+            "link": "https://",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -10,92 +10,12 @@
             "httpCode": "No response"
         },
         {
-            "link": "https://this-domain-does-not-exist-12345.com/",
+            "link": "javascript:void(0);",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
             "errorType": "brokenLink",
             "httpCode": "No response"
-        },
-        {
-            "link": "https://nonexistent-domain-12345.com/",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "http://malformed-url/",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "https://this-domain-does-not-exist.example/logo.png",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "http://broken-protocol/",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "https://this-domain-does-not-exist.example/style.css",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "https://this-domain-does-not-exist.example/script.js",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "https://browserstack.github.io/services/not-available.html",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://browserstack.github.io/nonexistent-page-1.html",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://via.placeholder.com/150",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
-        },
-        {
-            "link": "https://browserstack.github.io/products/invalid-product.html",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
         },
         {
             "link": "https://browserstack.github.io/nonexistent-page-2.html",
@@ -106,15 +26,7 @@
             "httpCode": 404
         },
         {
-            "link": "https://browserstack.github.io/nonexistent-image.jpg",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://browserstack.github.io/images/missing-image.jpg",
+            "link": "https://browserstack.github.io/products/invalid-product.html",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -130,7 +42,55 @@
             "httpCode": 404
         },
         {
+            "link": "https://browserstack.github.io/nonexistent-page-1.html",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/services/not-available.html",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/images/missing-image.jpg",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-image.jpg",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-page.html",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
             "link": "https://browserstack.github.io/another-nonexistent-page.html",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/category/missing",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -154,30 +114,6 @@
             "httpCode": 404
         },
         {
-            "link": "https://browserstack.github.io/nonexistent-page.html",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://browserstack.github.io/nonexistent-image-2.jpg",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://browserstack.github.io/nonexistent-script.js",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
             "link": "https://browserstack.github.io/nonexistent-stylesheet.css",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
@@ -194,7 +130,7 @@
             "httpCode": 404
         },
         {
-            "link": "https://browserstack.github.io/nonexistent-video.mp4",
+            "link": "https://browserstack.github.io/nonexistent-script.js",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -202,23 +138,7 @@
             "httpCode": 404
         },
         {
-            "link": "https://browserstack.github.io/nonexistent-audio.ogg",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://browserstack.github.io/category/missing",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://browserstack.github.io/nonexistent-footer-link.html",
+            "link": "https://browserstack.github.io/nonexistent-image-2.jpg",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -242,15 +162,7 @@
             "httpCode": 404
         },
         {
-            "link": "https://httpstat.us/410?test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 410
-        },
-        {
-            "link": "https://httpstat.us/404?test=2",
+            "link": "https://browserstack.github.io/nonexistent-video.mp4",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -258,31 +170,7 @@
             "httpCode": 404
         },
         {
-            "link": "https://httpstat.us/503?test=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/403?test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/500?test=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/404?additional=5",
+            "link": "https://browserstack.github.io/nonexistent-audio.ogg",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
@@ -290,540 +178,12 @@
             "httpCode": 404
         },
         {
-            "link": "https://httpstat.us/404?additional=1",
+            "link": "https://browserstack.github.io/nonexistent-footer-link.html",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
             "errorType": "brokenLink",
             "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/404?map=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/500?test=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/524?test=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 524
-        },
-        {
-            "link": "https://httpstat.us/408?test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 408
-        },
-        {
-            "link": "https://httpstat.us/404?test=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/404?test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/410?test=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 410
-        },
-        {
-            "link": "https://httpstat.us/403?test=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/503?test=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/503?additional=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/500?additional=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/403?test=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/404?additional=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/410?test=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 410
-        },
-        {
-            "link": "https://httpstat.us/400?additional=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 400
-        },
-        {
-            "link": "https://httpstat.us/503?additional=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/503?additional=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/404?object=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/504?additional=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 504
-        },
-        {
-            "link": "https://httpstat.us/408?test=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 408
-        },
-        {
-            "link": "https://httpstat.us/500?additional=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/404?additional=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/500?test=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/404?iframe=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/404?map=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/503?additional=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/410?test=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 410
-        },
-        {
-            "link": "https://httpstat.us/503?test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/500?additional=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/403?test=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/408?test=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 408
-        },
-        {
-            "link": "https://httpstat.us/503?test=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/500?additional=5",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/501?additional=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 501
-        },
-        {
-            "link": "https://httpstat.us/598?additional=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 598
-        },
-        {
-            "link": "https://httpstat.us/500?test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/504?additional=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 504
-        },
-        {
-            "link": "https://httpstat.us/404?additional=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/503?additional=5",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/510?additional=5",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 510
-        },
-        {
-            "link": "https://httpstat.us/401?additional=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 401
-        },
-        {
-            "link": "https://httpstat.us/429?additional=5",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 429
-        },
-        {
-            "link": "https://httpstat.us/403?img=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/406?additional=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 406
-        },
-        {
-            "link": "https://httpstat.us/508?additional=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 508
-        },
-        {
-            "link": "https://httpstat.us/403?js=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/502?additional=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 502
-        },
-        {
-            "link": "https://httpstat.us/599?additional=4",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 599
-        },
-        {
-            "link": "https://httpstat.us/500?additional=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/507?additional=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 507
-        },
-        {
-            "link": "https://httpstat.us/404?js=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/404?img=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/404?external=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/403?css=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 403
-        },
-        {
-            "link": "https://httpstat.us/500?cta-test=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/404?css=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/503?img=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/500?img=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/500?css=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://example.org/nonexistent-page.html",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/503?js=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
-        },
-        {
-            "link": "https://httpstat.us/404?footer=1",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 404
-        },
-        {
-            "link": "https://httpstat.us/500?footer=2",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 500
-        },
-        {
-            "link": "https://httpstat.us/405?additional=3",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 405
-        },
-        {
-            "link": "https://httpbin.org/status/410",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 410
-        },
-        {
-            "link": "https://httpbin.org/status/503",
-            "affectedPages": [
-                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
-            ],
-            "errorType": "brokenLink",
-            "httpCode": 503
         },
         {
             "link": "https://httpbin.org/status/403",
@@ -842,6 +202,590 @@
             "httpCode": 404
         },
         {
+            "link": "https://httpstat.us/410?test=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 410
+        },
+        {
+            "link": "https://httpstat.us/404?test=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/404?test=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/403?test=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpstat.us/403?test=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpstat.us/410?test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 410
+        },
+        {
+            "link": "https://httpstat.us/500?test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/404?test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/403?test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpstat.us/403?test=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpstat.us/503?test=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/404?map=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://example.org/nonexistent-page.html",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/408?test=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 408
+        },
+        {
+            "link": "https://httpstat.us/503?test=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/500?test=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/503?test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/404?additional=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/408?test=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 408
+        },
+        {
+            "link": "https://httpstat.us/404?additional=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/524?test=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 524
+        },
+        {
+            "link": "https://httpstat.us/410?test=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 410
+        },
+        {
+            "link": "https://httpstat.us/503?test=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/404?map=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/404?additional=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/500?test=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/500?test=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/408?test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 408
+        },
+        {
+            "link": "https://httpstat.us/404?iframe=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/410?test=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 410
+        },
+        {
+            "link": "https://httpstat.us/404?additional=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/500?additional=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/404?object=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/503?additional=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/504?additional=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 504
+        },
+        {
+            "link": "https://httpstat.us/500?additional=5",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/500?additional=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/500?additional=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/503?additional=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/400?additional=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 400
+        },
+        {
+            "link": "https://httpstat.us/404?additional=5",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/598?additional=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 598
+        },
+        {
+            "link": "https://httpstat.us/503?additional=5",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/503?additional=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/500?css=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/500?additional=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/504?additional=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 504
+        },
+        {
+            "link": "https://httpstat.us/501?additional=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 501
+        },
+        {
+            "link": "https://httpstat.us/503?additional=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/429?additional=5",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 429
+        },
+        {
+            "link": "https://httpstat.us/401?additional=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 401
+        },
+        {
+            "link": "https://httpstat.us/599?additional=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 599
+        },
+        {
+            "link": "https://httpstat.us/502?additional=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 502
+        },
+        {
+            "link": "https://httpstat.us/403?img=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpstat.us/403?css=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpstat.us/406?additional=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 406
+        },
+        {
+            "link": "https://httpstat.us/404?js=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/500?cta-test=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/404?img=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/508?additional=4",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 508
+        },
+        {
+            "link": "https://httpstat.us/507?additional=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 507
+        },
+        {
+            "link": "https://httpstat.us/510?additional=5",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 510
+        },
+        {
+            "link": "https://httpstat.us/404?external=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/403?js=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 403
+        },
+        {
+            "link": "https://httpbin.org/status/503",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/503?img=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/404?css=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/503?js=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 503
+        },
+        {
+            "link": "https://httpstat.us/500?img=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/500?footer=2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 500
+        },
+        {
+            "link": "https://httpstat.us/404?footer=1",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 404
+        },
+        {
+            "link": "https://httpstat.us/405?additional=3",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 405
+        },
+        {
+            "link": "https://httpbin.org/status/410",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "brokenLink",
+            "httpCode": 410
+        },
+        {
             "link": "https://httpbin.org/status/500",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
@@ -850,12 +794,60 @@
             "httpCode": 500
         },
         {
-            "link": "https://example.org:81/",
+            "link": "https://browserstack.github.io/nonexistent-background.jpg",
             "affectedPages": [
                 "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
             ],
-            "errorType": "brokenLink",
-            "httpCode": "No response"
+            "errorType": "resource",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-font.woff2",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "resource",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-font.woff",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "resource",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-module.js",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "resource",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-xhr-test.json",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "resource",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-dynamic-script.js?t=1749097552468",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "resource",
+            "httpCode": 404
+        },
+        {
+            "link": "https://browserstack.github.io/nonexistent-dynamic-image.jpg?t=1749097552468",
+            "affectedPages": [
+                "https://browserstack.github.io/bs-a11y-checks/brokenLinks/all_cases"
+            ],
+            "errorType": "resource",
+            "httpCode": 404
         }
     ]
 }

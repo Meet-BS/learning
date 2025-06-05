@@ -1,1 +1,8 @@
-[]
+[
+  "https://browserstack.github.io/nonexistent-font.woff2",
+  "https://browserstack.github.io/nonexistent-font.woff",
+  "https://browserstack.github.io/nonexistent-module.js",
+  "https://browserstack.github.io/nonexistent-xhr-test.json",
+  "https://browserstack.github.io/nonexistent-dynamic-script.js?t=1749097552468",
+  "https://browserstack.github.io/nonexistent-dynamic-image.jpg?t=1749097552468"
+]

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // const web_page = 'index.html'
-const web_page = 'functional_test.html'
+const web_page = '../allValid.html'
 
 const server = http.createServer((req, res) => {
   if (req.url === '/') {

@@ -6,7 +6,7 @@ const { URL } = require('url');
 // File paths
 const htmlPath = path.join(__dirname, 'all_cases.html');
 const responsePath = path.join(__dirname, 'reposen.json');
-const outputHtmlPath = path.join(__dirname, 'all_cases_highlighted.html');
+const outputHtmlPath = path.join(__dirname, 'all_cases_highlighted2.html');
 const notFoundJsonPath = path.join(__dirname, 'not_found_links.json');
 
 // Read files
@@ -151,4 +151,4 @@ fs.writeFileSync(outputHtmlPath, $.html(), 'utf-8');
 // Write the not found links JSON
 fs.writeFileSync(notFoundJsonPath, JSON.stringify(notFoundLinks, null, 2), 'utf-8');
 
-console.log('Highlighting complete. Check all_cases_highlighted.html and not_found_links.json.');
+console.log('Highlighting complete. Check all_cases_highlighted2.html and not_found_links.json.');

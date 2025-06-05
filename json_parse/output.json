@@ -1,0 +1,1302 @@
+{
+    "scanStartTimestamp": "2025-06-04T15:24:18.333Z",
+    "buildUuid": "0ewdhowzm3yacubqgzcbjnd28ckb7xmoqalpizv6",
+    "urlReports": {
+        "e4489869-2c61-4850-95a1-f4d70a6cd1e1": {
+            "testRunUuid": "e4489869-2c61-4850-95a1-f4d70a6cd1e1",
+            "url": "https://meet-bs.github.io/learning/resource_pages/source.html",
+            "issueCategories": [
+                {
+                    "category": "Links are broken",
+                    "count": 82,
+                    "severity": "Critical",
+                    "affectedComponents": [
+                        {
+                            "url": "https://httpstat.us/502/cors/pic-small.jpg",
+                            "httpCode": 502
+                        },
+                        {
+                            "url": "https://httpstat.us/412/cors/pic-small.jpg",
+                            "httpCode": 412
+                        },
+                        {
+                            "url": "https://httpstat.us/502/cors/pic.jpg",
+                            "httpCode": 502
+                        },
+                        {
+                            "url": "https://httpstat.us/501/cors/pic.jpg",
+                            "httpCode": 501
+                        },
+                        {
+                            "url": "https://httpstat.us/503/cors/pic-small.jpg",
+                            "httpCode": 503
+                        },
+                        {
+                            "url": "https://httpstat.us/503/cors/pic.jpg",
+                            "httpCode": 503
+                        },
+                        {
+                            "url": "https://httpstat.us/410/cors/pic.jpg",
+                            "httpCode": 410
+                        },
+                        {
+                            "url": "https://httpstat.us/401/cors/pic-small.jpg",
+                            "httpCode": 401
+                        },
+                        {
+                            "url": "https://httpstat.us/400/cors/pic.jpg",
+                            "httpCode": 400
+                        },
+                        {
+                            "url": "https://httpstat.us/101/cors/pic-small.jpg",
+                            "httpCode": 101
+                        },
+                        {
+                            "url": "https://httpstat.us/101/cors/pic.jpg",
+                            "httpCode": 101
+                        },
+                        {
+                            "url": "https://httpstat.us/504/cors/pic.jpg",
+                            "httpCode": 504
+                        },
+                        {
+                            "url": "https://httpstat.us/504/cors/pic-small.jpg",
+                            "httpCode": 504
+                        },
+                        {
+                            "url": "https://httpstat.us/500/cors/pic-small.jpg",
+                            "httpCode": 500
+                        },
+                        {
+                            "url": "https://httpstat.us/413/cors/pic.jpg",
+                            "httpCode": 413
+                        },
+                        {
+                            "url": "https://httpstat.us/403/cors/pic.jpg",
+                            "httpCode": 403
+                        },
+                        {
+                            "url": "https://httpstat.us/402/cors/pic-small.jpg",
+                            "httpCode": 402
+                        },
+                        {
+                            "url": "https://httpstat.us/404/cors/pic.jpg",
+                            "httpCode": 404
+                        },
+                        {
+                            "url": "https://httpstat.us/407/cors/pic.jpg",
+                            "httpCode": 407
+                        },
+                        {
+                            "url": "https://httpstat.us/409/cors/pic.jpg",
+                            "httpCode": 409
+                        },
+                        {
+                            "url": "https://httpstat.us/431/cors/pic.jpg",
+                            "httpCode": 431
+                        },
+                        {
+                            "url": "https://httpstat.us/300/cors/pic-small.jpg",
+                            "httpCode": 300
+                        },
+                        {
+                            "url": "https://httpstat.us/300/cors/pic.jpg",
+                            "httpCode": 300
+                        },
+                        {
+                            "url": "https://httpstat.us/418/cors/pic.jpg",
+                            "httpCode": 418
+                        },
+                        {
+                            "url": "https://httpstat.us/408/cors/pic-small.jpg",
+                            "httpCode": 408
+                        },
+                        {
+                            "url": "https://httpstat.us/409/cors/pic-small.jpg",
+                            "httpCode": 409
+                        },
+                        {
+                            "url": "https://httpstat.us/422/cors/pic.jpg",
+                            "httpCode": 422
+                        },
+                        {
+                            "url": "https://httpstat.us/403/cors/pic-small.jpg",
+                            "httpCode": 403
+                        },
+                        {
+                            "url": "https://httpstat.us/402/cors/pic.jpg",
+                            "httpCode": 402
+                        },
+                        {
+                            "url": "https://httpstat.us/406/cors/pic.jpg",
+                            "httpCode": 406
+                        },
+                        {
+                            "url": "https://httpstat.us/406/cors/pic-small.jpg",
+                            "httpCode": 406
+                        },
+                        {
+                            "url": "https://httpstat.us/304/cors/pic.jpg",
+                            "httpCode": 304
+                        },
+                        {
+                            "url": "https://httpstat.us/400/cors/pic-small.jpg",
+                            "httpCode": 400
+                        },
+                        {
+                            "url": "https://httpstat.us/304/cors/pic-small.jpg",
+                            "httpCode": 304
+                        },
+                        {
+                            "url": "https://httpstat.us/412/cors/pic.jpg",
+                            "httpCode": 412
+                        },
+                        {
+                            "url": "https://httpstat.us/408/cors/pic.jpg",
+                            "httpCode": 408
+                        },
+                        {
+                            "url": "https://httpstat.us/404/cors/pic-small.jpg",
+                            "httpCode": 404
+                        },
+                        {
+                            "url": "https://httpstat.us/407/cors/pic-small.jpg",
+                            "httpCode": 407
+                        },
+                        {
+                            "url": "https://httpstat.us/411/cors/pic-small.jpg",
+                            "httpCode": 411
+                        },
+                        {
+                            "url": "https://httpstat.us/417/cors/pic-small.jpg",
+                            "httpCode": 417
+                        },
+                        {
+                            "url": "https://httpstat.us/417/cors/pic.jpg",
+                            "httpCode": 417
+                        },
+                        {
+                            "url": "https://httpstat.us/415/cors/pic-small.jpg",
+                            "httpCode": 415
+                        },
+                        {
+                            "url": "https://httpstat.us/415/cors/pic.jpg",
+                            "httpCode": 415
+                        },
+                        {
+                            "url": "https://httpstat.us/414/cors/pic.jpg",
+                            "httpCode": 414
+                        },
+                        {
+                            "url": "https://httpstat.us/413/cors/pic-small.jpg",
+                            "httpCode": 413
+                        },
+                        {
+                            "url": "https://httpstat.us/416/cors/pic.jpg",
+                            "httpCode": 416
+                        },
+                        {
+                            "url": "https://httpstat.us/414/cors/pic-small.jpg",
+                            "httpCode": 414
+                        },
+                        {
+                            "url": "https://httpstat.us/429/cors/pic.jpg",
+                            "httpCode": 429
+                        },
+                        {
+                            "url": "https://httpstat.us/431/cors/pic-small.jpg",
+                            "httpCode": 431
+                        },
+                        {
+                            "url": "https://httpstat.us/410/cors/pic-small.jpg",
+                            "httpCode": 410
+                        },
+                        {
+                            "url": "https://httpstat.us/501/cors/pic-small.jpg",
+                            "httpCode": 501
+                        },
+                        {
+                            "url": "https://httpstat.us/418/cors/pic-small.jpg",
+                            "httpCode": 418
+                        },
+                        {
+                            "url": "https://httpstat.us/401/cors/pic.jpg",
+                            "httpCode": 401
+                        },
+                        {
+                            "url": "https://httpstat.us/411/cors/pic.jpg",
+                            "httpCode": 411
+                        },
+                        {
+                            "url": "https://httpstat.us/416/cors/pic-small.jpg",
+                            "httpCode": 416
+                        },
+                        {
+                            "url": "https://httpstat.us/429/cors/pic-small.jpg",
+                            "httpCode": 429
+                        },
+                        {
+                            "url": "https://httpstat.us/425/cors/pic-small.jpg",
+                            "httpCode": 425
+                        },
+                        {
+                            "url": "https://httpstat.us/422/cors/pic-small.jpg",
+                            "httpCode": 422
+                        },
+                        {
+                            "url": "https://httpstat.us/500/cors/pic.jpg",
+                            "httpCode": 500
+                        },
+                        {
+                            "url": "https://httpstat.us/425/cors/pic.jpg",
+                            "httpCode": 425
+                        },
+                        {
+                            "url": "https://httpstat.us/451/cors/pic.jpg",
+                            "httpCode": 451
+                        },
+                        {
+                            "url": "https://httpstat.us/451/cors/pic-small.jpg",
+                            "httpCode": 451
+                        },
+                        {
+                            "url": "https://httpstat.us/508/cors/pic-small.jpg",
+                            "httpCode": 508
+                        },
+                        {
+                            "url": "https://httpstat.us/508/cors/pic.jpg",
+                            "httpCode": 508
+                        },
+                        {
+                            "url": "https://httpstat.us/505/cors/pic-small.jpg",
+                            "httpCode": 505
+                        },
+                        {
+                            "url": "https://httpstat.us/511/cors/pic-small.jpg",
+                            "httpCode": 511
+                        },
+                        {
+                            "url": "https://httpstat.us/506/cors/pic.jpg",
+                            "httpCode": 506
+                        },
+                        {
+                            "url": "https://httpstat.us/505/cors/pic.jpg",
+                            "httpCode": 505
+                        },
+                        {
+                            "url": "https://httpstat.us/506/cors/pic-small.jpg",
+                            "httpCode": 506
+                        },
+                        {
+                            "url": "https://httpstat.us/511/cors/pic.jpg",
+                            "httpCode": 511
+                        },
+                        {
+                            "url": "https://httpstat.us/507/cors/pic.jpg",
+                            "httpCode": 507
+                        },
+                        {
+                            "url": "https://httpstat.us/507/cors/pic-small.jpg",
+                            "httpCode": 507
+                        },
+                        {
+                            "url": "https://httpstat.us/510/cors/pic.jpg",
+                            "httpCode": 510
+                        },
+                        {
+                            "url": "https://httpstat.us/405/cors/pic.jpg",
+                            "httpCode": 405
+                        },
+                        {
+                            "url": "https://httpstat.us/510/cors/pic-small.jpg",
+                            "httpCode": 510
+                        },
+                        {
+                            "url": "https://httpstat.us/405/cors/pic-small.jpg",
+                            "httpCode": 405
+                        },
+                        {
+                            "url": "https://httpstat.us/100/cors/pic.jpg",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/100/cors/pic-small.jpg",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/102/cors/pic.jpg",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/102/cors/pic-small.jpg",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/103/cors/pic.jpg",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/103/cors/pic-small.jpg",
+                            "httpCode": "No response"
+                        }
+                    ]
+                },
+                {
+                    "category": "Resource errors",
+                    "count": 82,
+                    "severity": "Moderate",
+                    "affectedComponents": [
+                        {
+                            "resourcePath": "https://httpstat.us/502/cors/pic-small.jpg",
+                            "httpCode": 502,
+                            "details": 502
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/412/cors/pic-small.jpg",
+                            "httpCode": 412,
+                            "details": 412
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/502/cors/pic.jpg",
+                            "httpCode": 502,
+                            "details": 502
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/501/cors/pic.jpg",
+                            "httpCode": 501,
+                            "details": 501
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/503/cors/pic-small.jpg",
+                            "httpCode": 503,
+                            "details": 503
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/503/cors/pic.jpg",
+                            "httpCode": 503,
+                            "details": 503
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/410/cors/pic.jpg",
+                            "httpCode": 410,
+                            "details": 410
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/401/cors/pic-small.jpg",
+                            "httpCode": 401,
+                            "details": 401
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/400/cors/pic.jpg",
+                            "httpCode": 400,
+                            "details": 400
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/101/cors/pic-small.jpg",
+                            "httpCode": 101,
+                            "details": 101
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/101/cors/pic.jpg",
+                            "httpCode": 101,
+                            "details": 101
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/504/cors/pic.jpg",
+                            "httpCode": 504,
+                            "details": 504
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/504/cors/pic-small.jpg",
+                            "httpCode": 504,
+                            "details": 504
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/500/cors/pic-small.jpg",
+                            "httpCode": 500,
+                            "details": 500
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/413/cors/pic.jpg",
+                            "httpCode": 413,
+                            "details": 413
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/403/cors/pic.jpg",
+                            "httpCode": 403,
+                            "details": 403
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/402/cors/pic-small.jpg",
+                            "httpCode": 402,
+                            "details": 402
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/404/cors/pic.jpg",
+                            "httpCode": 404,
+                            "details": 404
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/407/cors/pic.jpg",
+                            "httpCode": 407,
+                            "details": 407
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/409/cors/pic.jpg",
+                            "httpCode": 409,
+                            "details": 409
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/431/cors/pic.jpg",
+                            "httpCode": 431,
+                            "details": 431
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/300/cors/pic-small.jpg",
+                            "httpCode": 300,
+                            "details": 300
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/300/cors/pic.jpg",
+                            "httpCode": 300,
+                            "details": 300
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/418/cors/pic.jpg",
+                            "httpCode": 418,
+                            "details": 418
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/408/cors/pic-small.jpg",
+                            "httpCode": 408,
+                            "details": 408
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/409/cors/pic-small.jpg",
+                            "httpCode": 409,
+                            "details": 409
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/422/cors/pic.jpg",
+                            "httpCode": 422,
+                            "details": 422
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/403/cors/pic-small.jpg",
+                            "httpCode": 403,
+                            "details": 403
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/402/cors/pic.jpg",
+                            "httpCode": 402,
+                            "details": 402
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/406/cors/pic.jpg",
+                            "httpCode": 406,
+                            "details": 406
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/406/cors/pic-small.jpg",
+                            "httpCode": 406,
+                            "details": 406
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/304/cors/pic.jpg",
+                            "httpCode": 304,
+                            "details": 304
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/400/cors/pic-small.jpg",
+                            "httpCode": 400,
+                            "details": 400
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/304/cors/pic-small.jpg",
+                            "httpCode": 304,
+                            "details": 304
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/412/cors/pic.jpg",
+                            "httpCode": 412,
+                            "details": 412
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/408/cors/pic.jpg",
+                            "httpCode": 408,
+                            "details": 408
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/404/cors/pic-small.jpg",
+                            "httpCode": 404,
+                            "details": 404
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/407/cors/pic-small.jpg",
+                            "httpCode": 407,
+                            "details": 407
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/411/cors/pic-small.jpg",
+                            "httpCode": 411,
+                            "details": 411
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/417/cors/pic-small.jpg",
+                            "httpCode": 417,
+                            "details": 417
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/417/cors/pic.jpg",
+                            "httpCode": 417,
+                            "details": 417
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/415/cors/pic-small.jpg",
+                            "httpCode": 415,
+                            "details": 415
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/415/cors/pic.jpg",
+                            "httpCode": 415,
+                            "details": 415
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/414/cors/pic.jpg",
+                            "httpCode": 414,
+                            "details": 414
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/413/cors/pic-small.jpg",
+                            "httpCode": 413,
+                            "details": 413
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/416/cors/pic.jpg",
+                            "httpCode": 416,
+                            "details": 416
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/414/cors/pic-small.jpg",
+                            "httpCode": 414,
+                            "details": 414
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/429/cors/pic.jpg",
+                            "httpCode": 429,
+                            "details": 429
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/431/cors/pic-small.jpg",
+                            "httpCode": 431,
+                            "details": 431
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/410/cors/pic-small.jpg",
+                            "httpCode": 410,
+                            "details": 410
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/501/cors/pic-small.jpg",
+                            "httpCode": 501,
+                            "details": 501
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/418/cors/pic-small.jpg",
+                            "httpCode": 418,
+                            "details": 418
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/401/cors/pic.jpg",
+                            "httpCode": 401,
+                            "details": 401
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/411/cors/pic.jpg",
+                            "httpCode": 411,
+                            "details": 411
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/416/cors/pic-small.jpg",
+                            "httpCode": 416,
+                            "details": 416
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/429/cors/pic-small.jpg",
+                            "httpCode": 429,
+                            "details": 429
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/425/cors/pic-small.jpg",
+                            "httpCode": 425,
+                            "details": 425
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/422/cors/pic-small.jpg",
+                            "httpCode": 422,
+                            "details": 422
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/500/cors/pic.jpg",
+                            "httpCode": 500,
+                            "details": 500
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/425/cors/pic.jpg",
+                            "httpCode": 425,
+                            "details": 425
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/451/cors/pic.jpg",
+                            "httpCode": 451,
+                            "details": 451
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/451/cors/pic-small.jpg",
+                            "httpCode": 451,
+                            "details": 451
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/508/cors/pic-small.jpg",
+                            "httpCode": 508,
+                            "details": 508
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/508/cors/pic.jpg",
+                            "httpCode": 508,
+                            "details": 508
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/505/cors/pic-small.jpg",
+                            "httpCode": 505,
+                            "details": 505
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/511/cors/pic-small.jpg",
+                            "httpCode": 511,
+                            "details": 511
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/506/cors/pic.jpg",
+                            "httpCode": 506,
+                            "details": 506
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/505/cors/pic.jpg",
+                            "httpCode": 505,
+                            "details": 505
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/506/cors/pic-small.jpg",
+                            "httpCode": 506,
+                            "details": 506
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/511/cors/pic.jpg",
+                            "httpCode": 511,
+                            "details": 511
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/507/cors/pic.jpg",
+                            "httpCode": 507,
+                            "details": 507
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/507/cors/pic-small.jpg",
+                            "httpCode": 507,
+                            "details": 507
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/510/cors/pic.jpg",
+                            "httpCode": 510,
+                            "details": 510
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/405/cors/pic.jpg",
+                            "httpCode": 405,
+                            "details": 405
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/510/cors/pic-small.jpg",
+                            "httpCode": 510,
+                            "details": 510
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/405/cors/pic-small.jpg",
+                            "httpCode": 405,
+                            "details": 405
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/100/cors/pic.jpg",
+                            "httpCode": "No response",
+                            "details": "No response"
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/100/cors/pic-small.jpg",
+                            "httpCode": "No response",
+                            "details": "No response"
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/102/cors/pic.jpg",
+                            "httpCode": "No response",
+                            "details": "No response"
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/102/cors/pic-small.jpg",
+                            "httpCode": "No response",
+                            "details": "No response"
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/103/cors/pic.jpg",
+                            "httpCode": "No response",
+                            "details": "No response"
+                        },
+                        {
+                            "resourcePath": "https://httpstat.us/103/cors/pic-small.jpg",
+                            "httpCode": "No response",
+                            "details": "No response"
+                        }
+                    ]
+                }
+            ]
+        },
+        "0745c401-0752-435d-b1f6-b0f4e438d8f9": {
+            "testRunUuid": "0745c401-0752-435d-b1f6-b0f4e438d8f9",
+            "url": "https://meet-bs.github.io/learning/resource_pages/video.html",
+            "issueCategories": [
+                {
+                    "category": "Links are broken",
+                    "count": 82,
+                    "severity": "Critical",
+                    "affectedComponents": [
+                        {
+                            "url": "https://httpstat.us/101/cors/video.mp4",
+                            "httpCode": 101
+                        },
+                        {
+                            "url": "https://httpstat.us/300/cors/captions.vtt",
+                            "httpCode": 300
+                        },
+                        {
+                            "url": "https://httpstat.us/429/cors/video.mp4",
+                            "httpCode": 429
+                        },
+                        {
+                            "url": "https://httpstat.us/400/cors/captions.vtt",
+                            "httpCode": 400
+                        },
+                        {
+                            "url": "https://httpstat.us/411/cors/captions.vtt",
+                            "httpCode": 411
+                        },
+                        {
+                            "url": "https://httpstat.us/304/cors/captions.vtt",
+                            "httpCode": 304
+                        },
+                        {
+                            "url": "https://httpstat.us/401/cors/captions.vtt",
+                            "httpCode": 401
+                        },
+                        {
+                            "url": "https://httpstat.us/500/cors/video.mp4",
+                            "httpCode": 500
+                        },
+                        {
+                            "url": "https://httpstat.us/431/cors/captions.vtt",
+                            "httpCode": 431
+                        },
+                        {
+                            "url": "https://httpstat.us/451/cors/video.mp4",
+                            "httpCode": 451
+                        },
+                        {
+                            "url": "https://httpstat.us/502/cors/video.mp4",
+                            "httpCode": 502
+                        },
+                        {
+                            "url": "https://httpstat.us/502/cors/captions.vtt",
+                            "httpCode": 502
+                        },
+                        {
+                            "url": "https://httpstat.us/500/cors/captions.vtt",
+                            "httpCode": 500
+                        },
+                        {
+                            "url": "https://httpstat.us/504/cors/video.mp4",
+                            "httpCode": 504
+                        },
+                        {
+                            "url": "https://httpstat.us/403/cors/captions.vtt",
+                            "httpCode": 403
+                        },
+                        {
+                            "url": "https://httpstat.us/409/cors/video.mp4",
+                            "httpCode": 409
+                        },
+                        {
+                            "url": "https://httpstat.us/408/cors/video.mp4",
+                            "httpCode": 408
+                        },
+                        {
+                            "url": "https://httpstat.us/414/cors/video.mp4",
+                            "httpCode": 414
+                        },
+                        {
+                            "url": "https://httpstat.us/404/cors/captions.vtt",
+                            "httpCode": 404
+                        },
+                        {
+                            "url": "https://httpstat.us/416/cors/captions.vtt",
+                            "httpCode": 416
+                        },
+                        {
+                            "url": "https://httpstat.us/408/cors/captions.vtt",
+                            "httpCode": 408
+                        },
+                        {
+                            "url": "https://httpstat.us/410/cors/captions.vtt",
+                            "httpCode": 410
+                        },
+                        {
+                            "url": "https://httpstat.us/431/cors/video.mp4",
+                            "httpCode": 431
+                        },
+                        {
+                            "url": "https://httpstat.us/402/cors/video.mp4",
+                            "httpCode": 402
+                        },
+                        {
+                            "url": "https://httpstat.us/101/cors/captions.vtt",
+                            "httpCode": 101
+                        },
+                        {
+                            "url": "https://httpstat.us/403/cors/video.mp4",
+                            "httpCode": 403
+                        },
+                        {
+                            "url": "https://httpstat.us/407/cors/video.mp4",
+                            "httpCode": 407
+                        },
+                        {
+                            "url": "https://httpstat.us/406/cors/captions.vtt",
+                            "httpCode": 406
+                        },
+                        {
+                            "url": "https://httpstat.us/406/cors/video.mp4",
+                            "httpCode": 406
+                        },
+                        {
+                            "url": "https://httpstat.us/413/cors/video.mp4",
+                            "httpCode": 413
+                        },
+                        {
+                            "url": "https://httpstat.us/402/cors/captions.vtt",
+                            "httpCode": 402
+                        },
+                        {
+                            "url": "https://httpstat.us/407/cors/captions.vtt",
+                            "httpCode": 407
+                        },
+                        {
+                            "url": "https://httpstat.us/414/cors/captions.vtt",
+                            "httpCode": 414
+                        },
+                        {
+                            "url": "https://httpstat.us/300/cors/video.mp4",
+                            "httpCode": 300
+                        },
+                        {
+                            "url": "https://httpstat.us/401/cors/video.mp4",
+                            "httpCode": 401
+                        },
+                        {
+                            "url": "https://httpstat.us/400/cors/video.mp4",
+                            "httpCode": 400
+                        },
+                        {
+                            "url": "https://httpstat.us/404/cors/video.mp4",
+                            "httpCode": 404
+                        },
+                        {
+                            "url": "https://httpstat.us/413/cors/captions.vtt",
+                            "httpCode": 413
+                        },
+                        {
+                            "url": "https://httpstat.us/416/cors/video.mp4",
+                            "httpCode": 416
+                        },
+                        {
+                            "url": "https://httpstat.us/409/cors/captions.vtt",
+                            "httpCode": 409
+                        },
+                        {
+                            "url": "https://httpstat.us/425/cors/video.mp4",
+                            "httpCode": 425
+                        },
+                        {
+                            "url": "https://httpstat.us/425/cors/captions.vtt",
+                            "httpCode": 425
+                        },
+                        {
+                            "url": "https://httpstat.us/411/cors/video.mp4",
+                            "httpCode": 411
+                        },
+                        {
+                            "url": "https://httpstat.us/304/cors/video.mp4",
+                            "httpCode": 304
+                        },
+                        {
+                            "url": "https://httpstat.us/415/cors/captions.vtt",
+                            "httpCode": 415
+                        },
+                        {
+                            "url": "https://httpstat.us/412/cors/captions.vtt",
+                            "httpCode": 412
+                        },
+                        {
+                            "url": "https://httpstat.us/417/cors/captions.vtt",
+                            "httpCode": 417
+                        },
+                        {
+                            "url": "https://httpstat.us/410/cors/video.mp4",
+                            "httpCode": 410
+                        },
+                        {
+                            "url": "https://httpstat.us/415/cors/video.mp4",
+                            "httpCode": 415
+                        },
+                        {
+                            "url": "https://httpstat.us/412/cors/video.mp4",
+                            "httpCode": 412
+                        },
+                        {
+                            "url": "https://httpstat.us/429/cors/captions.vtt",
+                            "httpCode": 429
+                        },
+                        {
+                            "url": "https://httpstat.us/501/cors/captions.vtt",
+                            "httpCode": 501
+                        },
+                        {
+                            "url": "https://httpstat.us/418/cors/captions.vtt",
+                            "httpCode": 418
+                        },
+                        {
+                            "url": "https://httpstat.us/417/cors/video.mp4",
+                            "httpCode": 417
+                        },
+                        {
+                            "url": "https://httpstat.us/422/cors/captions.vtt",
+                            "httpCode": 422
+                        },
+                        {
+                            "url": "https://httpstat.us/503/cors/video.mp4",
+                            "httpCode": 503
+                        },
+                        {
+                            "url": "https://httpstat.us/418/cors/video.mp4",
+                            "httpCode": 418
+                        },
+                        {
+                            "url": "https://httpstat.us/504/cors/captions.vtt",
+                            "httpCode": 504
+                        },
+                        {
+                            "url": "https://httpstat.us/501/cors/video.mp4",
+                            "httpCode": 501
+                        },
+                        {
+                            "url": "https://httpstat.us/451/cors/captions.vtt",
+                            "httpCode": 451
+                        },
+                        {
+                            "url": "https://httpstat.us/422/cors/video.mp4",
+                            "httpCode": 422
+                        },
+                        {
+                            "url": "https://httpstat.us/503/cors/captions.vtt",
+                            "httpCode": 503
+                        },
+                        {
+                            "url": "https://httpstat.us/507/cors/captions.vtt",
+                            "httpCode": 507
+                        },
+                        {
+                            "url": "https://httpstat.us/405/cors/captions.vtt",
+                            "httpCode": 405
+                        },
+                        {
+                            "url": "https://httpstat.us/508/cors/video.mp4",
+                            "httpCode": 508
+                        },
+                        {
+                            "url": "https://httpstat.us/506/cors/video.mp4",
+                            "httpCode": 506
+                        },
+                        {
+                            "url": "https://httpstat.us/505/cors/captions.vtt",
+                            "httpCode": 505
+                        },
+                        {
+                            "url": "https://httpstat.us/505/cors/video.mp4",
+                            "httpCode": 505
+                        },
+                        {
+                            "url": "https://httpstat.us/511/cors/video.mp4",
+                            "httpCode": 511
+                        },
+                        {
+                            "url": "https://httpstat.us/405/cors/video.mp4",
+                            "httpCode": 405
+                        },
+                        {
+                            "url": "https://httpstat.us/506/cors/captions.vtt",
+                            "httpCode": 506
+                        },
+                        {
+                            "url": "https://httpstat.us/510/cors/video.mp4",
+                            "httpCode": 510
+                        },
+                        {
+                            "url": "https://httpstat.us/511/cors/captions.vtt",
+                            "httpCode": 511
+                        },
+                        {
+                            "url": "https://httpstat.us/508/cors/captions.vtt",
+                            "httpCode": 508
+                        },
+                        {
+                            "url": "https://httpstat.us/510/cors/captions.vtt",
+                            "httpCode": 510
+                        },
+                        {
+                            "url": "https://httpstat.us/507/cors/video.mp4",
+                            "httpCode": 507
+                        },
+                        {
+                            "url": "https://httpstat.us/100/cors/video.mp4",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/100/cors/captions.vtt",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/102/cors/video.mp4",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/102/cors/captions.vtt",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/103/cors/video.mp4",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/103/cors/captions.vtt",
+                            "httpCode": "No response"
+                        }
+                    ]
+                }
+            ]
+        },
+        "d734ce9d-9fe7-4694-9545-1adae1c0c698": {
+            "testRunUuid": "d734ce9d-9fe7-4694-9545-1adae1c0c698",
+            "url": "https://meet-bs.github.io/learning/resource_pages/track.html",
+            "issueCategories": [
+                {
+                    "category": "Links are broken",
+                    "count": 46,
+                    "severity": "Critical",
+                    "affectedComponents": [
+                        {
+                            "url": "https://httpstat.us/304/cors/captions.vtt",
+                            "httpCode": 304
+                        },
+                        {
+                            "url": "https://httpstat.us/403/cors/captions.vtt",
+                            "httpCode": 403
+                        },
+                        {
+                            "url": "https://httpstat.us/418/cors/captions.vtt",
+                            "httpCode": 418
+                        },
+                        {
+                            "url": "https://httpstat.us/410/cors/captions.vtt",
+                            "httpCode": 410
+                        },
+                        {
+                            "url": "https://httpstat.us/300/cors/captions.vtt",
+                            "httpCode": 300
+                        },
+                        {
+                            "url": "https://httpstat.us/400/cors/captions.vtt",
+                            "httpCode": 400
+                        },
+                        {
+                            "url": "https://httpstat.us/412/cors/captions.vtt",
+                            "httpCode": 412
+                        },
+                        {
+                            "url": "https://httpstat.us/503/cors/captions.vtt",
+                            "httpCode": 503
+                        },
+                        {
+                            "url": "https://httpstat.us/421/cors/captions.vtt",
+                            "httpCode": 421
+                        },
+                        {
+                            "url": "https://httpstat.us/408/cors/captions.vtt",
+                            "httpCode": 408
+                        },
+                        {
+                            "url": "https://httpstat.us/500/cors/captions.vtt",
+                            "httpCode": 500
+                        },
+                        {
+                            "url": "https://httpstat.us/502/cors/captions.vtt",
+                            "httpCode": 502
+                        },
+                        {
+                            "url": "https://httpstat.us/101/cors/captions.vtt",
+                            "httpCode": 101
+                        },
+                        {
+                            "url": "https://httpstat.us/504/cors/captions.vtt",
+                            "httpCode": 504
+                        },
+                        {
+                            "url": "https://httpstat.us/422/cors/captions.vtt",
+                            "httpCode": 422
+                        },
+                        {
+                            "url": "https://httpstat.us/508/cors/captions.vtt",
+                            "httpCode": 508
+                        },
+                        {
+                            "url": "https://httpstat.us/424/cors/captions.vtt",
+                            "httpCode": 424
+                        },
+                        {
+                            "url": "https://httpstat.us/407/cors/captions.vtt",
+                            "httpCode": 407
+                        },
+                        {
+                            "url": "https://httpstat.us/428/cors/captions.vtt",
+                            "httpCode": 428
+                        },
+                        {
+                            "url": "https://httpstat.us/431/cors/captions.vtt",
+                            "httpCode": 431
+                        },
+                        {
+                            "url": "https://httpstat.us/506/cors/captions.vtt",
+                            "httpCode": 506
+                        },
+                        {
+                            "url": "https://httpstat.us/423/cors/captions.vtt",
+                            "httpCode": 423
+                        },
+                        {
+                            "url": "https://httpstat.us/417/cors/captions.vtt",
+                            "httpCode": 417
+                        },
+                        {
+                            "url": "https://httpstat.us/426/cors/captions.vtt",
+                            "httpCode": 426
+                        },
+                        {
+                            "url": "https://httpstat.us/501/cors/captions.vtt",
+                            "httpCode": 501
+                        },
+                        {
+                            "url": "https://httpstat.us/409/cors/captions.vtt",
+                            "httpCode": 409
+                        },
+                        {
+                            "url": "https://httpstat.us/451/cors/captions.vtt",
+                            "httpCode": 451
+                        },
+                        {
+                            "url": "https://httpstat.us/402/cors/captions.vtt",
+                            "httpCode": 402
+                        },
+                        {
+                            "url": "https://httpstat.us/411/cors/captions.vtt",
+                            "httpCode": 411
+                        },
+                        {
+                            "url": "https://httpstat.us/505/cors/captions.vtt",
+                            "httpCode": 505
+                        },
+                        {
+                            "url": "https://httpstat.us/413/cors/captions.vtt",
+                            "httpCode": 413
+                        },
+                        {
+                            "url": "https://httpstat.us/416/cors/captions.vtt",
+                            "httpCode": 416
+                        },
+                        {
+                            "url": "https://httpstat.us/511/cors/captions.vtt",
+                            "httpCode": 511
+                        },
+                        {
+                            "url": "https://httpstat.us/429/cors/captions.vtt",
+                            "httpCode": 429
+                        },
+                        {
+                            "url": "https://httpstat.us/406/cors/captions.vtt",
+                            "httpCode": 406
+                        },
+                        {
+                            "url": "https://httpstat.us/414/cors/captions.vtt",
+                            "httpCode": 414
+                        },
+                        {
+                            "url": "https://httpstat.us/507/cors/captions.vtt",
+                            "httpCode": 507
+                        },
+                        {
+                            "url": "https://httpstat.us/404/cors/captions.vtt",
+                            "httpCode": 404
+                        },
+                        {
+                            "url": "https://httpstat.us/425/cors/captions.vtt",
+                            "httpCode": 425
+                        },
+                        {
+                            "url": "https://httpstat.us/401/cors/captions.vtt",
+                            "httpCode": 401
+                        },
+                        {
+                            "url": "https://httpstat.us/415/cors/captions.vtt",
+                            "httpCode": 415
+                        },
+                        {
+                            "url": "https://httpstat.us/510/cors/captions.vtt",
+                            "httpCode": 510
+                        },
+                        {
+                            "url": "https://httpstat.us/405/cors/captions.vtt",
+                            "httpCode": 405
+                        },
+                        {
+                            "url": "https://httpstat.us/100/cors/captions.vtt",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/102/cors/captions.vtt",
+                            "httpCode": "No response"
+                        },
+                        {
+                            "url": "https://httpstat.us/103/cors/captions.vtt",
+                            "httpCode": "No response"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
