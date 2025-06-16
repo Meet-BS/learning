@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <script>
+    let seconds = 30;
+    function updateCountdown() {
+      document.getElementById('countdown').textContent = seconds;
+      if (seconds === 0) {
+        window.location.href = "real_page.html";
+      } else {
+        seconds--;
+        setTimeout(updateCountdown, 1000);
+      }
+    }
+    window.onload = updateCountdown;
+  </script>
+</head>
+<body>
+  <h2>Loading... Please wait</h2>
+  <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+</body>
+</html>
