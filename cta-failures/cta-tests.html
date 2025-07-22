@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTA Classific            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="broken-onclick" data-test-id="broken-console-only">
+                <button onclick="console.log('Only console output')">Broken: Console Only</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="broken-onclick" data-test-id="broken-data-only">
+                <button onclick="processDataOnly()">Broken: Data Processing Only</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="broken-onclick" data-test-id="broken-storage-only">
+                <button onclick="localStorage.setItem('key', 'value')">Broken: Storage Only</button>
+            </div>on Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .test-element {
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            display: inline-block;
+            min-width: 200px;
+        }
+        .working { border-left: 4px solid green; }
+        .broken { border-left: 4px solid red; }
+        .cta-expected { background-color: #e3f2fd; }
+        .counter {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        button, .btn {
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .btn-primary { background: #007bff; color: white; border: none; }
+        .btn-danger { background: #dc3545; color: white; border: none; }
+        .btn-success { background: #28a745; color: white; border: none; }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CTA Classification Tests</h1>
+        <p>This page tests elements that SHOULD be classified as CTAs using the isTrueCTA check</p>
+        
+        <div class="warning">
+            <strong>Testing Focus:</strong> isTrueCTA classification logic - Elements with role="button"/aria-pressed, 
+            button elements, non-navigation onclick handlers, and UI framework button classes.
+            Broken CTAs (no visual change) should appear in "CTA failures" tab.
+        </div>
+        
+        <div class="counter" id="cta-counter">
+            Total CTAs: <span id="total-ctas">0</span> | 
+            Working CTAs: <span id="working-ctas">0</span> | 
+            Broken CTAs: <span id="broken-ctas">0</span>
+        </div>
+
+        <!-- Section A: Role-based CTAs -->
+        <div class="section">
+            <h2>Section A: Role-based CTAs</h2>
+            <p>Elements with role="button" should be classified as CTAs</p>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-a-broken-alert">
+                <a role="button" onclick="alert('Alert is not visual change!')">Broken: Alert CTA</a>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-div-broken-console">
+                <div role="button" onclick="console.log('Console is not visual change')">Broken: Console Log CTA</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="role-based" data-test-id="role-a-working-visual">
+                <a role="button" onclick="changeBackgroundColor()">Working: Visual Change CTA</a>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="role-based" data-test-id="role-div-working-visual">
+                <div role="button" onclick="addContentToPage()">Working: Add Content CTA</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="role-based" data-test-id="role-span-working-visual">
+                <span role="button" onclick="toggleVisibleMenu()">Working: Toggle Menu CTA</span>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-a-broken-undefined">
+                <a role="button" onclick="brokenHandler()">Broken: Undefined Function</a>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-div-broken-no-onclick">
+                <div role="button">Broken: Missing onclick</div>
+            </div>
+        </div>
+
+        <!-- Section B: ARIA-based CTAs -->
+        <div class="section">
+            <h2>Section B: ARIA-based CTAs</h2>
+            <p>Elements with aria-pressed should be classified as CTAs</p>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="aria-based" data-test-id="aria-button-true">
+                <button aria-pressed="true" onclick="toggleState(this)">Toggle Button (ON)</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="aria-based" data-test-id="aria-button-false">
+                <button aria-pressed="false" onclick="toggleState(this)">Toggle Button (OFF)</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="aria-based" data-test-id="aria-div-true">
+                <div aria-pressed="true" onclick="customToggle(this)">Custom Toggle Element</div>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-button-broken">
+                <button aria-pressed="true" onclick="missingToggleFunction()">Broken Toggle Function</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-div-broken">
+                <div aria-pressed="false">Missing Event Handler</div>
+            </div>
+        </div>
+
+        <!-- Section C: JavaScript Action CTAs -->
+        <div class="section">
+            <h2>Section C: JavaScript Action CTAs</h2>
+            <p>Elements with onclick handlers (non-navigation) should be classified as CTAs</p>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="javascript" data-test-id="js-addcart-visual">
+                <button onclick="addToCartWithVisual('product123')">Add to Cart (Visual)</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="javascript" data-test-id="js-submit-visual">
+                <button onclick="submitFormWithFeedback()">Submit Form (Visual)</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="javascript" data-test-id="js-toggle-visual">
+                <a href="#" onclick="toggleVisibleMenu(); return false;">Toggle Menu (Visual)</a>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="javascript" data-test-id="js-modal-visual">
+                <div onclick="showVisualModal('login')">Show Modal (Visual)</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="javascript" data-test-id="js-download-visual">
+                <span onclick="downloadFileWithProgress('report.pdf')">Download with Progress</span>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="javascript" data-test-id="js-broken-alert">
+                <button onclick="alert('Alert is not visual!')">Broken: Alert Only</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="javascript" data-test-id="js-broken-console">
+                <button onclick="console.log('Console is not visual!')">Broken: Console Only</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="javascript" data-test-id="js-broken-func">
+                <button onclick="undefinedFunction()">Broken: Undefined Function</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="javascript" data-test-id="js-broken-param">
+                <button onclick="addToCartWithVisual(undefined)">Broken: Function with Errors</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="javascript" data-test-id="js-empty">
+                <button onclick="">Broken: Empty Handler</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="javascript" data-test-id="js-no-visual">
+                <button onclick="nonVisualFunction()">Broken: No Visual Change</button>
+            </div>
+        </div>
+
+        <!-- Section D: Internal Navigation CTAs -->
+        <div class="section">
+            <h2>Section D: Internal Navigation CTAs</h2>
+            <p>Internal navigation should be classified as CTAs (not URLs)</p>
+            
+            <h3>Working Internal Navigation CTAs</h3>
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="internal-nav" data-test-id="nav-dashboard">
+                <a href="#" onclick="navigateToPage('/dashboard'); return false;">Dashboard</a>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="internal-nav" data-test-id="nav-fragment">
+                <a href="#section">Section Navigation</a>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="internal-nav" data-test-id="nav-programmatic">
+                <button onclick="navigateToPage('/settings')">Programmatic Navigation</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="internal-nav" data-test-id="nav-admin">
+                <a href="#" onclick="navigateToPage('/admin/settings'); return false;">Admin Settings</a>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="internal-nav" data-test-id="nav-products">
+                <a href="#" onclick="navigateToPage('/products'); return false;">Products Page</a>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="internal-nav" data-test-id="nav-profile">
+                <a href="#" onclick="navigateToPage('/user/profile'); return false;">User Profile</a>
+            </div>
+            
+            <h3>Broken Internal Navigation CTAs</h3>
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="internal-nav" data-test-id="nav-broken-page">
+                <a href="/nonexistent-page">Broken Internal Page</a>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="internal-nav" data-test-id="nav-broken-prog">
+                <button onclick="window.location='/404-page'">Navigation to Missing Page</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="internal-nav" data-test-id="nav-broken-deep">
+                <a href="/admin/nonexistent/deep-page">Broken Deep Navigation</a>
+            </div>
+        </div>
+
+        <!-- Section E: UI Framework Button Classes -->
+        <div class="section">
+            <h2>Section E: UI Framework Button Classes</h2>
+            <p>Testing Bootstrap and other UI framework button indicators (isTrueCTA check)</p>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="bootstrap-btn-primary">
+                <div class="btn btn-primary" onclick="changeBackgroundColor()">Bootstrap btn btn-primary</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="bootstrap-btn-secondary">
+                <span class="btn btn-secondary" onclick="changeBackgroundColor()">Bootstrap btn btn-secondary</span>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="bootstrap-button">
+                <div class="button" onclick="addToCartWithVisual('Product A')">Generic button class</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="material-ui-button">
+                <div class="MuiButton-root" onclick="toggleVisibleMenu()">Material-UI button class</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="ant-design-button">
+                <div class="ant-btn" onclick="changeBackgroundColor()">Ant Design button class</div>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="broken-bootstrap-alert">
+                <div class="btn btn-danger" onclick="alert('Broken: Alert only')">Broken Bootstrap (Alert)</div>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="broken-mui-console">
+                <div class="MuiButton-root" onclick="console.log('Broken: Console only')">Broken Material-UI (Console)</div>
+            </div>
+        </div>
+
+        <!-- Section G: Dropdown and Menu CTAs -->
+        <div class="section">
+            <h2>Section G: Dropdown and Menu CTAs</h2>
+            <p>Common website scenarios with dropdowns, menus, and info panels</p>
+            
+            <h3>Working Dropdown CTAs</h3>
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="user-menu-dropdown">
+                <button onclick="toggleDropdown('user-menu')" class="btn">User Menu ▼</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="info-dropdown">
+                <div class="btn" onclick="toggleDropdown('product-info')" role="button">Product Info ⓘ</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="language-dropdown">
+                <button onclick="toggleDropdown('language-selector')" aria-haspopup="true">Language 🌐</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="help-tooltip">
+                <span onclick="showTooltip('help-info')" class="btn btn-secondary">Help & Support ?</span>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="notification-menu">
+                <button onclick="toggleDropdown('notifications')" class="btn">🔔 Notifications (3)</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="settings-menu">
+                <div onclick="toggleDropdown('settings-panel')" role="button" class="btn">⚙️ Settings</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="share-options">
+                <button onclick="showSharePanel()" class="btn btn-primary">Share 📤</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="dropdown" data-test-id="filter-dropdown">
+                <button onclick="toggleDropdown('filter-options')" aria-expanded="false">Filter Options 🔽</button>
+            </div>
+            
+            <h3>Broken Dropdown CTAs</h3>
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="dropdown" data-test-id="broken-dropdown-alert">
+                <button onclick="alert('Dropdown opened')" class="btn">Broken: Alert Dropdown</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="dropdown" data-test-id="broken-dropdown-console">
+                <button onclick="console.log('Menu toggled')" class="btn">Broken: Console Menu</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="dropdown" data-test-id="broken-dropdown-undefined">
+                <button onclick="openMissingDropdown()" class="btn">Broken: Missing Function</button>
+            </div>
+        </div>
+
+        <!-- Section H: Broken CTA Scenarios -->
+        <div class="section">
+            <h2>Section H: Broken CTA Scenarios</h2>
+            <p>Complex broken CTA scenarios</p>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="broken-form-submit">
+                <button onclick="submitToEndpoint('/broken-api/submit')">Form to Broken Endpoint</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="broken-ajax">
+                <button onclick="ajaxCall('/api/nonexistent')">AJAX to Missing API</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="broken-upload">
+                <button onclick="uploadFile('/upload/broken')">File Upload (Broken)</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="broken-modal">
+                <button onclick="showModal('missing-content')">Modal with Missing Content</button>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="broken-cart">
+                <button onclick="cartAction('invalid-action')">Shopping Cart Error</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Working functions that produce VISUAL CHANGES (these are valid CTAs)
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'lightblue' ? '' : 'lightblue';
+            console.log('Background color changed - VISUAL CHANGE');
+        }
+        
+        function addContentToPage() {
+            const newDiv = document.createElement('div');
+            newDiv.textContent = 'New content added at ' + new Date().toLocaleTimeString();
+            newDiv.style.background = '#d4edda';
+            newDiv.style.padding = '10px';
+            newDiv.style.margin = '5px';
+            document.body.appendChild(newDiv);
+            console.log('Content added to page - VISUAL CHANGE');
+        }
+        
+        function toggleVisibleMenu() {
+            let menu = document.getElementById('test-menu');
+            if (!menu) {
+                menu = document.createElement('div');
+                menu.id = 'test-menu';
+                menu.style.cssText = 'position:fixed;top:10px;right:10px;background:#333;color:white;padding:10px;border-radius:4px;';
+                menu.textContent = 'Test Menu Visible';
+                document.body.appendChild(menu);
+            } else {
+                menu.remove();
+            }
+            console.log('Menu toggled - VISUAL CHANGE');
+        }
+        
+        function toggleState(element) {
+            const pressed = element.getAttribute('aria-pressed') === 'true';
+            element.setAttribute('aria-pressed', !pressed);
+            element.style.backgroundColor = pressed ? '' : '#28a745';
+            element.style.color = pressed ? '' : 'white';
+            console.log('Toggle state changed with visual feedback - VISUAL CHANGE');
+        }
+        
+        function customToggle(element) {
+            const pressed = element.getAttribute('aria-pressed') === 'true';
+            element.setAttribute('aria-pressed', !pressed);
+            element.textContent = pressed ? 'Custom Toggle (OFF)' : 'Custom Toggle (ON)';
+            element.style.backgroundColor = pressed ? '#dc3545' : '#28a745';
+            element.style.color = 'white';
+            console.log('Custom toggle with visual feedback - VISUAL CHANGE');
+        }
+        
+        function addToCartWithVisual(productId) {
+            if (productId === undefined) {
+                throw new Error('Product ID is undefined');
+            }
+            // Create visual feedback
+            const feedback = document.createElement('div');
+            feedback.textContent = `✅ Product ${productId} added to cart!`;
+            feedback.style.cssText = 'position:fixed;top:50px;right:10px;background:#28a745;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 3000);
+            console.log('Added to cart with visual feedback - VISUAL CHANGE');
+        }
+        
+        function submitFormWithFeedback() {
+            const feedback = document.createElement('div');
+            feedback.textContent = '✅ Form submitted successfully!';
+            feedback.style.cssText = 'position:fixed;top:90px;right:10px;background:#007bff;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 3000);
+            console.log('Form submitted with visual feedback - VISUAL CHANGE');
+        }
+        
+        function showVisualModal(modalType) {
+            if (modalType === 'missing-content') {
+                throw new Error('Modal content not found');
+            }
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #333;padding:20px;border-radius:8px;z-index:1001;box-shadow:0 4px 8px rgba(0,0,0,0.3);';
+            modal.innerHTML = `<h3>${modalType} Modal</h3><p>This is a visual modal.</p><button onclick="this.parentElement.remove()">Close</button>`;
+            document.body.appendChild(modal);
+            console.log('Modal shown with visual feedback - VISUAL CHANGE');
+        }
+        
+        function downloadFileWithProgress(filename) {
+            const progress = document.createElement('div');
+            progress.style.cssText = 'position:fixed;bottom:10px;right:10px;background:#17a2b8;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            progress.textContent = `📥 Downloading ${filename}...`;
+            document.body.appendChild(progress);
+            setTimeout(() => {
+                progress.textContent = `✅ Download complete: ${filename}`;
+                setTimeout(() => progress.remove(), 2000);
+            }, 2000);
+            console.log('Download started with visual progress - VISUAL CHANGE');
+        }
+
+        // Functions that do NOT produce visual changes (these should be considered BROKEN)
+        function nonVisualFunction() {
+            // This function runs but produces no visual change
+            const data = { timestamp: Date.now(), action: 'processed' };
+            localStorage.setItem('test-data', JSON.stringify(data));
+            console.log('Function executed but NO VISUAL CHANGE - Should be BROKEN');
+        }
+        
+        function processDataOnly() {
+            // Only processes data without any visual feedback
+            const calculations = Array.from({length: 1000}, (_, i) => i * 2);
+            const result = calculations.reduce((sum, val) => sum + val, 0);
+            sessionStorage.setItem('calculation-result', result);
+            console.log('Data processed but NO VISUAL CHANGE - Should be BROKEN');
+        }
+
+        // Internal navigation functions with visual feedback
+        function navigateToPage(path) {
+            // Simulate successful internal navigation with visual feedback
+            const feedback = document.createElement('div');
+            feedback.textContent = `✅ Navigating to ${path}`;
+            feedback.style.cssText = 'position:fixed;top:130px;right:10px;background:#17a2b8;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 3000);
+            console.log(`Internal navigation to ${path} - VISUAL CHANGE`);
+        }
+
+        // Dropdown and menu functions with visual feedback
+        function toggleDropdown(dropdownId) {
+            // Remove any existing dropdown first
+            const existingDropdown = document.getElementById(dropdownId);
+            if (existingDropdown) {
+                existingDropdown.remove();
+                console.log(`Dropdown ${dropdownId} closed - VISUAL CHANGE`);
+                return;
+            }
+            
+            // Create new dropdown menu
+            const dropdown = document.createElement('div');
+            dropdown.id = dropdownId;
+            dropdown.style.cssText = 'position:fixed;top:100px;left:50%;transform:translateX(-50%);background:white;border:1px solid #ccc;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.15);padding:10px;z-index:1000;min-width:200px;';
+            
+            // Add different content based on dropdown type
+            let content = '';
+            switch(dropdownId) {
+                case 'user-menu':
+                    content = '<div style="padding:5px;border-bottom:1px solid #eee;">👤 My Profile</div><div style="padding:5px;border-bottom:1px solid #eee;">⚙️ Account Settings</div><div style="padding:5px;color:#dc3545;">🚪 Sign Out</div>';
+                    break;
+                case 'product-info':
+                    content = '<div style="font-weight:bold;margin-bottom:8px;">Product Details</div><div style="font-size:14px;">📊 Price: $99.99<br>📦 In Stock: 15 units<br>⭐ Rating: 4.5/5</div>';
+                    break;
+                case 'language-selector':
+                    content = '<div style="padding:3px;">🇺🇸 English</div><div style="padding:3px;">🇪🇸 Español</div><div style="padding:3px;">🇫🇷 Français</div><div style="padding:3px;">🇩🇪 Deutsch</div>';
+                    break;
+                case 'notifications':
+                    content = '<div style="font-weight:bold;margin-bottom:5px;">Recent Notifications</div><div style="font-size:13px;padding:3px;border-bottom:1px solid #eee;">✉️ New message from John</div><div style="font-size:13px;padding:3px;border-bottom:1px solid #eee;">📦 Order #1234 shipped</div><div style="font-size:13px;padding:3px;">🎉 Welcome bonus earned!</div>';
+                    break;
+                case 'settings-panel':
+                    content = '<div style="padding:5px;border-bottom:1px solid #eee;">🔔 Notifications</div><div style="padding:5px;border-bottom:1px solid #eee;">🔒 Privacy</div><div style="padding:5px;border-bottom:1px solid #eee;">🎨 Theme</div><div style="padding:5px;">💾 Backup</div>';
+                    break;
+                case 'filter-options':
+                    content = '<div style="font-weight:bold;margin-bottom:5px;">Filter Products</div><div><label><input type="checkbox"> Price: $0-$50</label></div><div><label><input type="checkbox"> In Stock Only</label></div><div><label><input type="checkbox"> Free Shipping</label></div>';
+                    break;
+                default:
+                    content = `<div>Dropdown menu for ${dropdownId}</div><div style="font-size:12px;color:#666;">Click anywhere to close</div>`;
+            }
+            
+            dropdown.innerHTML = content + '<div style="text-align:center;margin-top:10px;"><button onclick="this.parentElement.remove()" style="font-size:12px;padding:2px 8px;">Close</button></div>';
+            document.body.appendChild(dropdown);
+            
+            // Auto-close after 5 seconds
+            setTimeout(() => {
+                if (document.getElementById(dropdownId)) {
+                    dropdown.remove();
+                }
+            }, 5000);
+            
+            console.log(`Dropdown ${dropdownId} opened - VISUAL CHANGE`);
+        }
+        
+        function showTooltip(tooltipId) {
+            const tooltip = document.createElement('div');
+            tooltip.style.cssText = 'position:fixed;top:150px;left:50%;transform:translateX(-50%);background:#333;color:white;padding:8px 12px;border-radius:4px;font-size:14px;z-index:1001;max-width:300px;';
+            tooltip.textContent = 'Need help? Contact our support team at support@example.com or call 1-800-HELP. Available 24/7 for all your questions and technical support needs.';
+            document.body.appendChild(tooltip);
+            
+            setTimeout(() => tooltip.remove(), 4000);
+            console.log('Help tooltip shown - VISUAL CHANGE');
+        }
+        
+        function showSharePanel() {
+            const sharePanel = document.createElement('div');
+            sharePanel.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #007bff;border-radius:8px;padding:20px;z-index:1001;box-shadow:0 4px 12px rgba(0,0,0,0.2);';
+            sharePanel.innerHTML = `
+                <h3 style="margin-top:0;color:#007bff;">Share this page</h3>
+                <div style="display:flex;gap:10px;margin:15px 0;">
+                    <button style="background:#1877f2;color:white;border:none;padding:8px 12px;border-radius:4px;">📘 Facebook</button>
+                    <button style="background:#1da1f2;color:white;border:none;padding:8px 12px;border-radius:4px;">🐦 Twitter</button>
+                    <button style="background:#0077b5;color:white;border:none;padding:8px 12px;border-radius:4px;">💼 LinkedIn</button>
+                </div>
+                <div style="margin:10px 0;">
+                    <input type="text" value="https://example.com/current-page" style="width:100%;padding:5px;border:1px solid #ccc;border-radius:4px;" readonly>
+                </div>
+                <button onclick="this.parentElement.remove()" style="background:#6c757d;color:white;border:none;padding:8px 16px;border-radius:4px;float:right;">Close</button>
+            `;
+            document.body.appendChild(sharePanel);
+            console.log('Share panel opened - VISUAL CHANGE');
+        }
+
+        // Broken functions for negative test cases
+        function submitToEndpoint(endpoint) {
+            console.error('Endpoint not found:', endpoint);
+        }
+        
+        function ajaxCall(url) {
+            console.error('AJAX call failed, URL not found:', url);
+        }
+        
+        function uploadFile(endpoint) {
+            console.error('Upload failed, endpoint broken:', endpoint);
+        }
+        
+        function cartAction(action) {
+            console.error('Invalid cart action:', action);
+        }
+
+        // Counter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalCtas = document.querySelectorAll('[data-expected-type="cta"]').length;
+            const workingCtas = document.querySelectorAll('[data-expected-type="cta"][data-expected-status="working"]').length;
+            const brokenCtas = document.querySelectorAll('[data-expected-type="cta"][data-expected-status="broken"]').length;
+            
+            document.getElementById('total-ctas').textContent = totalCtas;
+            document.getElementById('working-ctas').textContent = workingCtas;
+            document.getElementById('broken-ctas').textContent = brokenCtas;
+            
+            console.log('CTA Classification Test Page Loaded');
+            console.log('Total CTAs:', totalCtas);
+            console.log('Working CTAs (with visual changes):', workingCtas);
+            console.log('Broken CTAs (no visual changes or errors):', brokenCtas);
+            console.log('');
+            console.log('IMPORTANT: CTAs must produce VISUAL CHANGES to be considered working');
+            console.log('- alert() is NOT considered a visual change');
+            console.log('- console.log() is NOT considered a visual change');
+            console.log('- localStorage/sessionStorage operations are NOT visual changes');
+            console.log('- Data processing without UI updates are NOT visual changes');
+            console.log('- Functions must modify the DOM, change styles, or update visible content');
+        });
+    </script>
+</body>
+</html>

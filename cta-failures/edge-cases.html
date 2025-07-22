@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Cases and Comprehensive Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .test-element {
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            display: inline-block;
+            min-width: 250px;
+        }
+        .working { border-left: 4px solid green; }
+        .broken { border-left: 4px solid red; }
+        .edge-case { border-left: 4px solid orange; }
+        .cta-expected { background-color: #e3f2fd; }
+        .url-expected { background-color: #fff3e0; }
+        .edge-expected { background-color: #f3e5f5; }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .metric {
+            text-align: center;
+            padding: 10px;
+            background: #555;
+            border-radius: 4px;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        button, .btn {
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #f8f9fa;
+        }
+        .hidden-test {
+            display: none;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edge Cases and Comprehensive Test</h1>
+        <p>This page tests complex scenarios, edge cases, and provides comprehensive validation</p>
+        
+        <div class="warning">
+            <strong>Testing Focus:</strong> This page tests complex scenarios, edge cases, and provides comprehensive validation.
+            Some elements may have mixed signals (e.g., href + role="button").
+            <br><strong>Key Principle:</strong> "No visual change = Broken resource = Broken URL" 
+            (unless element has clear CTA indicators like role="button"/aria-pressed)
+        </div>
+
+        <!-- Real-time Classification Dashboard -->
+        <div class="dashboard" id="classification-dashboard">
+            <div class="metric">
+                <span class="metric-value" id="total-elements">0</span>
+                <span>Total Elements</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value" id="cta-elements">0</span>
+                <span>Expected CTAs</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value" id="url-elements">0</span>
+                <span>Expected URLs</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value" id="edge-elements">0</span>
+                <span>Edge Cases</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value" id="working-elements">0</span>
+                <span>Working Elements</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value" id="broken-elements">0</span>
+                <span>Broken Elements</span>
+            </div>
+        </div>
+
+        <!-- Section A: Testing mightNavigate vs isTrueCTA Logic -->
+        <div class="section">
+            <h2>Section A: Navigation vs CTA Classification Tests</h2>
+            <p>Testing the mightNavigate and isTrueCTA logic</p>
+            
+            <!-- mightNavigate = true cases -->
+            <h3>Should be classified as URLs (mightNavigate = true)</h3>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation" data-test-id="real-href">
+                <a href="https://www.example.com">Anchor with real href</a>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation" data-test-id="role-link">
+                <div role="link" onclick="simulateNavigation('role=link navigation')">Element with role="link"</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation" data-test-id="form-element">
+                <form onsubmit="simulateNavigation('form submit'); return false;"><button type="submit">Form Submit</button></form>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation" data-test-id="navigation-onclick">
+                <div onclick="simulateNavigation('navigation onclick')">Navigation onclick pattern</div>
+            </div>
+            
+            <!-- isTrueCTA = true cases -->
+            <h3>Should be classified as CTAs (isTrueCTA = true)</h3>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="role-button">
+                <div role="button" onclick="performAction()">Element with role="button"</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="aria-pressed">
+                <div aria-pressed="false" onclick="toggleThis(this)">Element with aria-pressed</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="button-element">
+                <button onclick="performAction()">Button element</button>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="submit-input">
+                <input type="submit" onclick="performAction()" value="Submit Input">
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="reset-input">
+                <input type="reset" onclick="performAction()" value="Reset Input">
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="bootstrap-btn">
+                <div class="btn btn-primary" onclick="performAction()">Bootstrap button class</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="cta" data-test-id="non-nav-onclick">
+                <div onclick="alert('non-navigation action')">Non-navigation onclick</div>
+            </div>
+        </div>
+
+        <!-- Section B: Edge Cases - Conflicting Signals -->
+        <div class="section">
+            <h2>Section B: Edge Cases - Conflicting Signals</h2>
+            <p>Elements with both navigation and CTA indicators</p>
+            
+            <div class="test-element edge-case cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="edge-case" data-test-id="href-role-button">
+                <a href="/settings" role="button" onclick="performAction()">Href + role="button" (CTA wins)</a>
+            </div>
+            
+            <div class="test-element edge-case cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="edge-case" data-test-id="href-aria-pressed">
+                <a href="/page" aria-pressed="false" onclick="toggleThis(this)">Href + aria-pressed (CTA wins)</a>
+            </div>
+            
+            <div class="test-element edge-case url-expected" data-expected-type="url" data-expected-status="working" data-test-category="edge-case" data-test-id="role-link-onclick">
+                <div role="link" onclick="simulateNavigation('role=link with navigation')">role="link" + navigation onclick (URL wins)</div>
+            </div>
+            
+            <div class="test-element edge-case cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="edge-case" data-test-id="js-void-role-button">
+                <a href="javascript:void(0)" role="button" onclick="performAction()">JS void + role="button" (CTA wins)</a>
+            </div>
+            
+            <div class="test-element edge-case cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="edge-case" data-test-id="hash-role-button">
+                <a href="#" role="button" onclick="performAction(); return false;">Hash + role="button" (CTA wins)</a>
+            </div>
+        </div>
+
+        <!-- Section C: Navigation Pattern Detection -->
+        <div class="section">
+            <h2>Section C: Navigation Pattern Detection</h2>
+            <p>Testing navigation pattern detection in onclick handlers</p>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="window-location-href">
+                <div onclick="simulateNavigation('window.location.href')">window.location.href pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="window-location-assign">
+                <div onclick="simulateNavigation('window.location.assign')">window.location.assign pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="location-href">
+                <div onclick="simulateNavigation('location.href')">location.href pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="window-open">
+                <div onclick="simulateNavigation('window.open')">window.open pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="history-push">
+                <div onclick="simulateNavigation('history.pushState')">history.pushState pattern</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="non-navigation" data-test-id="non-nav-function">
+                <div onclick="performAction()">Non-navigation function call</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="non-navigation" data-test-id="variable-assignment">
+                <div onclick="var x = 5; console.log(x)">Variable assignment</div>
+            </div>
+        </div>
+
+        <!-- Section D: UI Framework Button Attributes -->
+        <div class="section">
+            <h2>Section D: UI Framework Button Attributes</h2>
+            <p>Testing Bootstrap and other UI framework button indicators</p>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="bootstrap-btn-primary">
+                <div class="btn btn-primary" onclick="performAction()">Bootstrap btn btn-primary</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="bootstrap-btn-secondary">
+                <span class="btn btn-secondary" onclick="performAction()">Bootstrap btn btn-secondary</span>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="bootstrap-button">
+                <div class="button" onclick="performAction()">Generic button class</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="material-ui-button">
+                <div class="MuiButton-root" onclick="performAction()">Material-UI button class</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="ant-design-button">
+                <div class="ant-btn" onclick="performAction()">Ant Design button class</div>
+            </div>
+            
+            <div class="test-element working cta-expected" data-expected-type="cta" data-expected-status="working" data-test-category="ui-framework" data-test-id="custom-button-attr">
+                <div data-button="true" onclick="performAction()">Custom button attribute</div>
+            </div>
+        </div>
+
+        <!-- Section E: Broken Resource Classification Examples -->
+        <div class="section">
+            <h2>Section E: Broken Resource Classification Examples</h2>
+            <p>Demonstrating "No visual change = Broken resource = Broken URL" principle</p>
+            
+            <h3>Should be Broken URLs (URL failures tab):</h3>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-url" data-test-id="href-no-visual">
+                <a href="/missing-page" onclick="console.log('No visual change')">Internal link with no visual change</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-url" data-test-id="external-404">
+                <a href="https://nonexistent-domain-example.com">External broken link</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-url" data-test-id="protocol-no-visual">
+                <a href="ftp://oldserver.example.com">Protocol link without visual change</a>
+            </div>
+            
+            <h3>Should be Broken CTAs (CTA failures tab):</h3>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="broken-cta" data-test-id="role-button-no-visual">
+                <div role="button" onclick="console.log('No visual change')">role="button" with no visual change</div>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="broken-cta" data-test-id="aria-pressed-no-visual">
+                <div aria-pressed="false" onclick="alert('Alert is not visual')">aria-pressed with alert only</div>
+            </div>
+            
+            <div class="test-element broken cta-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="broken-cta" data-test-id="button-element-no-visual">
+                <button onclick="localStorage.setItem('key', 'value')">Button with data-only operation</button>
+            </div>
+        </div>
+
+        <!-- Section F: Test Results Summary -->
+        <div class="section">
+            <h2>Section F: Test Results Summary</h2>
+            <div id="test-results">
+                <h3>Classification Results:</h3>
+                <div id="results-output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Working functions for test cases
+        function performAction() {
+            // Add visual change
+            const feedback = document.createElement('div');
+            feedback.textContent = '✅ Action performed!';
+            feedback.style.cssText = 'position:fixed;top:10px;right:10px;background:#28a745;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 2000);
+            console.log('Action performed successfully - VISUAL CHANGE');
+        }
+        
+        function navigateAfterSubmit() {
+            const feedback = document.createElement('div');
+            feedback.textContent = '📤 Form submitted, navigating...';
+            feedback.style.cssText = 'position:fixed;top:50px;right:10px;background:#007bff;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 3000);
+            console.log('Form submitted, navigating... - VISUAL CHANGE');
+        }
+        
+        function doSomething() {
+            const feedback = document.createElement('div');
+            feedback.textContent = '⚡ Something done!';
+            feedback.style.cssText = 'position:fixed;top:90px;right:10px;background:#6f42c1;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 2000);
+            console.log('Something done via onclick - VISUAL CHANGE');
+        }
+        
+        function complexToggle(element) {
+            const pressed = element.getAttribute('aria-pressed') === 'true';
+            element.setAttribute('aria-pressed', !pressed);
+            element.textContent = pressed ? 'Multiple CTA Attributes (OFF)' : 'Multiple CTA Attributes (ON)';
+            element.style.backgroundColor = pressed ? '' : '#007bff';
+            element.style.color = pressed ? '' : 'white';
+            console.log('Complex toggle with visual feedback - VISUAL CHANGE');
+        }
+        
+        function startMultiStepForm() {
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #333;padding:20px;border-radius:8px;z-index:1001;box-shadow:0 4px 8px rgba(0,0,0,0.3);';
+            modal.innerHTML = '<h3>Multi-step Form</h3><p>Step 1 of 3</p><button onclick="this.parentElement.remove()">Close</button>';
+            document.body.appendChild(modal);
+            console.log('Multi-step form started - VISUAL CHANGE');
+        }
+        
+        function performAjaxAction() {
+            const loader = document.createElement('div');
+            loader.textContent = '🔄 Loading...';
+            loader.style.cssText = 'position:fixed;bottom:10px;left:10px;background:#17a2b8;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(loader);
+            setTimeout(() => {
+                loader.textContent = '✅ AJAX completed!';
+                setTimeout(() => loader.remove(), 2000);
+            }, 1000);
+            console.log('AJAX action performed - VISUAL CHANGE');
+        }
+        
+        function triggerDownload(filename) {
+            const download = document.createElement('div');
+            download.textContent = `📥 Downloading ${filename}...`;
+            download.style.cssText = 'position:fixed;bottom:50px;left:10px;background:#6f42c1;color:white;padding:10px;border-radius:4px;z-index:1000;';
+            document.body.appendChild(download);
+            setTimeout(() => {
+                download.textContent = `✅ Downloaded ${filename}!`;
+                setTimeout(() => download.remove(), 2000);
+            }, 2000);
+            console.log('Download triggered for:', filename, '- VISUAL CHANGE');
+        }
+        
+        function showModalWithNavigation() {
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:2px solid #333;padding:20px;border-radius:8px;z-index:1001;box-shadow:0 4px 8px rgba(0,0,0,0.3);';
+            modal.innerHTML = '<h3>Navigation Modal</h3><p>Choose your destination:</p><button onclick="this.parentElement.remove()">Close</button>';
+            document.body.appendChild(modal);
+            console.log('Modal shown with navigation capability - VISUAL CHANGE');
+        }
+        
+        async function asyncActionWithError() {
+            throw new Error('Async action failed intentionally');
+        }
+        
+        function accessibleToggle(element) {
+            const pressed = element.getAttribute('aria-pressed') === 'true';
+            element.setAttribute('aria-pressed', !pressed);
+            console.log('Accessible toggle changed to:', !pressed);
+        }
+        
+        function closeDialog() {
+            console.log('Dialog closed');
+        }
+        
+        function keyboardAccessible() {
+            console.log('Keyboard accessible action triggered');
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                keyboardAccessible();
+            }
+        }
+        
+        function hiddenAction() {
+            console.log('Hidden element action triggered');
+        }
+        
+        function toggleThis(element) {
+            const pressed = element.getAttribute('aria-pressed') === 'true';
+            element.setAttribute('aria-pressed', !pressed);
+            element.textContent = pressed ? 'ARIA Toggle (OFF)' : 'ARIA Toggle (ON)';
+        }
+
+        function simulateNavigation(pattern) {
+            // Create visual feedback for navigation patterns
+            const feedback = document.createElement('div');
+            feedback.textContent = `🧭 Navigation simulated: ${pattern}`;
+            feedback.style.cssText = 'position:fixed;top:10px;left:10px;background:#007bff;color:white;padding:10px;border-radius:4px;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,0.3);';
+            document.body.appendChild(feedback);
+            
+            // Animate the feedback
+            setTimeout(() => {
+                feedback.style.transform = 'translateY(-10px)';
+                feedback.style.opacity = '0.8';
+            }, 100);
+            
+            setTimeout(() => {
+                feedback.remove();
+            }, 3000);
+            
+            console.log(`Navigation pattern detected: ${pattern} - VISUAL CHANGE`);
+        }
+
+        // Classification and validation logic
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDashboard();
+            generateTestResults();
+            
+            console.log('Edge Cases and Comprehensive Test Page Loaded');
+            console.log('This page tests complex classification scenarios');
+        });
+
+        function updateDashboard() {
+            const totalElements = document.querySelectorAll('[data-expected-type]').length;
+            const ctaElements = document.querySelectorAll('[data-expected-type="cta"]').length;
+            const urlElements = document.querySelectorAll('[data-expected-type="url"]').length;
+            const edgeElements = document.querySelectorAll('[data-expected-type="edge"]').length;
+            const workingElements = document.querySelectorAll('[data-expected-status="working"]').length;
+            const brokenElements = document.querySelectorAll('[data-expected-status="broken"]').length;
+            
+            document.getElementById('total-elements').textContent = totalElements;
+            document.getElementById('cta-elements').textContent = ctaElements;
+            document.getElementById('url-elements').textContent = urlElements;
+            document.getElementById('edge-elements').textContent = edgeElements;
+            document.getElementById('working-elements').textContent = workingElements;
+            document.getElementById('broken-elements').textContent = brokenElements;
+        }
+
+        function generateTestResults() {
+            const resultsDiv = document.getElementById('results-output');
+            const categories = ['navigation', 'cta', 'edge-case', 'navigation-patterns', 'non-navigation', 'ui-framework', 'broken-url', 'broken-cta'];
+            
+            let html = '<table border="1" style="width:100%; border-collapse: collapse;">';
+            html += '<tr><th>Category</th><th>Total</th><th>CTAs</th><th>URLs</th><th>Working</th><th>Broken</th></tr>';
+            
+            categories.forEach(category => {
+                const elements = document.querySelectorAll(`[data-test-category="${category}"]`);
+                const ctas = document.querySelectorAll(`[data-test-category="${category}"][data-expected-type="cta"]`);
+                const urls = document.querySelectorAll(`[data-test-category="${category}"][data-expected-type="url"]`);
+                const working = document.querySelectorAll(`[data-test-category="${category}"][data-expected-status="working"]`);
+                const broken = document.querySelectorAll(`[data-test-category="${category}"][data-expected-status="broken"]`);
+                
+                if (elements.length > 0) {
+                    html += `<tr>
+                        <td>${category}</td>
+                        <td>${elements.length}</td>
+                        <td>${ctas.length}</td>
+                        <td>${urls.length}</td>
+                        <td>${working.length}</td>
+                        <td>${broken.length}</td>
+                    </tr>`;
+                }
+            });
+            
+            html += '</table>';
+            html += '<br><p><strong>Developer Implementation Logic:</strong></p>';
+            html += '<ul>';
+            html += '<li><strong>mightNavigate check (URLs):</strong> Anchor tags with real hrefs, Form elements, role="link", onclick with navigation patterns</li>';
+            html += '<li><strong>isTrueCTA check (CTAs):</strong> role="button"/aria-pressed, Button/submit/reset elements, non-navigation onclick, Bootstrap/UI framework classes</li>';
+            html += '<li><strong>Priority:</strong> isTrueCTA check likely takes precedence over mightNavigate for conflicting signals</li>';
+            html += '<li><strong>Navigation patterns:</strong> window.location, location.href, window.open, history.pushState, etc.</li>';
+            html += '<li><strong>Framework classes:</strong> .btn, .button, .MuiButton-root, .ant-btn, etc.</li>';
+            html += '<li><strong>Result flags:</strong> Elements get flagged as either CTA or link in shared_report</li>';
+            html += '</ul>';
+            html += '<br><p><strong>Broken Resource Classification:</strong></p>';
+            html += '<ul>';
+            html += '<li><strong>Broken URLs (URL failures tab):</strong> External 404s/timeouts, internal missing pages, protocol links without visual change, complex URLs that fail</li>';
+            html += '<li><strong>Broken CTAs (CTA failures tab):</strong> onclick with no visual change (alert/console only), data-only operations, internal nav without visual feedback, ARIA/role elements without visual changes</li>';
+            html += '<li><strong>Key Principle:</strong> "No visual change = Broken resource = Broken URL" (unless clear CTA indicators present)</li>';
+            html += '</ul>';
+            
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

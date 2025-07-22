@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Classification Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .test-element {
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            display: inline-block;
+            min-width: 200px;
+        }
+        .working { border-left: 4px solid green; }
+        .broken { border-left: 4px solid red; }
+        .url-expected { background-color: #fff3e0; }
+        .counter {
+            background: #333;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 8px 16px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Classification Tests</h1>
+        <p>This page tests elements that SHOULD be classified as URLs using the mightNavigate check</p>
+        
+        <div class="warning">
+            <strong>Testing Focus:</strong> mightNavigate classification logic - Anchor tags with real hrefs, 
+            Form elements, role="link", onclick with navigation patterns (window.location, history.pushState, etc.).
+            Broken URLs should appear in "URL failures" tab, NOT in "CTA failures" tab.
+        </div>
+        
+        <div class="counter" id="url-counter">
+            Total Elements: <span id="total-elements">0</span> | 
+            Valid URLs: <span id="valid-urls">0</span> | 
+            Broken URLs: <span id="broken-urls">0</span> | 
+            Broken CTAs: <span id="broken-ctas">0</span>
+        </div>
+
+        <!-- Section A: Valid External URLs -->
+        <div class="section">
+            <h2>Section A: Valid External URLs (Positive)</h2>
+            <p>These external URLs should be classified as URLs, not CTAs</p>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="external-https" data-test-id="ext-https">
+                <a href="https://www.google.com" target="_blank">External HTTPS Link</a>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="external-http" data-test-id="ext-http">
+                <a href="http://httpbin.org/get" target="_blank">External HTTP Link</a>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="email" data-test-id="email-link">
+                <a href="mailto:test@example.com">Email Link</a>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="phone" data-test-id="phone-link">
+                <a href="tel:+1234567890">Phone Link</a>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="external-subdomain" data-test-id="ext-subdomain">
+                <a href="https://api.github.com/users" target="_blank">External API Link</a>
+            </div>
+        </div>
+
+        <!-- Section B: Valid Internal Paths with Visual Changes -->
+        <div class="section">
+            <h2>Section B: Valid Internal Paths (Only if Visual Change Occurs)</h2>
+            <p><strong>Important:</strong> These internal paths should only be classified as URLs if they produce visual changes on the same page</p>
+            <p><em>If no visual change occurs, they should be classified as broken CTAs</em></p>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="internal-fragment" data-test-id="int-fragment">
+                <a href="#section-a" onclick="scrollToSection('section-a')">Scroll to Section A (Visual Change)</a>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="internal-hash" data-test-id="int-hash">
+                <a href="#url-counter" onclick="highlightElement('url-counter')">Highlight Counter (Visual Change)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="internal-no-visual" data-test-id="int-no-visual-1">
+                <a href="/products">Products Page (No Visual Change = Broken CTA)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="internal-no-visual" data-test-id="int-no-visual-2">
+                <a href="/api/users">API Endpoint (No Visual Change = Broken CTA)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="cta" data-expected-status="broken" data-test-category="internal-no-visual" data-test-id="int-no-visual-3">
+                <a href="/admin/users/manage">Admin Page (No Visual Change = Broken CTA)</a>
+            </div>
+        </div>
+
+        <!-- Section C: Navigation Pattern Detection (mightNavigate check) -->
+        <div class="section">
+            <h2>Section C: Navigation Pattern Detection</h2>
+            <p>Testing onclick handlers with navigation patterns (should be classified as URLs)</p>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="window-location-href">
+                <div onclick="simulateNavigation('window.location.href')">window.location.href pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="window-location-assign">
+                <div onclick="simulateNavigation('window.location.assign')">window.location.assign pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="location-href">
+                <div onclick="simulateNavigation('location.href')">location.href pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="window-open">
+                <div onclick="simulateNavigation('window.open')">window.open pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="history-push">
+                <div onclick="simulateNavigation('history.pushState')">history.pushState pattern</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="role-link">
+                <div role="link" onclick="simulateNavigation('role=link navigation')">role="link" with navigation</div>
+            </div>
+            
+            <div class="test-element working url-expected" data-expected-type="url" data-expected-status="working" data-test-category="navigation-patterns" data-test-id="form-element">
+                <form onsubmit="simulateNavigation('form submit'); return false;"><button type="submit">Form Submit Element</button></form>
+            </div>
+        </div>
+
+        <!-- Section D: Broken URLs (Should be URL failures, NOT CTA failures) -->
+        <div class="section">
+            <h2>Section D: Broken URLs (Negative)</h2>
+            <p><strong>Important:</strong> These should appear as URL failures, NOT CTA failures</p>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-external" data-test-id="broken-ext-domain">
+                <a href="https://nonexistent-domain-xyz123.com">Broken External Domain</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-external" data-test-id="broken-ext-404">
+                <a href="http://httpstat.us/404">404 External Link</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-internal" data-test-id="broken-int-path">
+                <a href="/this-page-does-not-exist">Broken Internal Path</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-email" data-test-id="broken-email">
+                <a href="mailto:invalid@broken-domain-xyz123.com">Broken Email</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-resource" data-test-id="broken-resource">
+                <a href="/missing-file.pdf">Missing File</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-api" data-test-id="broken-api">
+                <a href="/api/nonexistent-endpoint">Broken API Endpoint</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-external" data-test-id="broken-ext-timeout">
+                <a href="https://httpstat.us/408">Timeout External Link</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="broken-external" data-test-id="broken-ext-500">
+                <a href="https://httpstat.us/500">Server Error Link</a>
+            </div>
+        </div>
+
+        <!-- Section E: Protocol Variations (No Visual Change = Broken Links) -->
+        <div class="section">
+            <h2>Section E: Protocol Variations (No Visual Change = Broken Links)</h2>
+            <p>These protocol variations don't produce visual changes, so they should be classified as broken URL failures</p>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="protocol-no-visual" data-test-id="ftp-link">
+                <a href="ftp://files.example.com/document.pdf">FTP Link (No Visual Change = Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="protocol-no-visual" data-test-id="file-link">
+                <a href="file:///Users/Documents/local-file.txt">File Protocol (No Visual Change = Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="protocol-no-visual" data-test-id="data-link">
+                <a href="data:text/plain;base64,SGVsbG8gV29ybGQ=">Data URI (No Visual Change = Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="protocol-no-visual" data-test-id="invalid-protocol">
+                <a href="invalid://broken.protocol.com">Invalid Protocol (Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="protocol-no-visual" data-test-id="malformed-url">
+                <a href="ht!tp://malformed-url">Malformed URL (Broken URL)</a>
+            </div>
+        </div>
+
+        <!-- Section F: Query Parameters and Fragments (No Visual Change = Broken Links) -->
+        <div class="section">
+            <h2>Section F: Query Parameters and Fragments (No Visual Change = Broken Links)</h2>
+            <p>These URLs with parameters and fragments don't produce visual changes, so they should be classified as broken URL failures</p>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="complex-no-visual" data-test-id="url-fragment">
+                <a href="https://example.com/page#section1">URL with Fragment (No Visual Change = Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="complex-no-visual" data-test-id="url-params">
+                <a href="https://example.com/search?q=test&sort=date">URL with Parameters (No Visual Change = Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="complex-no-visual" data-test-id="url-complex">
+                <a href="https://api.example.com/v1/users?limit=10&offset=0#results">Complex URL (No Visual Change = Broken URL)</a>
+            </div>
+            
+            <div class="test-element broken url-expected" data-expected-type="url" data-expected-status="broken" data-test-category="complex-no-visual" data-test-id="broken-params">
+                <a href="https://broken-site.xyz/search?invalid=params">Broken URL with Params (Broken URL)</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Functions for internal navigation with visual changes
+        function scrollToSection(sectionId) {
+            const element = document.querySelector('[data-test-category="external-https"]').closest('.section');
+            if (element) {
+                element.style.backgroundColor = '#e7f3ff';
+                element.style.border = '2px solid #007bff';
+                element.scrollIntoView({ behavior: 'smooth' });
+                console.log('Scrolled to section with visual highlight - VISUAL CHANGE');
+            }
+        }
+        
+        function highlightElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.style.backgroundColor = '#fff3cd';
+                element.style.border = '2px solid #ffc107';
+                element.style.transform = 'scale(1.05)';
+                element.style.transition = 'all 0.3s ease';
+                setTimeout(() => {
+                    element.style.backgroundColor = '#333';
+                    element.style.border = '';
+                    element.style.transform = '';
+                }, 2000);
+                console.log('Element highlighted with visual feedback - VISUAL CHANGE');
+            }
+        }
+
+        function simulateNavigation(pattern) {
+            // Create visual feedback for navigation patterns
+            const feedback = document.createElement('div');
+            feedback.textContent = `🧭 Navigation simulated: ${pattern}`;
+            feedback.style.cssText = 'position:fixed;top:10px;right:10px;background:#007bff;color:white;padding:10px;border-radius:4px;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,0.3);';
+            document.body.appendChild(feedback);
+            
+            // Animate the feedback
+            setTimeout(() => {
+                feedback.style.transform = 'translateY(-10px)';
+                feedback.style.opacity = '0.8';
+            }, 100);
+            
+            setTimeout(() => {
+                feedback.remove();
+            }, 3000);
+            
+            console.log(`Navigation pattern detected: ${pattern} - VISUAL CHANGE`);
+        }
+
+        // Counter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const validUrls = document.querySelectorAll('[data-expected-type="url"][data-expected-status="working"]').length;
+            const brokenUrls = document.querySelectorAll('[data-expected-type="url"][data-expected-status="broken"]').length;
+            const brokenCtas = document.querySelectorAll('[data-expected-type="cta"][data-expected-status="broken"]').length;
+            const totalElements = validUrls + brokenUrls + brokenCtas;
+            
+            document.getElementById('total-elements').textContent = totalElements;
+            document.getElementById('valid-urls').textContent = validUrls;
+            document.getElementById('broken-urls').textContent = brokenUrls;
+            document.getElementById('broken-ctas').textContent = brokenCtas;
+            
+            console.log('URL Classification Test Page Loaded');
+            console.log('Total Elements:', totalElements);
+            console.log('Valid URLs (should be classified as URLs):', validUrls);
+            console.log('Broken URLs (should be classified as URL failures):', brokenUrls);
+            console.log('Broken CTAs (should be classified as CTA failures):', brokenCtas);
+            
+            // Log important note about broken URLs
+            console.warn('IMPORTANT: Broken URLs should appear in URL failures tab, NOT CTA failures tab');
+            console.warn('IMPORTANT: Internal paths without visual changes should be classified as broken CTAs');
+            
+            // Add click handlers to log broken link attempts
+            document.querySelectorAll('[data-expected-status="broken"]').forEach(element => {
+                const link = element.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Broken URL clicked:', this.href);
+                        console.log('This should be classified as URL failure, not CTA failure');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
