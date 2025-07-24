@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systematic Broken CTA Scenarios</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section { margin: 30px 0; padding: 20px; border: 1px solid #ddd; background: white; border-radius: 8px; }
+        .section-header { background: #343a40; color: white; margin: -20px -20px 20px -20px; padding: 15px 20px; border-radius: 8px 8px 0 0; }
+        .test-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .test-item { background: #fff5f5; border-left: 6px solid #dc3545; padding: 12px; border-radius: 6px; margin-bottom: 10px; }
+        .test-label { font-weight: bold; margin-bottom: 6px; }
+        .error-indicator { color: #dc3545; font-size: 12px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Systematic Broken CTA Scenarios</h1>
+        <p>Each section below covers one of the 12 major CTA types, with at least one broken example for each.</p>
+
+        <!-- 1. Button CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>1. Button CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Sign Up (Primary)</span><button onclick="alert('Sign Up!')">Sign Up</button><div class="error-indicator">❌ Alert is not a visual change</div></div>
+                <div class="test-item"><span class="test-label">Subscribe</span><button onclick="console.log('Subscribe')">Subscribe</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Add to Cart</span><button onclick="undefinedAddToCart()">Add to Cart</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Learn More (Secondary)</span><button onclick="console.log('Learn More')">Learn More</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">View Details</span><button onclick="">View Details</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Ghost Button</span><button style="background:none;border:1px solid #ccc;" onclick="undefinedFunction()">Ghost</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Floating Action Button (FAB)</span><button style="border-radius:50%;width:56px;height:56px;" onclick="">+</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Icon-only Button</span><button aria-label="Search" onclick="localStorage.setItem('search','1')">🔍</button><div class="error-indicator">❌ Storage is not visual</div></div>
+                <div class="test-item"><span class="test-label">Disabled Button</span><button disabled onclick="alert('Disabled')">Disabled</button><div class="error-indicator">❌ Disabled but still clickable</div></div>
+                <div class="test-item"><span class="test-label">Button with Data Only</span><button onclick="var x=1">Data only</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 2. Link CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>2. Link CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Read More (Anchor)</span><a href="#" onclick="alert('Read More')">Read More</a><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">See All Features (Text Link)</span><a href="#" onclick="console.log('Body link')">See All Features</a><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Fake Link Button</span><a href="#" style="display:inline-block;padding:8px 16px;border:1px solid #007bff;color:#007bff;border-radius:4px;" onclick="undefinedFakeBtn()">Fake Link Button</a><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Open in New Tab</span><a href="https://example.com" target="_blank" onclick="">Open in New Tab</a><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Link with Data Only</span><a href="#" onclick="var x=2">Data only</a><div class="error-indicator">❌ No visual change</div></div>
+                <div class="test-item"><span class="test-label">Link with Storage</span><a href="#" onclick="localStorage.setItem('link','1')">Save Link</a><div class="error-indicator">❌ Storage is not visual</div></div>
+                <div class="test-item"><span class="test-label">Link with Confirm</span><a href="#" onclick="confirm('Are you sure?')">Confirm Link</a><div class="error-indicator">❌ Confirm is not visual</div></div>
+            </div>
+        </div>
+
+        <!-- 3. Form-based CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>3. Form-based CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Contact Us (Submit)</span><form onsubmit="alert('Contact Us');return false;"><button type="submit">Contact Us</button></form><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Request Demo</span><form onsubmit="console.log('Request Demo');return false;"><button type="submit">Request Demo</button></form><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Search Bar</span><form onsubmit="console.log('Search submit');return false;"><input type="search" placeholder="Search..." /><button type="submit">Search</button></form><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Newsletter Signup</span><form onsubmit="localStorage.setItem('newsletter','1');return false;"><input type="email" placeholder="Email" /><button type="submit">Subscribe</button></form><div class="error-indicator">❌ Storage is not visual</div></div>
+                <div class="test-item"><span class="test-label">Survey/Feedback</span><form onsubmit="undefinedSurvey();return false;"><button type="submit">Submit Survey</button></form><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Poll Form</span><form onsubmit=""> <button type="submit">Vote</button></form><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Form with Data Only</span><form onsubmit="var x=3;return false;"><button type="submit">Submit Data</button></form><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 4. Navigation CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>4. Navigation CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Menu Item</span><nav><a href="#" onclick="alert('Menu')">☰ Menu</a></nav><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Sidebar Link</span><nav><a href="#" onclick="console.log('Sidebar')">Sidebar</a></nav><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Breadcrumbs</span><nav><a href="#" onclick="">Home</a> / <a href="#" onclick="">Section</a></nav><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Pagination</span><button onclick="console.log('Next page')">Next &raquo;</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Previous Page</span><button onclick="undefinedPrevPage()">Previous</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Tabs</span><button onclick="undefinedTab()">Tab 1</button> <button onclick="">Tab 2</button><div class="error-indicator">❌ Function does not exist / Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Segmented Control</span><button onclick="">Segment 1</button> <button onclick="">Segment 2</button><div class="error-indicator">❌ Empty handler</div></div>
+            </div>
+        </div>
+
+        <!-- 5. Modal/Popup CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>5. Modal/Popup CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Login/Register Modal</span><button onclick="showModal('login')">Login/Register</button><div class="error-indicator">❌ Modal handler broken</div></div>
+                <div class="test-item"><span class="test-label">Forgot Password Modal</span><button onclick="undefinedForgotPassword()">Forgot Password</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Discount Popup</span><button onclick="alert('Get Offer!')">Get Offer</button><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Newsletter Modal</span><button onclick="">Subscribe Modal</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Exit-intent CTA</span><button onclick="console.log('Exit intent')">Wait! Special Offer</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Cookie Banner</span><button onclick="localStorage.setItem('cookie','accepted')">Accept Cookies</button><div class="error-indicator">❌ Storage is not visual</div></div>
+                <div class="test-item"><span class="test-label">Popup with Data Only</span><button onclick="var x=4">Popup Data</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 6. Scroll/Viewport-triggered CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>6. Scroll/Viewport-triggered CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Sticky CTA</span><button style="position:sticky;top:0;" onclick="alert('Sticky CTA')">Sticky CTA</button><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Reveal-on-scroll</span><button style="display:none;" onclick="console.log('Back to Top')">Back to Top</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Continue Button</span><button onclick="">Continue</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Lazy-load Button</span><button onclick="undefinedLoadMore()">Load More</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Show More</span><button onclick="var x=5">Show More</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 7. Media-based CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>7. Media-based CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Clickable Card</span><img src="https://via.placeholder.com/100x60" alt="Card" onclick="alert('Card clicked')" style="cursor:pointer;" /><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Clickable Image</span><img src="https://via.placeholder.com/80x80" alt="Image" onclick="console.log('Image clicked')" style="cursor:pointer;" /><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Video Overlay</span><button onclick="console.log('Play video')">▶️ Watch Now</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Infographic</span><button onclick="undefinedInfographic()">Click to Explore</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Media with Data Only</span><button onclick="var x=6">Media Data</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 8. E-commerce CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>8. E-commerce CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Add to Wishlist</span><button onclick="localStorage.setItem('wishlist','1')">Add to Wishlist</button><div class="error-indicator">❌ Storage is not visual</div></div>
+                <div class="test-item"><span class="test-label">Compare Products</span><button onclick="alert('Compare Products')">Compare Products</button><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Buy Now</span><button onclick="undefinedBuyNow()">Buy Now</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Checkout</span><button onclick="console.log('Checkout')">Checkout</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Apply Coupon</span><button onclick="">Apply Coupon</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Add to Cart</span><button onclick="undefinedAddToCart()">Add to Cart</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Product with Data Only</span><button onclick="var x=7">Product Data</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 9. Social & Share CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>9. Social & Share CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Like</span><button onclick="alert('Like')">👍 Like</button><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Share</span><button onclick="console.log('Share')">Share</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Follow</span><button onclick="">Follow</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Tweet</span><button onclick="undefinedTweet()">Tweet</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Login with Google</span><button onclick="undefinedGoogleLogin()">Login with Google</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Login with Facebook</span><button onclick="">Login with Facebook</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Share Popup</span><button onclick="">Share via...</button><div class="error-indicator">❌ Empty handler</div></div>
+            </div>
+        </div>
+
+        <!-- 10. Feedback & Support CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>10. Feedback & Support CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Chat with Us</span><button onclick="alert('Chat with us')">Chat with us</button><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Live Chat Widget</span><button onclick="">Live Chat</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Report Issue</span><button onclick="console.log('Report Issue')">Report Issue</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Give Feedback</span><button onclick="">Give Feedback</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Help Center</span><button onclick="undefinedHelp()">Help Center</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Support Center</span><button onclick="var x=8">Support Center</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 11. Mobile-Specific CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>11. Mobile-Specific CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Swipe Gesture</span><button onclick="console.log('Swipe gesture')">Swipe to Continue</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">Tap to Call</span><a href="tel:+1234567890" onclick="alert('Tap to call')">Tap to Call</a><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Tap to SMS</span><a href="sms:+1234567890" onclick="">Tap to SMS</a><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Install App</span><button onclick="undefinedInstallApp()">Install App</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Deep Link</span><a href="myapp://open" onclick="">Open in App</a><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">Mobile CTA with Data Only</span><button onclick="var x=9">Mobile Data</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+
+        <!-- 12. Unusual/Advanced CTAs -->
+        <div class="section">
+            <div class="section-header"><h2>12. Unusual/Advanced CTAs</h2></div>
+            <div class="test-list">
+                <div class="test-item"><span class="test-label">Gamified CTA</span><button onclick="alert('Spin!')">🎰 Spin the Wheel</button><div class="error-indicator">❌ Alert is not visual</div></div>
+                <div class="test-item"><span class="test-label">Scratch Card</span><button onclick="undefinedScratchCard()">Scratch Card</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">Voice Assistant</span><button onclick="console.log('Voice assistant trigger')">🎤 Voice Command</button><div class="error-indicator">❌ Console.log is not visual</div></div>
+                <div class="test-item"><span class="test-label">AR/VR Prompt</span><button onclick="undefinedARVR()">AR/VR Prompt</button><div class="error-indicator">❌ Function does not exist</div></div>
+                <div class="test-item"><span class="test-label">QR Code Scan</span><button onclick="">Scan QR Code</button><div class="error-indicator">❌ Empty handler</div></div>
+                <div class="test-item"><span class="test-label">AR/VR with Data Only</span><button onclick="var x=10">AR/VR Data</button><div class="error-indicator">❌ No visual change</div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
