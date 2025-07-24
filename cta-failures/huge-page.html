@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Broken CTA Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 8px;
+        }
+        .test-element {
+            margin: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            display: inline-block;
+            min-width: 280px;
+            vertical-align: top;
+            border-radius: 4px;
+        }
+        .broken { 
+            border-left: 6px solid #dc3545; 
+            background-color: #fff5f5;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stats-dashboard {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        .btn, button, input[type="submit"], input[type="reset"], input[type="button"] {
+            padding: 8px 16px;
+            margin: 3px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn-primary { background: #007bff; color: white; border: none; }
+        .btn-secondary { background: #6c757d; color: white; border: none; }
+        .btn-danger { background: #dc3545; color: white; border: none; }
+        .btn-success { background: #28a745; color: white; border: none; }
+        .btn-warning { background: #ffc107; color: #212529; border: none; }
+        .btn-info { background: #17a2b8; color: white; border: none; }
+        .btn-light { background: #f8f9fa; color: #212529; border: 1px solid #dee2e6; }
+        .btn-dark { background: #343a40; color: white; border: none; }
+        .button { background: #e9ecef; border: 1px solid #ced4da; }
+        .MuiButton-root { background: #1976d2; color: white; border: none; }
+        .ant-btn { background: #1890ff; color: white; border: none; }
+        .error-indicator {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 6px solid #ffc107;
+        }
+        .section-header {
+            background: #343a40;
+            color: white;
+            margin: -20px -20px 20px -20px;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Comprehensive Broken CTA Test Page</h1>
+        <p>This page contains ONLY broken CTA elements - every single element should appear in the "CTA failures" tab</p>
+        
+        <div class="warning-box">
+            <strong>⚠️ CRITICAL TEST CRITERIA:</strong><br>
+            • ALL elements on this page should be classified as <strong>CTAs</strong> (not URLs)<br>
+            • ALL elements should be flagged as <strong>BROKEN</strong> (no visual changes)<br>
+            • Every element should appear in the <strong>"CTA failures" tab</strong><br>
+            • ZERO elements should appear in "URL failures" or working lists<br>
+            • Test coverage: Role-based, ARIA, Button elements, UI frameworks, Forms, Mixed signals
+        </div>
+
+        <div class="stats-dashboard">
+            <h2>🔢 Broken CTA Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-elements">0</span>
+                    <span>Total Broken CTAs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="role-based">0</span>
+                    <span>Role-based</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="aria-based">0</span>
+                    <span>ARIA-based</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="button-elements">0</span>
+                    <span>Button Elements</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="ui-framework">0</span>
+                    <span>UI Framework</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="form-elements">0</span>
+                    <span>Form Elements</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="mixed-signals">0</span>
+                    <span>Mixed Signals</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="complex-broken">0</span>
+                    <span>Complex Broken</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Role-based Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>1️⃣ Role-based Broken CTAs (role="button")</h2>
+                <p>Elements with role="button" that fail to produce visual changes</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-a-alert">
+                    <a role="button" onclick="alert('Alert is not visual change!')">role=button + Alert Only</a>
+                    <div class="error-indicator">❌ Alert is not a visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-div-console">
+                    <div role="button" onclick="console.log('Console output only')">role=button + Console Only</div>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-span-undefined">
+                    <span role="button" onclick="undefinedFunction()">role=button + Undefined Function</span>
+                    <div class="error-indicator">❌ Function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-div-no-onclick">
+                    <div role="button">role=button + No onclick</div>
+                    <div class="error-indicator">❌ Missing event handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-a-empty">
+                    <a role="button" onclick="">role=button + Empty onclick</a>
+                    <div class="error-indicator">❌ Empty event handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-div-data-only">
+                    <div role="button" onclick="localStorage.setItem('test', 'value')">role=button + Data Operation</div>
+                    <div class="error-indicator">❌ LocalStorage is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-span-confirm">
+                    <span role="button" onclick="confirm('Confirm dialog')">role=button + Confirm Dialog</span>
+                    <div class="error-indicator">❌ Confirm dialog is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-div-prompt">
+                    <div role="button" onclick="prompt('Enter value')">role=button + Prompt Dialog</span>
+                    <div class="error-indicator">❌ Prompt dialog is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-a-storage">
+                    <a role="button" onclick="sessionStorage.setItem('key', 'val')">role=button + Session Storage</a>
+                    <div class="error-indicator">❌ Storage operation is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="role-based" data-test-id="role-span-calculation">
+                    <span role="button" onclick="var x = 5 * 10; console.log(x)">role=button + Calculation Only</span>
+                    <div class="error-indicator">❌ Math calculation is not visual</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: ARIA-based Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>2️⃣ ARIA-based Broken CTAs (aria-pressed)</h2>
+                <p>Elements with aria-pressed that fail to provide visual feedback</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-button-undefined">
+                    <button aria-pressed="true" onclick="missingToggleFunction()">aria-pressed + Undefined Function</button>
+                    <div class="error-indicator">❌ Toggle function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-div-no-handler">
+                    <div aria-pressed="false">aria-pressed + No Event Handler</div>
+                    <div class="error-indicator">❌ Missing onclick handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-span-alert">
+                    <span aria-pressed="true" onclick="alert('Toggle state')">aria-pressed + Alert Only</span>
+                    <div class="error-indicator">❌ Alert is not visual feedback</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-a-console">
+                    <a aria-pressed="false" onclick="console.log('Toggled')">aria-pressed + Console Only</a>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-div-storage">
+                    <div aria-pressed="true" onclick="localStorage.setItem('toggle', 'on')">aria-pressed + Storage Only</div>
+                    <div class="error-indicator">❌ Storage operation is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-button-empty">
+                    <button aria-pressed="false" onclick="">aria-pressed + Empty Handler</button>
+                    <div class="error-indicator">❌ Empty onclick handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-span-data">
+                    <span aria-pressed="true" onclick="var data = {pressed: true}">aria-pressed + Data Object Only</span>
+                    <div class="error-indicator">❌ Data creation is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="aria-based" data-test-id="aria-div-confirm">
+                    <div aria-pressed="false" onclick="confirm('Toggle this?')">aria-pressed + Confirm Dialog</div>
+                    <div class="error-indicator">❌ Confirm is not visual change</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Button Elements Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>3️⃣ Button Elements Broken CTAs</h2>
+                <p>Native button elements that fail to produce visual changes</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-alert">
+                    <button onclick="alert('Button clicked')">Button + Alert Only</button>
+                    <div class="error-indicator">❌ Alert is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-console">
+                    <button onclick="console.log('Button action')">Button + Console Only</button>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-undefined">
+                    <button onclick="nonExistentFunction()">Button + Undefined Function</button>
+                    <div class="error-indicator">❌ Function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-no-onclick">
+                    <button>Button + No onclick</button>
+                    <div class="error-indicator">❌ Missing event handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-data-processing">
+                    <button onclick="processDataOnly()">Button + Data Processing Only</button>
+                    <div class="error-indicator">❌ Data processing is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-storage">
+                    <button onclick="localStorage.setItem('button', 'clicked')">Button + Storage Operation</button>
+                    <div class="error-indicator">❌ Storage is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-empty">
+                    <button onclick="">Button + Empty onclick</button>
+                    <div class="error-indicator">❌ Empty event handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-variable">
+                    <button onclick="var result = Math.random()">Button + Variable Assignment</button>
+                    <div class="error-indicator">❌ Variable assignment is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-api-call">
+                    <button onclick="fetch('/nonexistent-api')">Button + Broken API Call</button>
+                    <div class="error-indicator">❌ API call to missing endpoint</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="button-elements" data-test-id="button-timeout">
+                    <button onclick="setTimeout(() => {}, 1000)">Button + Empty Timeout</button>
+                    <div class="error-indicator">❌ Empty timeout function</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Input Elements Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>4️⃣ Input Elements Broken CTAs</h2>
+                <p>Input elements (submit, reset, button) that fail to work properly</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-submit-broken">
+                    <input type="submit" onclick="submitToBrokenEndpoint()" value="Submit to Broken Endpoint">
+                    <div class="error-indicator">❌ Endpoint does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-reset-no-visual">
+                    <input type="reset" onclick="console.log('Reset clicked')" value="Reset + Console Only">
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-button-alert">
+                    <input type="button" onclick="alert('Button input clicked')" value="Input Button + Alert">
+                    <div class="error-indicator">❌ Alert is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-submit-no-action">
+                    <form><input type="submit" value="Submit + No Form Action"></form>
+                    <div class="error-indicator">❌ Form has no action attribute</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-button-undefined">
+                    <input type="button" onclick="missingInputFunction()" value="Input + Undefined Function">
+                    <div class="error-indicator">❌ Function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-reset-storage">
+                    <input type="reset" onclick="sessionStorage.clear()" value="Reset + Storage Clear">
+                    <div class="error-indicator">❌ Storage operation is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-submit-empty">
+                    <input type="submit" onclick="" value="Submit + Empty Handler">
+                    <div class="error-indicator">❌ Empty onclick handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="input-elements" data-test-id="input-button-confirm">
+                    <input type="button" onclick="confirm('Proceed?')" value="Input + Confirm Only">
+                    <div class="error-indicator">❌ Confirm dialog is not visual</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: UI Framework Classes Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>5️⃣ UI Framework Classes Broken CTAs</h2>
+                <p>Bootstrap, Material-UI, Ant Design button classes that fail</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-primary-alert">
+                    <div class="btn btn-primary" onclick="alert('Bootstrap clicked')">Bootstrap Primary + Alert</div>
+                    <div class="error-indicator">❌ Alert is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-secondary-console">
+                    <span class="btn btn-secondary" onclick="console.log('Secondary')">Bootstrap Secondary + Console</span>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-danger-undefined">
+                    <div class="btn btn-danger" onclick="undefinedBootstrapFunction()">Bootstrap Danger + Undefined</div>
+                    <div class="error-indicator">❌ Function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-success-storage">
+                    <a class="btn btn-success" onclick="localStorage.setItem('success', 'true')">Bootstrap Success + Storage</a>
+                    <div class="error-indicator">❌ Storage is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-warning-empty">
+                    <div class="btn btn-warning" onclick="">Bootstrap Warning + Empty</div>
+                    <div class="error-indicator">❌ Empty onclick handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-info-confirm">
+                    <span class="btn btn-info" onclick="confirm('Info action?')">Bootstrap Info + Confirm</span>
+                    <div class="error-indicator">❌ Confirm is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-light-data">
+                    <div class="btn btn-light" onclick="var data = {clicked: true}">Bootstrap Light + Data Object</div>
+                    <div class="error-indicator">❌ Data creation is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="bootstrap-dark-calculation">
+                    <a class="btn btn-dark" onclick="Math.pow(2, 10)">Bootstrap Dark + Calculation</a>
+                    <div class="error-indicator">❌ Math calculation is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="generic-button-alert">
+                    <div class="button" onclick="alert('Generic button')">Generic Button + Alert</div>
+                    <div class="error-indicator">❌ Alert is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="mui-button-console">
+                    <div class="MuiButton-root" onclick="console.log('MUI clicked')">Material-UI + Console</div>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="ant-btn-undefined">
+                    <div class="ant-btn" onclick="missingAntFunction()">Ant Design + Undefined</div>
+                    <div class="error-indicator">❌ Function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="ui-framework" data-test-id="mui-button-storage">
+                    <span class="MuiButton-root" onclick="sessionStorage.setItem('mui', 'clicked')">Material-UI + Storage</span>
+                    <div class="error-indicator">❌ Storage is not visual change</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Form Elements Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>6️⃣ Form Elements Broken CTAs</h2>
+                <p>Form elements with broken actions and missing endpoints</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-broken-action">
+                    <form action="/nonexistent-endpoint" method="post">
+                        <button type="submit">Form + Broken Action URL</button>
+                    </form>
+                    <div class="error-indicator">❌ Action URL does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-missing-endpoint">
+                    <form action="/api/missing" onsubmit="console.log('Submitting')">
+                        <input type="submit" value="Form + Missing API">
+                    </form>
+                    <div class="error-indicator">❌ API endpoint missing</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-no-visual">
+                    <form onsubmit="localStorage.setItem('form', 'submitted'); return false;">
+                        <button type="submit">Form + No Visual Feedback</button>
+                    </form>
+                    <div class="error-indicator">❌ Storage only, no visual feedback</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-alert-only">
+                    <form onsubmit="alert('Form submitted'); return false;">
+                        <input type="submit" value="Form + Alert Only">
+                    </form>
+                    <div class="error-indicator">❌ Alert is not visual feedback</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-console-only">
+                    <form onsubmit="console.log('Form data sent'); return false;">
+                        <button type="submit">Form + Console Only</button>
+                    </form>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-undefined-function">
+                    <form onsubmit="submitToUndefinedHandler(); return false;">
+                        <input type="submit" value="Form + Undefined Handler">
+                    </form>
+                    <div class="error-indicator">❌ Submit handler does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-empty-action">
+                    <form action="" method="post">
+                        <button type="submit">Form + Empty Action</button>
+                    </form>
+                    <div class="error-indicator">❌ Empty action attribute</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="form-elements" data-test-id="form-invalid-method">
+                    <form action="/endpoint" method="INVALID">
+                        <input type="submit" value="Form + Invalid Method">
+                    </form>
+                    <div class="error-indicator">❌ Invalid HTTP method</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Mixed Signal Elements Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>7️⃣ Mixed Signal Elements Broken CTAs</h2>
+                <p>Elements with both navigation (href) and CTA indicators that fail</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-role-button-alert">
+                    <a href="/settings" role="button" onclick="alert('Mixed signal'); return false;">href + role=button + Alert</a>
+                    <div class="error-indicator">❌ Alert is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-aria-pressed-console">
+                    <a href="/toggle" aria-pressed="false" onclick="console.log('Toggle'); return false;">href + aria-pressed + Console</a>
+                    <div class="error-indicator">❌ Console.log is not visual</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-btn-undefined">
+                    <a href="/action" class="btn btn-primary" onclick="undefinedMixedFunction(); return false;">href + Bootstrap + Undefined</a>
+                    <div class="error-indicator">❌ Function does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-role-button-storage">
+                    <a href="#" role="button" onclick="localStorage.setItem('mixed', 'clicked'); return false;">href + role=button + Storage</a>
+                    <div class="error-indicator">❌ Storage is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-aria-pressed-empty">
+                    <a href="/page" aria-pressed="true" onclick="return false;">href + aria-pressed + Empty Logic</a>
+                    <div class="error-indicator">❌ No action in onclick</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-btn-confirm">
+                    <a href="/confirm" class="btn btn-warning" onclick="confirm('Are you sure?'); return false;">href + Bootstrap + Confirm</a>
+                    <div class="error-indicator">❌ Confirm is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-multiple-cta-alert">
+                    <a href="/multi" role="button" aria-pressed="false" class="btn" onclick="alert('Multiple CTA signals'); return false;">Multiple CTA + Alert</a>
+                    <div class="error-indicator">❌ Alert is not visual change</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="mixed-signals" data-test-id="href-role-button-calculation">
+                    <a href="/calc" role="button" onclick="var result = 5 * 5; return false;">href + role=button + Calculation</a>
+                    <div class="error-indicator">❌ Math calculation is not visual</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Complex Broken Scenarios -->
+        <div class="section">
+            <div class="section-header">
+                <h2>8️⃣ Complex Broken Scenarios</h2>
+                <p>Advanced broken CTA scenarios with multiple failure points</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="ajax-broken-endpoint">
+                    <button onclick="ajaxCall('/api/nonexistent')">AJAX to Missing Endpoint</button>
+                    <div class="error-indicator">❌ API endpoint does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="file-upload-broken">
+                    <button onclick="uploadFile('/upload/broken')">File Upload to Broken Path</button>
+                    <div class="error-indicator">❌ Upload endpoint broken</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="modal-missing-content">
+                    <button onclick="showModal('missing-content')">Modal with Missing Content</button>
+                    <div class="error-indicator">❌ Modal content template missing</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="cart-invalid-action">
+                    <button onclick="cartAction('invalid-action')">Shopping Cart Invalid Action</button>
+                    <div class="error-indicator">❌ Cart action type invalid</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="payment-broken-gateway">
+                    <button onclick="processPayment('broken-gateway')">Payment with Broken Gateway</button>
+                    <div class="error-indicator">❌ Payment gateway unavailable</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="download-missing-file">
+                    <button onclick="downloadFile('/files/missing.pdf')">Download Missing File</button>
+                    <div class="error-indicator">❌ File does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="websocket-connection-failed">
+                    <button onclick="connectWebSocket('ws://broken.socket')">WebSocket Connection Failed</button>
+                    <div class="error-indicator">❌ WebSocket endpoint unreachable</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="database-query-error">
+                    <button onclick="queryDatabase('INVALID SQL')">Database Query Error</button>
+                    <div class="error-indicator">❌ Invalid SQL query</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="auth-token-expired">
+                    <button onclick="authenticatedAction('expired-token')">Authenticated Action (Expired)</button>
+                    <div class="error-indicator">❌ Authentication token expired</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="async-function-error">
+                    <button onclick="asyncActionWithError()">Async Function with Error</button>
+                    <div class="error-indicator">❌ Async function throws error</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="third-party-api-down">
+                    <button onclick="callThirdPartyAPI('down-service')">Third-party API Down</button>
+                    <div class="error-indicator">❌ External service unavailable</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="complex-broken" data-test-id="cross-origin-blocked">
+                    <button onclick="crossOriginRequest('blocked-domain')">Cross-origin Request Blocked</button>
+                    <div class="error-indicator">❌ CORS policy blocks request</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Event Handler Variations -->
+        <div class="section">
+            <div class="section-header">
+                <h2>9️⃣ Event Handler Variations (All Broken)</h2>
+                <p>Different types of broken event handlers and edge cases</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-syntax-error">
+                    <button onclick="var x = ; // syntax error">Syntax Error in onclick</button>
+                    <div class="error-indicator">❌ JavaScript syntax error</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-reference-error">
+                    <button onclick="unknownVariable.method()">Reference Error in onclick</button>
+                    <div class="error-indicator">❌ Variable does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-type-error">
+                    <button onclick="null.someMethod()">Type Error in onclick</button>
+                    <div class="error-indicator">❌ Cannot call method on null</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-promise-rejection">
+                    <button onclick="Promise.reject('Failed operation')">Promise Rejection</button>
+                    <div class="error-indicator">❌ Unhandled promise rejection</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-infinite-loop">
+                    <button onclick="while(true) { /* infinite loop */ break; }">Infinite Loop (Broken)</button>
+                    <div class="error-indicator">❌ Infinite loop in handler</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-network-error">
+                    <button onclick="fetch('https://nonexistent-api.fake')">Network Error</button>
+                    <div class="error-indicator">❌ Network request fails</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-permission-denied">
+                    <button onclick="navigator.geolocation.getCurrentPosition()">Permission Denied Action</button>
+                    <div class="error-indicator">❌ Permission not granted</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-memory-leak">
+                    <button onclick="var arr = []; while(arr.length < 1000000) arr.push(new Array(1000))">Memory Intensive Operation</button>
+                    <div class="error-indicator">❌ Memory intensive without result</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-circular-reference">
+                    <button onclick="var obj = {}; obj.self = obj; JSON.stringify(obj)">Circular Reference Error</button>
+                    <div class="error-indicator">❌ Cannot stringify circular reference</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="event-handlers" data-test-id="onclick-security-error">
+                    <button onclick="document.domain = 'evil.com'">Security Error</button>
+                    <div class="error-indicator">❌ Security policy violation</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Accessibility-related Broken CTAs -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🔟 Accessibility-related Broken CTAs</h2>
+                <p>ARIA and accessibility attributes with broken functionality</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="aria-expanded-broken">
+                    <button aria-expanded="false" onclick="alert('Expand broken')">aria-expanded + Alert</button>
+                    <div class="error-indicator">❌ Alert is not visual expansion</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="aria-controls-missing">
+                    <button aria-controls="missing-element" onclick="console.log('Controls missing')">aria-controls + Missing Target</button>
+                    <div class="error-indicator">❌ Controlled element does not exist</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="aria-describedby-broken">
+                    <button aria-describedby="missing-description" onclick="undefinedAriaFunction()">aria-describedby + Undefined</button>
+                    <div class="error-indicator">❌ Description element missing</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="aria-haspopup-no-popup">
+                    <button aria-haspopup="true" onclick="alert('No actual popup')">aria-haspopup + Alert</button>
+                    <div class="error-indicator">❌ Alert is not a popup</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="tabindex-broken-focus">
+                    <div tabindex="0" role="button" onclick="console.log('Focus broken')">tabindex + Broken Focus</div>
+                    <div class="error-indicator">❌ Focus handling broken</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="aria-label-misleading">
+                    <button aria-label="Save document" onclick="localStorage.setItem('test', 'value')">Misleading aria-label</button>
+                    <div class="error-indicator">❌ Label promises save, does storage</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="aria-disabled-still-clickable">
+                    <button aria-disabled="true" onclick="alert('Still clickable')">aria-disabled + Still Works</button>
+                    <div class="error-indicator">❌ Disabled but still functional</div>
+                </div>
+
+                <div class="test-element broken" data-expected-type="cta" data-expected-status="broken" data-test-category="accessibility" data-test-id="screen-reader-only-broken">
+                    <button><span class="sr-only">Hidden action</span>Visible Text<span onclick="brokenSRFunction()"></span></button>
+                    <div class="error-indicator">❌ Screen reader function broken</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // All these functions are intentionally broken or produce no visual changes
+        
+        // Functions that exist but produce no visual changes (BROKEN)
+        function processDataOnly() {
+            const data = Array.from({length: 1000}, (_, i) => i * 2);
+            const result = data.reduce((sum, val) => sum + val, 0);
+            sessionStorage.setItem('calculation-result', result);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function submitToBrokenEndpoint() {
+            console.error('Endpoint /api/submit does not exist');
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function ajaxCall(url) {
+            console.error('AJAX call failed, URL not found:', url);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function uploadFile(endpoint) {
+            console.error('Upload failed, endpoint broken:', endpoint);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function showModal(contentType) {
+            if (contentType === 'missing-content') {
+                console.error('Modal content template not found');
+                // NO VISUAL CHANGE - This is broken
+            }
+        }
+
+        function cartAction(action) {
+            console.error('Invalid cart action:', action);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function processPayment(gateway) {
+            console.error('Payment gateway unavailable:', gateway);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function downloadFile(filepath) {
+            console.error('File not found:', filepath);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function connectWebSocket(url) {
+            console.error('WebSocket connection failed:', url);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function queryDatabase(sql) {
+            console.error('Database query error:', sql);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function authenticatedAction(token) {
+            console.error('Authentication failed, token expired:', token);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        async function asyncActionWithError() {
+            throw new Error('Async action failed intentionally');
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function callThirdPartyAPI(service) {
+            console.error('Third-party service unavailable:', service);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        function crossOriginRequest(domain) {
+            console.error('CORS policy blocks request to:', domain);
+            // NO VISUAL CHANGE - This is broken
+        }
+
+        // Statistics counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalElements = document.querySelectorAll('[data-test-category]').length;
+            const roleBased = document.querySelectorAll('[data-test-category="role-based"]').length;
+            const ariaBased = document.querySelectorAll('[data-test-category="aria-based"]').length;
+            const buttonElements = document.querySelectorAll('[data-test-category="button-elements"]').length;
+            const inputElements = document.querySelectorAll('[data-test-category="input-elements"]').length;
+            const uiFramework = document.querySelectorAll('[data-test-category="ui-framework"]').length;
+            const formElements = document.querySelectorAll('[data-test-category="form-elements"]').length;
+            const mixedSignals = document.querySelectorAll('[data-test-category="mixed-signals"]').length;
+            const complexBroken = document.querySelectorAll('[data-test-category="complex-broken"]').length;
+            const eventHandlers = document.querySelectorAll('[data-test-category="event-handlers"]').length;
+            const accessibility = document.querySelectorAll('[data-test-category="accessibility"]').length;
+
+            document.getElementById('total-elements').textContent = totalElements;
+            document.getElementById('role-based').textContent = roleBased;
+            document.getElementById('aria-based').textContent = ariaBased;
+            document.getElementById('button-elements').textContent = buttonElements + inputElements;
+            document.getElementById('ui-framework').textContent = uiFramework;
+            document.getElementById('form-elements').textContent = formElements;
+            document.getElementById('mixed-signals').textContent = mixedSignals;
+            document.getElementById('complex-broken').textContent = complexBroken + eventHandlers + accessibility;
+
+            console.log('🚨 COMPREHENSIVE BROKEN CTA TEST PAGE LOADED 🚨');
+            console.log('=====================================');
+            console.log('📊 STATISTICS:');
+            console.log('Total Broken CTAs:', totalElements);
+            console.log('Role-based CTAs:', roleBased);
+            console.log('ARIA-based CTAs:', ariaBased);
+            console.log('Button Elements:', buttonElements);
+            console.log('Input Elements:', inputElements);
+            console.log('UI Framework:', uiFramework);
+            console.log('Form Elements:', formElements);
+            console.log('Mixed Signals:', mixedSignals);
+            console.log('Complex Broken:', complexBroken);
+            console.log('Event Handlers:', eventHandlers);
+            console.log('Accessibility:', accessibility);
+            console.log('=====================================');
+            console.log('🎯 TESTING REQUIREMENTS:');
+            console.log('✅ ALL elements should be classified as CTAs');
+            console.log('✅ ALL elements should be flagged as BROKEN');
+            console.log('✅ ALL elements should appear in CTA failures tab');
+            console.log('❌ ZERO elements should appear in URL failures');
+            console.log('❌ ZERO elements should appear as working');
+            console.log('=====================================');
+            console.log('🔍 BROKEN CRITERIA:');
+            console.log('• alert() is NOT a visual change');
+            console.log('• console.log() is NOT a visual change');
+            console.log('• confirm()/prompt() are NOT visual changes');
+            console.log('• localStorage/sessionStorage are NOT visual');
+            console.log('• Math calculations are NOT visual');
+            console.log('• Data processing only is NOT visual');
+            console.log('• Undefined functions are broken');
+            console.log('• Empty event handlers are broken');
+            console.log('• Network/API failures are broken');
+            console.log('• Missing endpoints are broken');
+            console.log('=====================================');
+        });
+    </script>
+</body>
+</html>
