@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Phone Link Types — Examples Only</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.45;padding:28px;background:#f7f7f8;color:#0b1220}
+    main{max-width:900px;margin:0 auto;background:#fff;border-radius:12px;padding:22px;box-shadow:0 6px 20px rgba(10,10,12,0.06)}
+    h1{font-size:20px;margin:0 0 12px}
+    p{margin:8px 0}
+    .example{padding:10px 12px;border-radius:8px;background:#f3f6fb;margin:10px 0;font-family:monospace}
+    .label{font-weight:600;margin-bottom:6px;display:block}
+    small{opacity:.7}
+    footer{margin-top:18px;font-size:13px;color:#4b5563}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Phone link examples (only phone-related links — no other CTAs)</h1>
+    <p>Each block below is an example of a clickable phone-related link or phone data pattern. There are no non-phone links or other CTAs on this page.</p>
+
+    <section>
+      <div class="example">
+        <span class="label">Standard tel: (E.164)</span>
+        <a href="tel:+12025550123">+1 (202) 555-0123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">tel: with RFC3966 extension parameter</span>
+        <a href="tel:+12025550123;ext=456">+1 202-555-0123 ext. 456</a>
+      </div>
+
+      <div class="example">
+        <span class="label">tel: with phone-context (RFC3966)</span>
+        <a href="tel:5550123;phone-context=+1202">(local) 5550123 with phone-context</a>
+      </div>
+
+      <div class="example">
+        <span class="label">sms: (opens SMS composer on mobile)</span>
+        <a href="sms:+12025550123">Text +1 202-555-0123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">callto: (legacy softphone integration)</span>
+        <a href="callto:+12025550123">Call via callto:+12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">sip: (VoIP) — user@domain</span>
+        <a href="sip:12025550123@sip.example.com">sip:12025550123@sip.example.com</a>
+      </div>
+
+      <div class="example">
+        <span class="label">sips: (secure SIP)</span>
+        <a href="sips:alice@sip.example.com">sips:alice@sip.example.com</a>
+      </div>
+
+      <div class="example">
+        <span class="label">skype: (call by number or username)</span>
+        <a href="skype:+12025550123?call">skype:+12025550123?call</a>
+      </div>
+
+      <div class="example">
+        <span class="label">facetime: (Apple FaceTime)</span>
+        <a href="facetime://+12025550123">FaceTime +1 202-555-0123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">WhatsApp: web/shortlink (wa.me host)</span>
+        <a href="https://wa.me/12025550123">https://wa.me/12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">WhatsApp deep link (native)</span>
+        <a href="whatsapp://send?phone=+12025550123">whatsapp://send?phone=+12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Viber deep link</span>
+        <a href="viber://chat?number=+12025550123">viber://chat?number=+12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Telegram deep link (phone via t.me with phone param)</span>
+        <a href="https://t.me/+12025550123">https://t.me/+12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Percent-encoded tel: (encoded +)</span>
+        <a href="tel:%2B12025550123">tel:%2B12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Anchor with onclick that triggers tel: (JS-based click)</span>
+        <a href="#" onclick="window.location='tel:+12025550123';return false;">JS-triggered tel:+12025550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Data attributes used by JS (data-phone)</span>
+        <a href="#" class="data-phone" data-phone="+12025550123">data-phone="+12025550123"</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Custom attribute (data-tel) with no href</span>
+        <a data-tel="+12025550123">Custom data-tel="+12025550123"</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Microformat / schema.org itemprop="telephone"</span>
+        <span itemprop="telephone">+1-202-555-0123</span>
+      </div>
+
+      <div class="example">
+        <span class="label">Anchor text showing phone but using tel: with punctuation</span>
+        <a href="tel:+1-202-555-0123">(202) 555-0123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">tel: with ;phone-context and ;ext encoded together</span>
+        <a href="tel:555-0123;phone-context=%2B1202;ext=99">555-0123;phone-context=+1202;ext=99</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Anchor with only digits (mobile auto-linking example)</span>
+        <a href="tel:5550123">5550123</a>
+      </div>
+
+      <div class="example">
+        <span class="label">Telephone in vCard-like format (class="tel")</span>
+        <a class="tel" href="tel:+441632960960">+44 1632 960960</a>
+      </div>
+
+    </section>
+
+    <footer>
+      <p><small>Notes: This page intentionally contains only phone-related links, URL patterns, and data attributes used to represent phone numbers. No other CTAs or external non-phone links are present.</small></p>
+    </footer>
+  </main>
+
+  <script>
+    // small helper: convert data-phone/data-tel anchors into clickable tel: links at runtime
+    // (keeps examples explicit while also showing a common JS pattern)
+    (function(){
+      document.querySelectorAll('[data-phone],[data-tel]').forEach(function(el){
+        var num = el.getAttribute('data-phone') || el.getAttribute('data-tel');
+        if(!num) return;
+        // normalize display and add a safe href for accessibility
+        try{ el.setAttribute('href', 'tel:'+num); }
+        catch(e){}
+      });
+    })();
+  </script>
+</body>
+</html>
