@@ -272,6 +272,67 @@
         </div>
     </div>
 
+    <!-- New Grammar-Only Errors Section -->
+    <div class="section" style="background: #fff3e0; border-left: 5px solid #ff9800; margin-top: 30px; grid-column: 1 / -1;">
+        <div class="copy-section">
+            <h2>⚠️ Grammar Errors Only (Spelling Correct)</h2>
+            <button class="copy-btn" onclick="copyGrammarUrls()">📋 Copy All Grammar Error URLs</button>
+        </div>
+        <p class="description">These pages contain ONLY grammatical errors while all spellings remain correct. Grammar checkers should detect highlighted issues, but spell checkers should find NO spelling mistakes.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 20px;">
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/countries_and_cities.html">Countries and Cities</a>
+                    <div class="description">12 grammar errors highlighted (subject-verb disagreement, wrong pronouns, etc.)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/countries_and_cities.html', this)">📋</button>
+            </div>
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/currencies_and_units.html">Currencies and Units</a>
+                    <div class="description">15 grammar errors highlighted (verb tense, article usage, plurals)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/currencies_and_units.html', this)">📋</button>
+            </div>
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/company_and_brand_names.html">Company and Brand Names</a>
+                    <div class="description">18 grammar errors highlighted (singular/plural confusion, wrong prepositions)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/company_and_brand_names.html', this)">📋</button>
+            </div>
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/people_and_titles.html">People and Titles</a>
+                    <div class="description">16 grammar errors highlighted (possessive errors, verb agreement)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/people_and_titles.html', this)">📋</button>
+            </div>
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/languages_and_demonyms.html">Languages and Demonyms</a>
+                    <div class="description">14 grammar errors highlighted (article usage, number agreement)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/languages_and_demonyms.html', this)">📋</button>
+            </div>
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/legal_and_formal_terms.html">Legal and Formal Terms</a>
+                    <div class="description">16 grammar errors highlighted (formal language mistakes, preposition errors)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/legal_and_formal_terms.html', this)">📋</button>
+            </div>
+            <div class="url-item">
+                <div>
+                    <a href="grammar_only_errors/mixed_edge_cases.html">Mixed Edge Cases</a>
+                    <div class="description">18 grammar errors highlighted (complex sentence structure issues)</div>
+                </div>
+                <button class="copy-btn" onclick="copyUrl('grammar_only_errors/mixed_edge_cases.html', this)">📋</button>
+            </div>
+        </div>
+    </div>
+
     <div class="flat-list">
         <div class="copy-section">
             <h3>📝 Complete Page List (Copy-Paste Ready)</h3>
@@ -293,6 +354,13 @@
             <li>• <code>incorrect_text/languages_and_demonyms.html</code></li>
             <li>• <code>incorrect_text/legal_and_formal_terms.html</code></li>
             <li>• <code>incorrect_text/mixed_edge_cases.html</code></li>
+            <li>• <code>grammar_only_errors/countries_and_cities.html</code></li>
+            <li>• <code>grammar_only_errors/currencies_and_units.html</code></li>
+            <li>• <code>grammar_only_errors/company_and_brand_names.html</code></li>
+            <li>• <code>grammar_only_errors/people_and_titles.html</code></li>
+            <li>• <code>grammar_only_errors/languages_and_demonyms.html</code></li>
+            <li>• <code>grammar_only_errors/legal_and_formal_terms.html</code></li>
+            <li>• <code>grammar_only_errors/mixed_edge_cases.html</code></li>
         </ul>
     </div>
 
@@ -302,8 +370,9 @@
         <ul>
             <li>✅ <strong>Correct Text Pages:</strong> Spell checker should report ZERO errors</li>
             <li>❌ <strong>Incorrect Text Pages:</strong> Spell checker should detect and flag multiple errors</li>
+            <li>⚠️ <strong>Grammar-Only Error Pages:</strong> Spell checker should find NO spelling errors, but grammar checker should detect highlighted grammatical issues</li>
             <li>🔍 <strong>HTML Coverage:</strong> All pages use comprehensive HTML tags with visible text</li>
-            <li>📊 <strong>Validation:</strong> Test both false positive and true positive detection rates</li>
+            <li>📊 <strong>Validation:</strong> Test both false positive and true positive detection rates across spelling and grammar</li>
         </ul>
     </div>
 
@@ -381,6 +450,23 @@
             showCopiedFeedback(event.target);
         }
 
+        // Copy all grammar-only error URLs
+        function copyGrammarUrls() {
+            const baseUrl = window.location.href.replace('/index.html', '').replace(/\/$/, '');
+            const grammarUrls = [
+                'grammar_only_errors/countries_and_cities.html',
+                'grammar_only_errors/currencies_and_units.html',
+                'grammar_only_errors/company_and_brand_names.html',
+                'grammar_only_errors/people_and_titles.html',
+                'grammar_only_errors/languages_and_demonyms.html',
+                'grammar_only_errors/legal_and_formal_terms.html',
+                'grammar_only_errors/mixed_edge_cases.html'
+            ].map(url => baseUrl + '/' + url).join('\n');
+            
+            copyToClipboard(grammarUrls);
+            showCopiedFeedback(event.target);
+        }
+
         // Copy all URLs
         function copyAllUrls() {
             const baseUrl = window.location.href.replace('/index.html', '').replace(/\/$/, '');
@@ -398,7 +484,14 @@
                 'incorrect_text/people_and_titles.html',
                 'incorrect_text/languages_and_demonyms.html',
                 'incorrect_text/legal_and_formal_terms.html',
-                'incorrect_text/mixed_edge_cases.html'
+                'incorrect_text/mixed_edge_cases.html',
+                'grammar_only_errors/countries_and_cities.html',
+                'grammar_only_errors/currencies_and_units.html',
+                'grammar_only_errors/company_and_brand_names.html',
+                'grammar_only_errors/people_and_titles.html',
+                'grammar_only_errors/languages_and_demonyms.html',
+                'grammar_only_errors/legal_and_formal_terms.html',
+                'grammar_only_errors/mixed_edge_cases.html'
             ].map(url => baseUrl + '/' + url).join('\n');
             
             copyToClipboard(allUrls);
