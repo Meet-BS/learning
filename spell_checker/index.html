@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling and Grammar Detection Test Suite</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            line-height: 1.6; 
+        }
+        .container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            margin-top: 30px; 
+        }
+        .section { 
+            background: #f5f5f5; 
+            padding: 20px; 
+            border-radius: 8px; 
+        }
+        .correct { 
+            border-left: 5px solid #4CAF50; 
+        }
+        .incorrect { 
+            border-left: 5px solid #f44336; 
+        }
+        h2 { 
+            margin-top: 0; 
+            color: #333; 
+        }
+        ul { 
+            list-style-type: none; 
+            padding-left: 0; 
+        }
+        li { 
+            margin: 10px 0; 
+        }
+        a { 
+            text-decoration: none; 
+            color: #0066cc; 
+            font-weight: 500; 
+        }
+        a:hover { 
+            text-decoration: underline; 
+        }
+        .description { 
+            font-size: 14px; 
+            color: #666; 
+            font-style: italic; 
+        }
+        .flat-list { 
+            background: #e8f4fd; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-top: 30px; 
+        }
+        .flat-list h3 { 
+            color: #333; 
+            margin-top: 0; 
+        }
+        .overview { 
+            background: #fff3cd; 
+            border: 1px solid #ffeaa7; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+        }
+        
+        /* Copy Button Styles */
+        .copy-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+        .copy-btn.copied {
+            background: #28a745;
+        }
+        .copy-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .url-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+        }
+        .url-text {
+            font-family: monospace;
+            font-size: 13px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spelling and Grammar Detection Test Suite</h1>
+    
+    <div class="overview">
+        <h3>📋 Test Overview</h3>
+        <p><strong>Purpose:</strong> Comprehensive HTML test pages to validate spelling and grammar detection across all HTML elements containing user-visible text.</p>
+        <p><strong>Structure:</strong> Each test category has two versions - one with correct spelling/grammar and one with intentional errors.</p>
+        <p><strong>Coverage:</strong> All HTML tags that can contain visible text including paragraphs, headings, forms, tables, lists, and semantic elements.</p>
+    </div>
+
+    <div class="container">
+        <div class="section correct">
+            <div class="copy-section">
+                <h2>✅ Correct Text Pages</h2>
+                <button class="copy-btn" onclick="copyCorrectUrls()">📋 Copy All Correct URLs</button>
+            </div>
+            <p class="description">These pages contain ONLY grammatically and spelling-wise correct content. Spell checkers should NOT flag anything.</p>
+            
+            <ul>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/countries_and_cities.html">Countries and Cities</a>
+                            <div class="description">Proper spellings: São Paulo, Reykjavík, Türkiye, Côte d'Ivoire, Bengaluru, Québec</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/countries_and_cities.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/currencies_and_units.html">Currencies and Units</a>
+                            <div class="description">Correct: Euro (€), Japanese Yen, Swiss Franc (CHF), Indian Rupee (INR), Paise, Złoty</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/currencies_and_units.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/company_and_brand_names.html">Company and Brand Names</a>
+                            <div class="description">Proper brands: BrowserStack, WhatsApp, YouTube, LinkedIn, McDonald's, adidas, NVIDIA, OpenAI</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/company_and_brand_names.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/people_and_titles.html">People and Titles</a>
+                            <div class="description">Correct names: Sundar Pichai, Satya Nadella, Dr., Prof., Mr., Ms., Mx., O'Connor, D'Souza, van Rossum</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/people_and_titles.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/languages_and_demonyms.html">Languages and Demonyms</a>
+                            <div class="description">Proper: American English, British English, Portuguese, Brazilian Portuguese, Filipino, Tagalog</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/languages_and_demonyms.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/legal_and_formal_terms.html">Legal and Formal Terms</a>
+                            <div class="description">Correct: LLC, GmbH, SARL, Pvt. Ltd., non-disclosure agreement, co-founder, pre-tax income</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/legal_and_formal_terms.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="correct_text/mixed_edge_cases.html">Mixed Edge Cases</a>
+                            <div class="description">Technical content: URLs, email addresses, dates, version numbers, product SKUs, cryptocurrency addresses</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('correct_text/mixed_edge_cases.html', this)">📋</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section incorrect">
+            <div class="copy-section">
+                <h2>❌ Incorrect Text Pages</h2>
+                <button class="copy-btn" onclick="copyIncorrectUrls()">📋 Copy All Incorrect URLs</button>
+            </div>
+            <p class="description">These pages contain intentional spelling and grammar mistakes. Spell checkers SHOULD flag these errors.</p>
+            
+            <ul>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/countries_and_cities.html">Countries and Cities</a>
+                            <div class="description">Misspelled: Sao Paolo, Reykyavik, Turky, Cote d Ivore, Banglore, Quebac</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/countries_and_cities.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/currencies_and_units.html">Currencies and Units</a>
+                            <div class="description">Errors: Euros (€€), Japnese Yen, Swiss Franks, Rupeeses, Paizas, Zloty (wrong plurals)</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/currencies_and_units.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/company_and_brand_names.html">Company and Brand Names</a>
+                            <div class="description">Wrong: Browser Stack, WhattsApp, You Tube, LinkdIn, McDonalds, NVDIA, Open AI</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/company_and_brand_names.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/people_and_titles.html">People and Titles</a>
+                            <div class="description">Misspelled: Sundar Pikchai, Satya Nadela, Doctor., Mister., O Connor, Ds Souza</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/people_and_titles.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/languages_and_demonyms.html">Languages and Demonyms</a>
+                            <div class="description">Errors: Amercian English, Brittish English, Portugese, Phillipino</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/languages_and_demonyms.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/legal_and_formal_terms.html">Legal and Formal Terms</a>
+                            <div class="description">Wrong: L.L.C, GMBH, non disclosure aggreement, cofounder, pretax income</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/legal_and_formal_terms.html', this)">📋</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="url-item">
+                        <div>
+                            <a href="incorrect_text/mixed_edge_cases.html">Mixed Edge Cases</a>
+                            <div class="description">Broken: invalid email formats, wrong dates (32/01/2025), misspelled TLDs (.cmo, .con)</div>
+                        </div>
+                        <button class="copy-btn" onclick="copyUrl('incorrect_text/mixed_edge_cases.html', this)">📋</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="flat-list">
+        <div class="copy-section">
+            <h3>📝 Complete Page List (Copy-Paste Ready)</h3>
+            <button class="copy-btn" onclick="copyAllUrls()">📋 Copy All URLs</button>
+        </div>
+        <p><strong>All Test Pages:</strong></p>
+        <ul>
+            <li>• <code>correct_text/countries_and_cities.html</code></li>
+            <li>• <code>correct_text/currencies_and_units.html</code></li>
+            <li>• <code>correct_text/company_and_brand_names.html</code></li>
+            <li>• <code>correct_text/people_and_titles.html</code></li>
+            <li>• <code>correct_text/languages_and_demonyms.html</code></li>
+            <li>• <code>correct_text/legal_and_formal_terms.html</code></li>
+            <li>• <code>correct_text/mixed_edge_cases.html</code></li>
+            <li>• <code>incorrect_text/countries_and_cities.html</code></li>
+            <li>• <code>incorrect_text/currencies_and_units.html</code></li>
+            <li>• <code>incorrect_text/company_and_brand_names.html</code></li>
+            <li>• <code>incorrect_text/people_and_titles.html</code></li>
+            <li>• <code>incorrect_text/languages_and_demonyms.html</code></li>
+            <li>• <code>incorrect_text/legal_and_formal_terms.html</code></li>
+            <li>• <code>incorrect_text/mixed_edge_cases.html</code></li>
+        </ul>
+    </div>
+
+    <div class="overview">
+        <h3>🎯 Testing Instructions</h3>
+        <p><strong>For QA Teams:</strong></p>
+        <ul>
+            <li>✅ <strong>Correct Text Pages:</strong> Spell checker should report ZERO errors</li>
+            <li>❌ <strong>Incorrect Text Pages:</strong> Spell checker should detect and flag multiple errors</li>
+            <li>🔍 <strong>HTML Coverage:</strong> All pages use comprehensive HTML tags with visible text</li>
+            <li>📊 <strong>Validation:</strong> Test both false positive and true positive detection rates</li>
+        </ul>
+    </div>
+
+    <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
+        <p>Spelling and Grammar Detection Test Suite | Created for QA Automation Testing</p>
+        <p>Last Updated: <time datetime="2025-12-22">December 22, 2025</time></p>
+    </footer>
+
+    <script>
+        // Copy functionality
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                console.log('Copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            });
+        }
+
+        function showCopiedFeedback(button) {
+            const originalText = button.textContent;
+            button.textContent = '✅ Copied!';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }
+
+        // Copy individual URL
+        function copyUrl(url, button) {
+            const baseUrl = window.location.href.replace('/index.html', '').replace(/\/$/, '');
+            const fullUrl = baseUrl + '/' + url;
+            copyToClipboard(fullUrl);
+            showCopiedFeedback(button);
+        }
+
+        // Copy all correct URLs
+        function copyCorrectUrls() {
+            const baseUrl = window.location.href.replace('/index.html', '').replace(/\/$/, '');
+            const correctUrls = [
+                'correct_text/countries_and_cities.html',
+                'correct_text/currencies_and_units.html',
+                'correct_text/company_and_brand_names.html',
+                'correct_text/people_and_titles.html',
+                'correct_text/languages_and_demonyms.html',
+                'correct_text/legal_and_formal_terms.html',
+                'correct_text/mixed_edge_cases.html'
+            ].map(url => baseUrl + '/' + url).join('\n');
+            
+            copyToClipboard(correctUrls);
+            showCopiedFeedback(event.target);
+        }
+
+        // Copy all incorrect URLs
+        function copyIncorrectUrls() {
+            const baseUrl = window.location.href.replace('/index.html', '').replace(/\/$/, '');
+            const incorrectUrls = [
+                'incorrect_text/countries_and_cities.html',
+                'incorrect_text/currencies_and_units.html',
+                'incorrect_text/company_and_brand_names.html',
+                'incorrect_text/people_and_titles.html',
+                'incorrect_text/languages_and_demonyms.html',
+                'incorrect_text/legal_and_formal_terms.html',
+                'incorrect_text/mixed_edge_cases.html'
+            ].map(url => baseUrl + '/' + url).join('\n');
+            
+            copyToClipboard(incorrectUrls);
+            showCopiedFeedback(event.target);
+        }
+
+        // Copy all URLs
+        function copyAllUrls() {
+            const baseUrl = window.location.href.replace('/index.html', '').replace(/\/$/, '');
+            const allUrls = [
+                'correct_text/countries_and_cities.html',
+                'correct_text/currencies_and_units.html',
+                'correct_text/company_and_brand_names.html',
+                'correct_text/people_and_titles.html',
+                'correct_text/languages_and_demonyms.html',
+                'correct_text/legal_and_formal_terms.html',
+                'correct_text/mixed_edge_cases.html',
+                'incorrect_text/countries_and_cities.html',
+                'incorrect_text/currencies_and_units.html',
+                'incorrect_text/company_and_brand_names.html',
+                'incorrect_text/people_and_titles.html',
+                'incorrect_text/languages_and_demonyms.html',
+                'incorrect_text/legal_and_formal_terms.html',
+                'incorrect_text/mixed_edge_cases.html'
+            ].map(url => baseUrl + '/' + url).join('\n');
+            
+            copyToClipboard(allUrls);
+            showCopiedFeedback(event.target);
+        }
+    </script>
+</body>
+</html>
