@@ -3,50 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countries and Cities - Incorrect Spelling</title>
+    <title>Countries and Cities - Spelling and Grammar Errors</title>
+    <style>
+        .spelling-error {
+            background-color: #ffcccb;
+            border-bottom: 2px wavy #dc3545;
+            padding: 1px 2px;
+            font-weight: bold;
+        }
+        .grammar-error {
+            background-color: #ffeb3b;
+            border-bottom: 2px wavy #f57c00;
+            padding: 1px 2px;
+            font-weight: bold;
+        }
+        .error-count {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <h1>Countries and Cities - Incorrect Spelling Test</h1>
+    <div class="error-count">Spelling Errors Found: 53 | Grammar Errors Found: 18</div>
     
-    <!-- SPELLING AND GRAMMAR ERRORS AT THE TOP -->
-    <div style="background: #ffe6e6; border: 2px solid #ff4444; padding: 15px; margin: 20px 0; border-radius: 5px;">
-        <h2 style="color: #cc0000; margin-top: 0;">🚨 Intentional Errors in This Page:</h2>
-        <p><strong>Misspelled Countries/Cities:</strong> Sao Paolo (São Paulo), Reykyavik (Reykjavík), Turky (Türkiye), Cote d Ivore (Côte d'Ivoire), Banglore (Bengaluru), Calcuta (Kolkata), Quebac (Québec)</p>
-        <p><strong>Grammar Issues:</strong> "there names" (their names), "worlwide" (worldwide), "incorectly" (incorrectly), "otheres" (others)</p>
-        <p><strong>Missing Punctuation:</strong> Missing apostrophes in compound names, incorrect spacing</p>
-    </div>
+    <h1>Countries and Cities Around the World</h1>
+    <h2>European Countries</h2>
     
-    <h2>Major World Cities</h2>
-    
-    <p>The beautiful city of <strong>Sao Paolo</strong> is located in <em>Brazill</em>. Many tourists visit <mark>Reykyavik</mark>, the capital of <b>Icland</b>.</p>
+    <p>The beautiful city of <span class="spelling-error">Sao Paolo</span> <span class="grammar-error">are</span> located in <span class="spelling-error">Brazill</span>. Many tourists <span class="grammar-error">visits</span> <span class="spelling-error">Reykyavik</span>, the capital of <span class="spelling-error">Icland</span>.</p>
     
     <div>
-        <span>The country formerly known as Turkey is now officially called <u>Turky</u>.</span>
-        <small>The Czech Republic is also known as <i>Chechia</i> in English.</small>
+        <strong>The country</strong> formerly known as Turkey <span class="grammar-error">are</span> now officially called <span class="spelling-error">Turky</span>.
+        <span>The Czech Republic <span class="grammar-error">are</span> also known as <span class="spelling-error">Chechia</span> in English.</span>
     </div>
     
     <blockquote>
-        <q>Cote d Ivore is the official name for what many still call the Ivory Coast.</q>
-        - International Relations Expert
+        "<span class="spelling-error">Cote d Ivore</span> <span class="grammar-error">are</span> the official name for what many still <span class="grammar-error">calls</span> the Ivory Coast."
     </blockquote>
     
+    <q>Each country <span class="grammar-error">have</span> <span class="grammar-error">it's</span> own unique culture.</q>
     <h3>African Nations</h3>
     <ul>
-        <li><label>Eswatinii (formerly Swaziland)</label></li>
-        <li>South Afirca</li>
-        <li>Democratic Republic of the Conogo</li>
+        <li><label><span class="spelling-error">Eswatinii</span> (formerly Swaziland)</label></li>
+        <li>South <span class="spelling-error">Afirca</span></li>
+        <li>Democratic Republic of the <span class="spelling-error">Conogo</span></li>
     </ul>
     
-    <h4>Indian Cities</h4>
+    <h4>Asian Countries</h4>
     <ol>
-        <li>Banglore (formerly Bangalore)</li>
-        <li>Calcuta (formerly Calcutta)</li>
-        <li>Chenai (formerly Madras)</li>
+        <li>Japan <span class="grammar-error">are</span> an island nation</li>
+        <li>China <span class="grammar-error">have</span> the largest population</li>
+        <li>India <span class="grammar-error">are</span> diverse in languages</li>
     </ol>
     
-    <h5>Canadian Provinces</h5>
+    <h5>Indian Cities</h5>
+    <ul>
+        <li><span class="spelling-error">Banglore</span> (formerly Bangalore)</li>
+        <li><span class="spelling-error">Calcuta</span> (formerly Calcutta)</li>
+        <li><span class="spelling-error">Chenai</span> (formerly Madras)</li>
+    </ul>
+    
+    <h6>Canadian Provinces</h6>
     <table>
-        <caption>French-Speaking Regions in Cananda</caption>
+        <caption>French-Speaking Regions in <span class="spelling-error">Cananda</span></caption>
         <thead>
             <tr>
                 <th>Province</th>
@@ -55,70 +86,70 @@
         </thead>
         <tbody>
             <tr>
-                <td>Quebac</td>
-                <td>Quebec Citty</td>
+                <td><span class="spelling-error">Quebac</span></td>
+                <td>Quebec <span class="spelling-error">Citty</span></td>
             </tr>
             <tr>
-                <td>New Brunswik</td>
-                <td>Fredricton</td>
+                <td>New <span class="spelling-error">Brunswik</span></td>
+                <td><span class="spelling-error">Fredricton</span></td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="2">French is an offical language in these regions</td>
+                <td colspan="2">French <span class="grammar-error">are</span> an <span class="spelling-error">offical</span> language in these regions</td>
             </tr>
         </tfoot>
     </table>
     
-    <h6>European Capitals</h6>
+    <h2>European Capitals</h2>
     <pre>
-Copenhaguen - Denmark
-Ljubjana - Slovenia
-Talin - Estonia
-Vilnuis - Lithuania
+<span class="spelling-error">Copenhaguen</span> - Denmark
+<span class="spelling-error">Ljubjana</span> - Slovenia
+<span class="spelling-error">Talin</span> - Estonia
+<span class="spelling-error">Vilnuis</span> - Lithuania
     </pre>
     
     <form>
         <fieldset>
-            <legend>Travel Destinations Survay</legend>
-            <label for="destination">Where would you like to visist?</label>
-            <input type="text" id="destination" placeholder="e.g., Dubrovnick, Croacia">
+            <legend>Travel Destinations <span class="spelling-error">Survay</span></legend>
+            <label for="destination">Where would you like to <span class="spelling-error">visist</span>?</label>
+            <input type="text" id="destination" placeholder="e.g., <span class="spelling-error">Dubrovnick</span>, <span class="spelling-error">Croacia</span>">
             
             <select>
-                <option>Choose a contintent</option>
-                <option>Europee</option>
-                <option>Assia</option>
-                <option>Affrica</option>
-                <option>Oceaniaa</option>
+                <option>Choose a <span class="spelling-error">contintent</span></option>
+                <option><span class="spelling-error">Europee</span></option>
+                <option><span class="spelling-error">Assia</span></option>
+                <option><span class="spelling-error">Affrica</span></option>
+                <option><span class="spelling-error">Oceaniaa</span></option>
             </select>
             
-            <textarea placeholder="Describe your ideal vacation in Munchen, Germanny or anywhere else..."></textarea>
+            <textarea placeholder="Describe your ideal vacation in <span class="spelling-error">Munchen</span>, <span class="spelling-error">Germanny</span> or anywhere else..."></textarea>
             
-            <button type="submit">Submit Travel Plnas</button>
+            <button type="submit">Submit Travel <span class="spelling-error">Plnas</span></button>
         </fieldset>
     </form>
     
     <details>
-        <summary>More Information About Geografic Names</summary>
-        <p>Many cities have evolved there names over time. For example, <code>Mumbay</code> was formerly known as Bombey.</p>
+        <summary>More Information About <span class="spelling-error">Geografic</span> Names</summary>
+        <p>Many cities <span class="grammar-error">have</span> evolved <span class="grammar-error">there</span> names over time. For example, <code><span class="spelling-error">Mumbay</span></code> was formerly known as <span class="spelling-error">Bombey</span>.</p>
     </details>
     
     <figure>
-        <figcaption>Countries that have changed names recently include Myanmaar (formerly Burma) and North Macedonnia.</figcaption>
+        <figcaption>Countries that <span class="grammar-error">have</span> changed names recently <span class="grammar-error">include</span> <span class="spelling-error">Myanmaar</span> (formerly Burma) and North <span class="spelling-error">Macedonnia</span>.</figcaption>
     </figure>
     
     <address>
-        International Geographic Socity<br>
-        123 Atlas Streat<br>
-        Berne, Switerland
+        International Geographic <span class="spelling-error">Socity</span><br>
+        123 Atlas <span class="spelling-error">Streat</span><br>
+        Berne, <span class="spelling-error">Switerland</span>
     </address>
     
-    <p>You can visit <a href="#">Krakow</a> in Polland, or explore <abbr title="United Arab Emriates">UAE</abbr> cities like Dubay.</p>
+    <p>You can visit <a href="#"><span class="spelling-error">Krakow</span></a> in <span class="spelling-error">Polland</span>, or explore <abbr title="United Arab <span class="spelling-error">Emriates</span>">UAE</abbr> cities like <span class="spelling-error">Dubay</span>.</p>
     
-    <time datetime="2025-01-01">New Year's Day 2025</time> will be celebrated worlwide from Aukland to Honoluluu.
+    <time datetime="2025-01-01">New Year's Day 2025</time> <span class="grammar-error">will</span> be celebrated <span class="spelling-error">worlwide</span> from <span class="spelling-error">Aukland</span> to <span class="spelling-error">Honoluluu</span>.
     
     <noscript>
-        This page contains information about incorectly spelled country and city names including Zurich, Goteborg, and many otheres.
+        This page <span class="grammar-error">contains</span> information about <span class="spelling-error">incorectly</span> spelled country and city names including Zurich, <span class="spelling-error">Goteborg</span>, and many <span class="spelling-error">otheres</span>.
     </noscript>
 </body>
 </html>

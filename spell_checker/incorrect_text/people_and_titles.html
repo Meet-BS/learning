@@ -4,43 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>People and Titles - Incorrect Spelling</title>
+    <style>
+        .spelling-error {
+            background-color: #ffe6e6;
+            text-decoration: wavy underline red;
+        }
+        .grammar-error {
+            background-color: #fff3cd;
+            text-decoration: wavy underline orange;
+        }
+        .error-count {
+            background: #dc3545;
+            color: white;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
+    <div class="error-count">Spelling Errors Found: 107 | Grammar Errors Found: 3</div>
+    
     <h1>People Names and Professional Titles - Incorrect Spelling Test</h1>
     <h2>Technology Leaders</h2>
     
-    <p><strong>Sundar Pikchai</strong> serves as CEO of Alfabet Inc. <em>Satya Nadela</em> has transformed Microsft since becoming CEO.</p>
+    <p><strong>Sundar <span class="spelling-error">Pikchai</span></strong> serves as CEO of <span class="spelling-error">Alfabet</span> Inc. <em>Satya <span class="spelling-error">Nadela</span></em> has transformed <span class="spelling-error">Microsft</span> since becoming CEO.</p>
     
     <div>
-        <span><u>Tim Cooke</u> leads Aple as its Chief Executiv Officer.</span>
-        <small><i>Elon Musc</i> is known for his leadership at Teslla and Space X.</small>
+        <span><u>Tim <span class="spelling-error">Cooke</span></u> leads <span class="spelling-error">Aple</span> as its Chief <span class="spelling-error">Executiv</span> Officer.</span>
+        <small><i>Elon <span class="spelling-error">Musc</span></i> is known for his leadership at <span class="spelling-error">Teslla</span> and <span class="spelling-error">Space X</span>.</small>
     </div>
     
     <blockquote>
-        <q>Doctor. Fei Fei Li has made significant contributons to artifical intelligence reserach.</q>
-        - Stanford Univesity Press Releas
+        <q><span class="spelling-error">Doctor.</span> <span class="spelling-error">Fei Fei</span> Li has made significant <span class="spelling-error">contributons</span> to <span class="spelling-error">artifical</span> intelligence <span class="spelling-error">reserach</span>.</q>
+        - Stanford <span class="spelling-error">Univesity</span> Press <span class="spelling-error">Releas</span>
     </blockquote>
     
-    <h3>Professional Titels</h3>
+    <h3>Professional <span class="spelling-error">Titels</span></h3>
     <ul>
-        <li><label>Doctor. (Doctor)</label></li>
-        <li>Profesor. (Professor)</li>
-        <li>Mister. (Mister)</li>
+        <li><label><span class="spelling-error">Doctor.</span> (Doctor)</label></li>
+        <li><span class="spelling-error">Profesor.</span> (Professor)</li>
+        <li><span class="spelling-error">Mister.</span> (Mister)</li>
         <li>Miss. (Miss)</li>
-        <li>Mx. (Gender-neutrl title)</li>
+        <li>Mx. (Gender-<span class="spelling-error">neutrl</span> title)</li>
     </ul>
     
-    <h4>Famous Historicl Figures</h4>
+    <h4>Famous <span class="spelling-error">Historicl</span> Figures</h4>
     <ol>
-        <li>Albert Einstien</li>
+        <li>Albert <span class="spelling-error">Einstien</span></li>
         <li>Marie Curie</li>
-        <li>Leonardo da Vincci</li>
-        <li>Isaac Newtown</li>
+        <li>Leonardo da <span class="spelling-error">Vincci</span></li>
+        <li>Isaac <span class="spelling-error">Newtown</span></li>
     </ol>
     
-    <h5>Authors and Writters</h5>
+    <h5>Authors and <span class="spelling-error">Writters</span></h5>
     <table>
-        <caption>Notable Contemporery Authors</caption>
+        <caption>Notable <span class="spelling-error">Contemporery</span> Authors</caption>
         <thead>
             <tr>
                 <th>Author</th>
@@ -51,79 +77,79 @@
         <tbody>
             <tr>
                 <td>J.K. Rowling</td>
-                <td>Harry Poter Series</td>
-                <td>Brittish</td>
+                <td>Harry <span class="spelling-error">Poter</span> Series</td>
+                <td><span class="spelling-error">Brittish</span></td>
             </tr>
             <tr>
-                <td>Gabriel Garcia Marques</td>
-                <td>One Hunderd Years of Solitude</td>
-                <td>Columbian</td>
+                <td>Gabriel Garcia <span class="spelling-error">Marques</span></td>
+                <td>One <span class="spelling-error">Hunderd</span> Years of Solitude</td>
+                <td><span class="spelling-error">Columbian</span></td>
             </tr>
             <tr>
-                <td>Haruki Murakaami</td>
-                <td>Norvegian Wood</td>
-                <td>Japanease</td>
+                <td>Haruki <span class="spelling-error">Murakaami</span></td>
+                <td><span class="spelling-error">Norvegian</span> Wood</td>
+                <td><span class="spelling-error">Japanease</span></td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">All authors have recieved international recogntion</td>
+                <td colspan="3">All authors have <span class="spelling-error">recieved</span> international <span class="spelling-error">recogntion</span></td>
             </tr>
         </tfoot>
     </table>
     
-    <h6>Names with Apostrofes and Hifens</h6>
+    <h6>Names with <span class="spelling-error">Apostrofes</span> and <span class="spelling-error">Hifens</span></h6>
     <pre>
-O Connor - Irish surname
-Ds Souza - Portuguese surname
-van Rosum - Dutch surname (Guido van Rosum, Python creater)
-Jean Pierre - French given name
+<span class="spelling-error">O Connor</span> - Irish surname
+<span class="spelling-error">Ds Souza</span> - Portuguese surname
+van <span class="spelling-error">Rosum</span> - Dutch surname (Guido van Rosum, Python <span class="spelling-error">creater</span>)
+<span class="spelling-error">Jean Pierre</span> - French given name
     </pre>
     
     <form>
         <fieldset>
-            <legend>Profesional Contact Informaton</legend>
-            <label for="name">Full Name (includ title):</label>
-            <input type="text" id="name" placeholder="Doctor. Maria Gonzales Rodrigez">
+            <legend><span class="spelling-error">Profesional</span> Contact <span class="spelling-error">Informaton</span></legend>
+            <label for="name">Full Name (<span class="spelling-error">includ</span> title):</label>
+            <input type="text" id="name" placeholder="<span class="spelling-error">Doctor.</span> Maria <span class="spelling-error">Gonzales</span> <span class="spelling-error">Rodrigez</span>">
             
             <select>
-                <option>Select profesional title</option>
-                <option>CEO (Chief Executiv Officer)</option>
-                <option>CTO (Chief Tecnology Officer)</option>
-                <option>CFO (Chief Financal Officer)</option>
-                <option>VP (Vice Presient)</option>
+                <option>Select <span class="spelling-error">profesional</span> title</option>
+                <option>CEO (Chief <span class="spelling-error">Executiv</span> Officer)</option>
+                <option>CTO (Chief <span class="spelling-error">Tecnology</span> Officer)</option>
+                <option>CFO (Chief <span class="spelling-error">Financal</span> Officer)</option>
+                <option>VP (Vice <span class="spelling-error">Presient</span>)</option>
             </select>
             
-            <textarea placeholder="Enter biografical information about profesionals like Bill Gatez, Waren Bufet, or Oprah Winfery..."></textarea>
+            <textarea placeholder="Enter <span class="spelling-error">biografical</span> information about <span class="spelling-error">profesionals</span> like Bill <span class="spelling-error">Gatez</span>, <span class="spelling-error">Waren</span> <span class="spelling-error">Bufet</span>, or Oprah <span class="spelling-error">Winfery</span>..."></textarea>
             
-            <button type="submit">Save Profesional Profil</button>
+            <button type="submit">Save <span class="spelling-error">Profesional</span> <span class="spelling-error">Profil</span></button>
         </fieldset>
     </form>
     
     <details>
-        <summary>Acadmeic and Reserach Profesionals</summary>
-        <p><code>Profesor. Stephen Hawkng</code> revolutionized theoretcal physics. <mark>Doctor. Jane Goodal</mark> transformed primatolog research.</p>
+        <summary><span class="spelling-error">Acadmeic</span> and <span class="spelling-error">Reserach</span> <span class="spelling-error">Profesionals</span></summary>
+        <p><code><span class="spelling-error">Profesor.</span> Stephen <span class="spelling-error">Hawkng</span></code> revolutionized <span class="spelling-error">theoretcal</span> physics. <mark><span class="spelling-error">Doctor.</span> Jane <span class="spelling-error">Goodal</span></mark> <span class="grammar-error">transformed</span> <span class="spelling-error">primatolog</span> research.</p>
     </details>
     
     <figure>
-        <figcaption>Political leadrs like Angela Merkel, Nelson Mandla, and Mahatma Gandi shaped modern histor.</figcaption>
+        <figcaption>Political <span class="spelling-error">leadrs</span> like Angela Merkel, Nelson <span class="spelling-error">Mandla</span>, and Mahatma <span class="spelling-error">Gandi</span> <span class="grammar-error">shaped</span> modern <span class="spelling-error">histor</span>.</figcaption>
     </figure>
     
     <address>
-        Profesional Recogntion Society<br>
-        Atn: Miss. Jenifer Chen Willams<br>
-        456 Acheivement Aveneu<br>
-        Bostom, MA 02101
+        <span class="spelling-error">Profesional</span> <span class="spelling-error">Recogntion</span> Society<br>
+        <span class="spelling-error">Atn:</span> Miss. <span class="spelling-error">Jenifer</span> Chen <span class="spelling-error">Willams</span><br>
+        456 <span class="spelling-error">Acheivement</span> <span class="spelling-error">Aveneu</span><br>
+        <span class="spelling-error">Bostom</span>, MA 02101
     </address>
     
-    <p>Athletes like <a href="#">Serena Willams</a> and <abbr title="Lionel Andres Mesi">Messi</abbr> have acheived global recogntion in their respectiv sports.</p>
+    <p>Athletes like <a href="#">Serena <span class="spelling-error">Willams</span></a> and <abbr title="Lionel Andres Mesi"><span class="spelling-error">Messi</span></abbr> have <span class="spelling-error">acheived</span> global <span class="spelling-error">recogntion</span> in their <span class="spelling-error">respectiv</span> sports.</p>
     
-    <time datetime="2025-01-25">January 25, 2025</time> marks the aniversary of many profesional achivements worlwide.
+    <time datetime="2025-01-25">January 25, 2025</time> marks the <span class="spelling-error">aniversary</span> of many <span class="spelling-error">profesional</span> <span class="spelling-error">achivements</span> <span class="spelling-error">worlwide</span>.
     
-    <b>Importent:</b> Always verif the corect spelling of names like Muhamed Ali, Frida Kahlo, and Winston Churchil in oficial documents.
+    <b><span class="spelling-error">Importent</span>:</b> Always <span class="spelling-error">verif</span> the <span class="spelling-error">corect</span> spelling of names like <span class="spelling-error">Muhamed</span> Ali, Frida Kahlo, and Winston <span class="spelling-error">Churchil</span> in <span class="spelling-error">oficial</span> documents.
     
     <noscript>
-        This page contains informaton about incorectly spelled personal names including Jose Mourino, Francois Miterand, and many other international figurs.
+        This page <span class="grammar-error">contains</span> <span class="spelling-error">informaton</span> about <span class="spelling-error">incorectly</span> spelled personal names including <span class="spelling-error">Jose</span> <span class="spelling-error">Mourino</span>, <span class="spelling-error">Francois</span> <span class="spelling-error">Miterand</span>, and many other international <span class="spelling-error">figurs</span>.
     </noscript>
 </body>
 </html>
