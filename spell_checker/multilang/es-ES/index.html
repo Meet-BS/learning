@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — es-ES</title>
+</head>
+<body>
+  <h1>Fixture multilingüe para el content-checker — es-ES</h1>
+
+  <!-- Real misspellings → fire MORFOLOGIK_RULE_ES (positive signal for TC-03) -->
+  <p>El servicio es bastante eficaz pero requere mejoras adicionales.</p>
+  <p>Aprende inglès con nuestro programa intensivo.</p>
+
+  <!-- Real grammar TP → SPACE_UNITIES (kept rule, RAE NBSP-before-€).
+       LT suggests "29,99€" → "29,99 €". -->
+  <p>Precio especial: 29,99€ con envío gratuito.</p>
+
+  <!-- Trigger for disabled ES_SPLIT_WORDS / ES_MULTITOKEN_SPELLING_TWO
+       (TC-04 anchor for es-ES). LT wrong-suggests EE UU → EEUU. RAE accepts EE UU. -->
+  <p>El presidente de EE UU anunció nuevas medidas comerciales.</p>
+  <p>Los socios de EE UU mantienen el acuerdo bilateral.</p>
+
+  <!-- Trigger for disabled COMMA_PARENTHESIS_WHITESPACE (TC-04 anchor for es-ES).
+       Replicates the IAB cookie-consent DOM artefact. -->
+  <p>Acceda a la lista de proveedores , configure sus preferencias.</p>
+
+  <!-- Trigger for disabled DOUBLE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Final del comunicado.. Continuación disponible en línea.</p>
+
+  <!-- Trigger for disabled ES_UNPAIRED_BRACKETS (TC-04: must NOT appear).
+       Apostrophe-initial proper noun like 'Ndrangheta. -->
+  <p>La organización 'Ndrangheta ha sido objeto de investigación.</p>
+
+  <!-- Trigger for disabled PUNTO_EN_ABREVIATURAS (TC-04: must NOT appear).
+       LT suggests "vs" → "vs." but it's a competitor menu label. -->
+  <p>Compare: MaintainX vs Limble, MaintainX vs UpKeep.</p>
+
+  <!-- Shared cross-locale misspelling for TC-07 dictionary-suppression test.
+       The token "browserstak" (intentional typo of "browserstack") is unknown to both
+       the fr and the es-ES Morfologik dictionaries, so both engines flag it. The fr
+       and es-ES fixtures intentionally share this exact token so the test can add it
+       to the fr dictionary and verify suppression scopes to fr only. -->
+  <p>Visite browserstak para conocer nuestra plataforma de pruebas.</p>
+
+  <!-- TC-05 cross-locale leak guard -->
+</body>
+</html>

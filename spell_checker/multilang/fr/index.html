@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — fr</title>
+</head>
+<body>
+  <h1>Fixture multilingue pour le content-checker — fr</h1>
+
+  <!-- Real misspellings → fire FR_SPELLING_RULE (positive signal for TC-03) -->
+  <p>Cette démarche est imporante pour résoudre le probème.</p>
+  <p>L'utilisateur a confirmer son inscription au servise.</p>
+
+  <!-- Real grammar TP → AGREEMENT_POSTPONED_ADJ (kept rule, positive signal) -->
+  <p>Nous proposons des séjours linguistique dans plusieurs pays.</p>
+
+  <!-- Trigger for disabled FRENCH_WHITESPACE (TC-04 anchor for fr).
+       Le DOM réel supprime souvent les espaces insécables avant ; : ? ! » «.
+       Cette ligne reproduit ce motif sans NBSP. -->
+  <p>«identifiés comme personnes contacts» a expliqué le ministère.</p>
+  <p>«Pas de panique à bord»: tel est le mot d'ordre.</p>
+
+  <!-- Trigger for disabled DOUBLE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Patientez un instant.. La page se rechargera automatiquement.</p>
+
+  <!-- Trigger for disabled NOMBRES_EN_LETTRES_2 / _IMPROVED (TC-04: must NOT appear).
+       LT pousse "il y a une heure" sur "il y a 1 heure". -->
+  <p>Publié il y a 1 heure par notre rédaction.</p>
+
+  <!-- Trigger for disabled FR_REPEATEDWORDS_MAINTENANT (TC-04: must NOT appear).
+       LT suggère "présentement" (québécois) ; on garde "maintenant" en fr-FR. -->
+  <p>Téléchargez maintenant la nouvelle application.</p>
+  <p>Explorez maintenant : Asset Hub et plus encore.</p>
+
+  <!-- Shared cross-locale misspelling for TC-07 dictionary-suppression test.
+       The token "browserstak" (intentional typo of "browserstack") is unknown to both
+       the fr and the es-ES Morfologik dictionaries, so both engines flag it. The fr
+       fixture and the es-ES fixture intentionally share this exact token so the test
+       can add it to the fr dictionary and verify suppression scopes to fr only. -->
+  <p>Visitez browserstak pour découvrir notre plateforme de test.</p>
+
+  <!-- TC-05 cross-locale leak guard -->
+</body>
+</html>
