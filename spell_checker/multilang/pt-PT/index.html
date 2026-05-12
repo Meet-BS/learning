@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — pt-PT</title>
+</head>
+<body>
+  <h1>Fixture multilingue para o content-checker — pt-PT</h1>
+
+  <!-- Real misspellings → fire MORFOLOGIK_RULE_PT_PT (positive signal for TC-03) -->
+  <p>Por favor, actualize o seu navagador para a versão mais recente.</p>
+  <p>O artigo apresentou várias incorrecções gramaticais.</p>
+
+  <!-- Real grammar TP → CRASE_CONFUSION_2 (kept rule, positive signal).
+       LT correctly suggests "homenagem a Conceição" → "homenagem à Conceição". -->
+  <p>O presidente prestou homenagem a Conceição Monteiro, antiga ministra.</p>
+  <!-- Real grammar TP → ARTICLES_PRECEDING_LOCATIONS (kept rule) -->
+  <p>O encontro decorreu entre Brasil e Portugal no fim-de-semana.</p>
+
+  <!-- Trigger for disabled POR_QUE_PORQUE (TC-04 anchor — CRITICAL dialect bug).
+       LT wrong-rewrites pt-PT "porquê" → pt-BR "por quê." -->
+  <p>Não sabemos porquê isto continua a acontecer.</p>
+
+  <!-- Trigger for disabled PT_AGREEMENT_REPLACE_ACTUALIZE (TC-04 anchor — AO90 family).
+       Público retains pre-AO orthography; LT pushes "atualize". -->
+  <p>Por favor, actualize o seu sistema regularmente.</p>
+  <p>Os directores reuniram-se ontem para discutir o eléctrico novo.</p>
+  <p>Os projectos estão sob revisão das autoridades competentes.</p>
+
+  <!-- Trigger for disabled PT_BARBARISMS_REPLACE_PIZZA (TC-04: must NOT appear).
+       LT absurdly suggests "Piza" (the city Pisa). -->
+  <p>O restaurante serve pizza ao estilo napolitano.</p>
+
+  <!-- Trigger for disabled PT_BARBARISMS_REPLACE_E_MAIL (TC-04: must NOT appear).
+       McAfee-style hyphenated "e-mail" is brand-standard. -->
+  <p>Receba o seu e-mail de confirmação em poucos minutos.</p>
+  <p>Verifique os e-mails na sua caixa de entrada.</p>
+
+  <!-- Trigger for disabled SPACE_BEFORE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Ana Sá Lopes , editora-chefe, comenta sobre o caso.</p>
+
+  <!-- Trigger for disabled DOUBLE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Fim da notícia.. Continuação disponível na próxima página.</p>
+
+  <!-- Trigger for disabled AVOID_GERUND (TC-04: must NOT appear).
+       Stylistic prescriptivism (pt-PT register tolerates gerund). -->
+  <p>Estamos analisando os dados em tempo real para detectar anomalias.</p>
+
+  <!-- TC-05 cross-locale leak guard -->
+</body>
+</html>

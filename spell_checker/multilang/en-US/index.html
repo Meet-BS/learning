@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — en-US</title>
+</head>
+<body>
+  <h1>Multi-language content-checker fixture — en-US</h1>
+
+  <!-- Real misspellings → fire MORFOLOGIK_RULE_EN_US (positive signal for TC-03) -->
+  <p>Please recieve the package by tommorow.</p>
+  <p>The committment to seperate concerns is essential.</p>
+
+  <!-- Real grammar TP → NOUN_VERB_CONFUSION (kept rule, positive signal) -->
+  <p>The team will layout their plans next week.</p>
+
+  <!-- Trigger for disabled EN_COMPOUNDS_FRONT_RUNNER (TC-04: must NOT appear in summary) -->
+  <p>She is the front runner for the position.</p>
+
+  <!-- Trigger for disabled EN_COMPOUNDS_HOME_OWNERSHIP (TC-04: must NOT appear) -->
+  <p>Affordable home ownership remains a priority.</p>
+
+  <!-- Trigger for disabled DOUBLE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>End of the line.. Continued on next page.</p>
+
+  <!-- Trigger for disabled COMMA_PARENTHESIS_WHITESPACE (TC-04: must NOT appear) -->
+  <p>Once you confirm , click submit.</p>
+
+  <!-- TC-05 cross-locale leak guard: no FR / DE / PT / ES rule should fire here -->
+</body>
+</html>
