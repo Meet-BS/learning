@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — en-GB</title>
+</head>
+<body>
+  <h1>Multi-language content-checker fixture — en-GB</h1>
+
+  <!-- Real misspellings → fire MORFOLOGIK_RULE_EN_GB (positive signal for TC-03) -->
+  <p>Please acknowlege the recieved correspondance.</p>
+
+  <!-- Real grammar TP → kept rule (positive signal) -->
+  <p>The team will layout their plans next week.</p>
+
+  <!-- Trigger for disabled OXFORD_SPELLING_Z_NOT_S (TC-04 anchor for en-GB).
+       The British spelling "organisation" with -ise must NOT be flagged
+       suggesting -ize. -->
+  <p>Our organisation will analyse the data and finalise the report.</p>
+  <p>We recognise the need to modernise our practices.</p>
+
+  <!-- Trigger for disabled EN_COMPOUNDS_FRONT_RUNNER (TC-04: must NOT appear) -->
+  <p>She is the front runner for the role.</p>
+
+  <!-- Trigger for disabled EN_COMPOUNDS_HOME_OWNERSHIP (TC-04: must NOT appear).
+       Guardian style explicitly prefers two-word "home ownership". -->
+  <p>Affordable home ownership remains a key issue.</p>
+
+  <!-- Trigger for disabled DOUBLE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Wait for confirmation.. Then proceed to the next step.</p>
+
+  <!-- Trigger for disabled COMMA_PARENTHESIS_WHITESPACE (TC-04: must NOT appear) -->
+  <p>Once confirmed , click submit.</p>
+
+  <!-- TC-05 cross-locale leak guard -->
+</body>
+</html>

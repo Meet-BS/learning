@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — pt-BR</title>
+</head>
+<body>
+  <h1>Fixture multilíngue para o content-checker — pt-BR</h1>
+
+  <!-- Real misspellings → fire MORFOLOGIK_RULE_PT_BR (positive signal for TC-03) -->
+  <p>Acesse o conteudo completo no menu superior.</p>
+  <p>Começe sua avaliação gratuita agora mesmo.</p>
+
+  <!-- Real grammar TP → SEPARADORES_DE_ESTADOS_BRASILEIROS or similar (kept rule).
+       LT flags "(SP)" → "–SP" for Brazilian state separators. -->
+  <p>Ex-vereador de Diadema (SP) é alvo de investigação policial.</p>
+
+  <!-- Trigger for disabled UNIDADES_METRICAS (TC-04 anchor for pt-BR).
+       BRL "mi" (milhões) misread as imperial mile. -->
+  <p>A empresa anunciou um aporte de R$ 770 mi no novo data center.</p>
+  <p>O contrato avaliado em US$ 500 mi foi assinado ontem.</p>
+
+  <!-- Trigger for disabled PT_BARBARISMS_REPLACE_MANAGER (TC-04 anchor for pt-BR).
+       Fires on brand-name "Manager"; we disabled the family. -->
+  <p>Adobe Audience Manager integra-se com nossa plataforma de dados.</p>
+
+  <!-- Trigger for disabled POR_QUE_PORQUE (TC-04: must NOT appear).
+       LT wrong-suggests causal "Porque" for the interrogative "Por que". -->
+  <p>Por que isso aconteceu naquele momento exato?</p>
+
+  <!-- Trigger for disabled DOUBLE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Fim da reportagem.. Continue acompanhando nosso portal.</p>
+
+  <!-- Trigger for disabled DEPOIS_DE_APÓS (TC-04: must NOT appear).
+       Style nag pushing "após" over "depois de". -->
+  <p>Depois de assinar o documento, o cliente recebe a confirmação.</p>
+
+  <!-- Trigger for disabled SPACE_BEFORE_PUNCTUATION (TC-04: must NOT appear) -->
+  <p>Ana Maria Lopes , redatora-chefe, comenta sobre o caso.</p>
+
+  <!-- Trigger for disabled PARONYM_GLORIA_148 (TC-04: must NOT appear).
+       Flags actress "Gloria" → "glória". -->
+  <p>A atriz Gloria Pires participou da entrevista exclusiva.</p>
+
+  <!-- TC-05 cross-locale leak guard: no FR/DE/ES/EN rule should fire -->
+</body>
+</html>

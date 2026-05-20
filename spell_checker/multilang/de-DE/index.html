@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="UTF-8">
+  <title>CN-3028 fixture — de-DE</title>
+</head>
+<body>
+  <h1>Mehrsprachige Test-Seite für den Content-Checker — de-DE</h1>
+
+  <!-- Real misspellings → fire GERMAN_SPELLER_RULE (positive signal for TC-03) -->
+  <p>Bitte überprüfen Sie die Konfigurationsdatie im Verzeichnis.</p>
+  <p>Die Anwendung ist nun verfügber für alle Benutzer.</p>
+
+  <!-- Real grammar TP → DE_AGREEMENT or LEERZEICHEN_UND (kept rules) -->
+  <p>Der IOC hat dem Antrag zugestimmt.</p>
+  <p>Sie braucht Ruhe und Erholung, dann kann sie weitermachen.</p>
+
+  <!-- Trigger for disabled LEERZEICHEN_VOR_AUSRUFEZEICHEN_ETC (TC-04 anchor for de-DE).
+       Zeit-style kicker:headline DOM template. -->
+  <p>Mutmaßliche Amokfahrt in Leipzig : Ist schon lange kein Auto mehr eingebrochen.</p>
+  <p>Landtagswahl in Sachsen-Anhalt : So groß ist das Risiko einer Pattsituation.</p>
+
+  <!-- Trigger for disabled DE_DOUBLE_PUNCTUATION (TC-04 anchor for de-DE) -->
+  <p>Ende der Pressemitteilung.. Weitere Details auf unserer Webseite.</p>
+
+  <!-- Trigger for disabled DOPPELTE_SATZZEICHEN (TC-04: must NOT appear) -->
+  <p>Wie konnte das passieren?? Niemand weiß es genau.</p>
+
+  <!-- Trigger for disabled MATHE (TC-04: must NOT appear).
+       LT suggests "Infos" → "Informationen"; widely accepted in journalism. -->
+  <p>Weitere Infos finden Sie in unserem Pressezentrum.</p>
+
+  <!-- Trigger for disabled DE_SIMPLE_REPLACE_STORIES (TC-04: must NOT appear) -->
+  <p>Die besten Stories der Woche jetzt in unserer Übersicht.</p>
+
+  <!-- Trigger for disabled DE_REPEATEDWORDS_NUN (TC-04: must NOT appear) -->
+  <p>Es ist nun an der Zeit, eine Entscheidung zu treffen.</p>
+
+  <!-- Trigger for disabled ZEHN_STD (TC-04: must NOT appear).
+       Recipe / podcast duration markers like "1 Std 30 Min." -->
+  <p>Gesamtdauer der Episode: 1 Std 30 Min für tiefe Einblicke.</p>
+
+  <!-- Trigger for disabled FALSCHES_ANFUEHRUNGSZEICHEN (TC-04: must NOT appear) -->
+  <p>"Dass Uropa in die NSDAP eingetreten ist..." war eine zentrale Frage.</p>
+
+  <!-- Trigger for disabled COMMA_PARENTHESIS_WHITESPACE (TC-04: must NOT appear) -->
+  <p>Niederlage erlitten , klicken Sie hier für mehr Details.</p>
+
+  <!-- Trigger for disabled LOG_IN (TC-04: must NOT appear).
+       English UI string on German page; LT pushes "Log-in". -->
+  <p>Log In Sign Up Schedule Demo — Help Center Implementation Contact.</p>
+
+  <!-- TC-05 cross-locale leak guard -->
+</body>
+</html>
