@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scanner Test Page</title>
+
+    <!-- Broken resource #1: missing stylesheet (404) -->
+    <link rel="stylesheet" href="/assets/missing-styles.css">
+
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #222; }
+        h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
+        section { margin: 28px 0; }
+        .cta { display: inline-block; padding: 10px 18px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; font-size: 14px; }
+        .cta + .cta { margin-left: 10px; }
+        a { color: #2563eb; }
+    </style>
+</head>
+<body>
+    <h1>Scanner Test Page</h1>
+    <p>This page contains exactly 2 broken links, 2 broken CTAs, and 2 broken resource errors for functional scanner testing.</p>
+
+    <section>
+        <h2>Broken Links (2)</h2>
+        <ul>
+            <li><a href="/this-page-does-not-exist">Broken link 1 (relative 404)</a></li>
+            <li><a href="https://this-domain-does-not-exist-12345.example/page">Broken link 2 (unresolvable domain)</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Broken CTAs (2)</h2>
+        <a class="cta" href="/checkout/missing-route">Broken CTA 1 (404 destination)</a>
+        <button class="cta" onclick="nonExistentFunction()">Broken CTA 2 (JS error)</button>
+    </section>
+
+    <section>
+        <h2>Broken Resources (2)</h2>
+        <p>Image below fails to load:</p>
+        <img src="/images/missing-image.png" alt="missing">
+        <!-- Broken resource #2: missing script (404). The CSS at the top is broken resource #1. -->
+        <script src="/scripts/missing-script.js"></script>
+    </section>
+</body>
+</html>
